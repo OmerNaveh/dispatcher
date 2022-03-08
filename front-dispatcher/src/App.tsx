@@ -1,14 +1,14 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import LoginBtn from "./components/login/LoginBtn";
+import LoginPage from "./features/LoginPage/LoginPage";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/login" element={<LoginBtn />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/dashboard" element={<p>dash</p>} />
-        <Route path="/" element={<LoginBtn />} />
+        <Route path="/" element={<LoginPage />} />
       </Routes>
     </div>
   );
