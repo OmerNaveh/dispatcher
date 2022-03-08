@@ -13,7 +13,7 @@ const {
   description,
   publishedAt,
   source,
-} = mock.articles[0];
+} = mock.articles[2];
 
 const sourceName = source.name;
 const sourceId = source.id ? source.id : "";
@@ -29,6 +29,8 @@ export const CardStory = Template.bind({});
 CardStory.args = {
   urlToImage,
   title,
+  url,
   publishedAt,
   source: { name: sourceName, id: sourceId },
+  description,
 };

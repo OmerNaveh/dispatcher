@@ -5,6 +5,9 @@ const CardText = styled.p`
   &.gray {
     color: rgba(90, 90, 137, 0.5);
   }
+  &.limit {
+    width: 90%;
+  }
 `;
 
 export default CardText;

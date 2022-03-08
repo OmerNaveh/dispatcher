@@ -6,19 +6,25 @@ import CardTitle from "../../components/dashboard/Card/CardTitle";
 import ArrowSvg from "../../components/UI/ArrowSvg/ArrowSvg";
 import PrimaryButton from "../../components/UI/PrimaryButton/PrimaryButton";
 import { convertStringToLocaleDate } from "../../helpers/dateConverter";
+import CardContent from "../../components/dashboard/Card/CardContent";
 
 export default function Card(props: APITypes.Article) {
   const dateString = convertStringToLocaleDate(props.publishedAt);
-
+  const openLinkInNewTab = () => {
+    window.open(props.url);
+  };
   return (
     <CardLayout>
       <CardImage src={props.urlToImage} alt="image"></CardImage>
-      <CardTitle>{props.title}</CardTitle>
-      <CardText className="gray">{dateString}</CardText>
-      <CardText className="gray">{props.source.name}</CardText>
-      <PrimaryButton>
-        NAVIGATE TO DISPATCH <ArrowSvg />
-      </PrimaryButton>
+      <CardContent>
+        <CardText className="gray">{dateString}</CardText>
+        <CardTitle>{props.title}</CardTitle>
+        <CardText className="gray">{props.source.name}</CardText>
+        <CardText className="limit">{props.description}</CardText>
+        <PrimaryButton className="right" onClick={openLinkInNewTab}>
+          NAVIGATE TO DISPATCH <ArrowSvg />
+        </PrimaryButton>
+      </CardContent>
     </CardLayout>
   );
 }

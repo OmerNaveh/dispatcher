@@ -6,13 +6,17 @@ const PrimaryButton = styled.button`
   font-weight: 500;
   color: #ffffff;
   border: none;
-  padding: 0.5em;
+  padding: 0.5em 1em;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   &:hover {
     opacity: 0.8;
+    cursor: pointer;
+  }
+  &.right {
+    float: right;
   }
 `;
 export default PrimaryButton;
