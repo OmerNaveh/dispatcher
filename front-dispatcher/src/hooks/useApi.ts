@@ -19,6 +19,7 @@ export default function useApi(
       .then((response) => {
         setData(response.data);
         setLoading(false);
+        setError("");
       })
       .catch((error) => {
         setData(initialData);
