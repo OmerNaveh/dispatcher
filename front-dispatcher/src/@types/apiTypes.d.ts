@@ -8,7 +8,7 @@ declare namespace APITypes {
     author: string;
     content: string;
     description: string;
-    publishedAt: Date;
+    publishedAt: string;
     source: { id: string; name: string };
     title: string;
     url: string;
