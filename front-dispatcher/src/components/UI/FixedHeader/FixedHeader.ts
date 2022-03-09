@@ -8,6 +8,7 @@ const FixedHeader = styled.header`
   top: 0;
   left: 0;
   background-color: #262146;
+  padding: 1em;
 `;
 
 export default FixedHeader;
