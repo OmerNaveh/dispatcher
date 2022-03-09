@@ -15,5 +15,7 @@ const Template: ComponentStory<typeof DropDown> = (args) => (
 export const DropDownStory = Template.bind({});
 
 DropDownStory.args = {
-  options: ["a", "b", "c"],
+  options: ["a", "b", "c", "d", "e", "f", "g"],
+  placeHolder: "select",
+  history: true,
 };

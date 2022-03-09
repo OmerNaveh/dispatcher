@@ -84,6 +84,13 @@ const StyledListbox = styled("ul")(
   color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
   overflow: auto;
   outline: 0px;
+  max-height: 25vh;
+  @media only screen and (max-width: 900px) {
+    max-height: 15vh;
+  }
+  @media only screen and (max-width: 450px) {
+    max-height: 15vh;
+  }
   `
 );
 

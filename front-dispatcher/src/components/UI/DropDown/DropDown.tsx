@@ -1,15 +1,46 @@
 import React from "react";
+import ExitSVG from "../ExitSvg/ExitSVG";
 
 import { CustomSelect, StyledOption } from "./Style";
 
-export default function DropDown(props: { options: string[] }) {
+interface dropDownProps {
+  options: string[];
+  placeHolder?: string;
+  history?: boolean;
+  deleteHistoryFunc?: () => {};
+}
+
+export default function DropDown({
+  options,
+  placeHolder,
+  history,
+  deleteHistoryFunc,
+}: dropDownProps) {
+  const [value, setValue] = React.useState<string | null>(placeHolder || "");
+
   const allOptions = () => {
-    return props.options.map((optionString) => (
+    return options.map((optionString) => (
       <StyledOption key={optionString} value={optionString}>
         {optionString}
+        {history && value !== optionString && (
+          <ExitSVG onClick={deleteHistoryFunc} />
+        )}
       </StyledOption>
     ));
   };
 
-  return <CustomSelect>{allOptions()}</CustomSelect>;
+  return (
+    <CustomSelect
+      value={value}
+      onChange={setValue}
+      defaultValue={placeHolder || ""}
+    >
+      {placeHolder && (
+        <StyledOption disabled value={placeHolder}>
+          {placeHolder}
+        </StyledOption>
+      )}
+      {allOptions()}
+    </CustomSelect>
+  );
 }
