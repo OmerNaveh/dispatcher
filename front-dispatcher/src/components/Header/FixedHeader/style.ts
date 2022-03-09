@@ -9,6 +9,7 @@ const HeaderStyle = styled.header`
   left: 0;
   background-color: #262146;
   padding: 1em;
+  display: flex;
 `;
 
 export default HeaderStyle;
