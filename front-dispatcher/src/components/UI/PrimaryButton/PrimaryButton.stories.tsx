@@ -3,13 +3,14 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import PrimaryButton from "./PrimaryButton";
+import { storyStrings } from "../../../strings/storyStrings";
 
 export default {
-  title: "YourComponent",
+  title: storyStrings.UITitle,
   component: PrimaryButton,
 } as ComponentMeta<typeof PrimaryButton>;
 const Template: ComponentStory<typeof PrimaryButton> = (args) => (
-  <PrimaryButton {...args}>PRIMARY</PrimaryButton>
+  <PrimaryButton {...args}>{storyStrings.UITitle}</PrimaryButton>
 );
 
 export const PrimaryBtnStory = Template.bind({});

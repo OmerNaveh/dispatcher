@@ -1,18 +1,23 @@
 import styled from "styled-components";
+import { colors } from "../../../strings/colors";
 
 const PrimaryButton = styled.button`
-  background: #0058b9;
+  background: ${colors.Blue};
   border-radius: 20px;
   font-weight: 500;
-  color: #ffffff;
+  color: ${colors.WHITE};
   border: none;
-  padding: 0.5em;
+  padding: 0.5em 1em;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   &:hover {
     opacity: 0.8;
+    cursor: pointer;
+  }
+  &.right {
+    float: right;
   }
 `;
 export default PrimaryButton;
