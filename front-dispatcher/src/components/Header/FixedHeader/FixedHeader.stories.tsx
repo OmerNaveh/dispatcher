@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof Header> = (args) => (
   <Header {...args}>
     <LogoSvg className="header" />
     <input></input>
-    <Container className="flex">
+    <Container className="flex relative">
       <SvgBtn />
       <SvgBtn settings={true} />
       <HeadrUserBtn userInitials={headerStrings.user_initials} />

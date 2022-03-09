@@ -5,4 +5,7 @@ export const Container = styled.div`
   &.flex {
     display: flex;
   }
+  &.relative {
+    position: relative;
+  }
 `;
