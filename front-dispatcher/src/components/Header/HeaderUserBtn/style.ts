@@ -1,8 +1,14 @@
 import styled from "styled-components";
+import { colors } from "../../../strings/colors";
+import DropDown from "../../UI/DropDown/DropDown";
 //import dropdown
 
-// should style dropdown istead
 export const StyledHeaderBtn = styled.button`
-  background: #0058b9;
-  border-radius: 30px;
+  background: ${colors.Blue};
+  border-radius: 100%;
+  letter-spacing: 0.25px;
+  border: none;
+  color: ${colors.WHITE};
+  cursor: pointer;
+  padding: 1em;
 `;
