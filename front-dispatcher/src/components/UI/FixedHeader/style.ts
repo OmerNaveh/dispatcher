@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const FixedHeader = styled.header`
+const HeaderStyle = styled.header`
   position: fixed;
   width: 100vw;
   height: 10vh;
@@ -11,4 +11,4 @@ const FixedHeader = styled.header`
   padding: 1em;
 `;
 
-export default FixedHeader;
+export default HeaderStyle;

@@ -1,17 +1,19 @@
 import React from "react";
 
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-
-import FixedHeader from "./FixedHeader";
+import Header from "./FixedHeader";
+import LogoSvg from "../LogoSvg/LogoSvg";
 
 export default {
   title: "YourComponent",
-  component: FixedHeader,
-} as ComponentMeta<typeof FixedHeader>;
-const Template: ComponentStory<typeof FixedHeader> = (args) => (
-  <FixedHeader {...args}>a</FixedHeader>
+  component: Header,
+} as ComponentMeta<typeof Header>;
+const Template: ComponentStory<typeof Header> = (args) => (
+  <Header {...args}>
+    <LogoSvg className="header" />
+  </Header>
 );
 
-export const FixedHeaderStory = Template.bind({});
+export const HeaderStory = Template.bind({});
 
-FixedHeaderStory.args = {};
+HeaderStory.args = {};

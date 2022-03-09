@@ -1,8 +1,11 @@
 import React from "react";
 import FixedHeader from "../../components/UI/FixedHeader/FixedHeader";
-interface HeaderProps {
-  children: React.ReactNode;
-}
-export default function Header({ children }: HeaderProps) {
-  return <FixedHeader>{children}</FixedHeader>;
+import LogoSvg from "../../components/UI/LogoSvg/LogoSvg";
+
+export default function Header() {
+  return (
+    <FixedHeader>
+      <LogoSvg className="header" />
+    </FixedHeader>
+  );
 }
