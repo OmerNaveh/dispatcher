@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { colors } from "../../../strings/colors";
 
 const CardText = styled.p`
   letter-spacing: 0.25px;
   &.gray {
-    color: rgba(90, 90, 137, 0.5);
+    color: ${colors.GrayCardText};
   }
   &.limit {
     width: 90%;

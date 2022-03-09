@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { colors } from "../../../strings/colors";
 
 const PrimaryButton = styled.button`
-  background: #0058b9;
+  background: ${colors.Blue};
   border-radius: 20px;
   font-weight: 500;
-  color: #ffffff;
+  color: ${colors.WHITE};
   border: none;
   padding: 0.5em 1em;
   display: flex;

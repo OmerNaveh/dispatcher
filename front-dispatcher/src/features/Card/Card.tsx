@@ -7,6 +7,7 @@ import ArrowSvg from "../../components/UI/ArrowSvg/ArrowSvg";
 import PrimaryButton from "../../components/UI/PrimaryButton/PrimaryButton";
 import { convertStringToLocaleDate } from "../../helpers/dateConverter";
 import CardContent from "../../components/dashboard/Card/CardContent";
+import { cardString } from "../../strings/cardStrings";
 
 export default function Card(props: APITypes.Article) {
   const dateString = convertStringToLocaleDate(props.publishedAt);
@@ -22,7 +23,7 @@ export default function Card(props: APITypes.Article) {
         <CardText className="gray">{props.source.name}</CardText>
         <CardText className="limit">{props.description}</CardText>
         <PrimaryButton className="right" onClick={openLinkInNewTab}>
-          NAVIGATE TO DISPATCH <ArrowSvg />
+          {cardString.NAVIGATE_TO_DISPATCH} <ArrowSvg />
         </PrimaryButton>
       </CardContent>
     </CardLayout>

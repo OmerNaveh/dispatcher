@@ -3,9 +3,10 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import DropDown from "./DropDown";
-
+import { storyStrings } from "../../../strings/storyStrings";
+const arrayofString = ["a", "b", "c", "d", "e", "f", "g"];
 export default {
-  title: "YourComponent",
+  title: storyStrings.UITitle,
   component: DropDown,
 } as ComponentMeta<typeof DropDown>;
 const Template: ComponentStory<typeof DropDown> = (args) => (
@@ -15,7 +16,7 @@ const Template: ComponentStory<typeof DropDown> = (args) => (
 export const DropDownStory = Template.bind({});
 
 DropDownStory.args = {
-  options: ["a", "b", "c", "d", "e", "f", "g"],
-  placeHolder: "select",
+  options: arrayofString,
+  placeHolder: storyStrings.UITitle,
   history: true,
 };

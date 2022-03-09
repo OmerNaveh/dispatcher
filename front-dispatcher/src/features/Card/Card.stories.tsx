@@ -3,6 +3,7 @@ import mock from "../../mock/mockData.json";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Card from "./Card";
+import { storyStrings } from "../../strings/storyStrings";
 
 const {
   author,
@@ -19,7 +20,7 @@ const sourceName = source.name;
 const sourceId = source.id ? source.id : "";
 
 export default {
-  title: "YourComponent",
+  title: storyStrings.CardTitle,
   component: Card,
 } as ComponentMeta<typeof Card>;
 const Template: ComponentStory<typeof Card> = (args) => <Card {...args}></Card>;

@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { colors } from "../../../strings/colors";
 
 const CardTitle = styled.p`
-  color: #14142b;
+  color: ${colors.CardTitle};
   font-weight: bold;
   line-height: 21px;
 `;
