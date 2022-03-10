@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const LogoSvg = styled(LogoIcon)`
   &.header {
-    height: 10vh;
-    width: 10vw;
+    height: 50px;
+    width: 66px;
   }
 `;
 
