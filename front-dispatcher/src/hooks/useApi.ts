@@ -11,21 +11,21 @@ export default function useApi(
   };
   const [data, setData] = useState(initialData);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string>("");
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get(url)
-      .then((response) => {
+    (async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(url);
         setData(response.data);
         setLoading(false);
         setError("");
-      })
-      .catch((error) => {
+      } catch (error) {
         setData(initialData);
-        setLoading(false);
-        setError(error);
-      });
+        if (error instanceof Error) setError(error.message);
+      }
+      setLoading(false);
+    })();
   }, [url]);
   return [data, loading, error];
 }

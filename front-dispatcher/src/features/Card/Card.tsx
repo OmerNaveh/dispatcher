@@ -9,7 +9,7 @@ import { convertStringToLocaleDate } from "../../helpers/dateConverter";
 import CardContent from "../../components/dashboard/Card/CardContent";
 import { cardString } from "../../strings/cardStrings";
 
-export default function Card(props: APITypes.Article) {
+const Card = (props: APITypes.Article) => {
   const dateString = convertStringToLocaleDate(props.publishedAt);
   const openLinkInNewTab = () => {
     window.open(props.url);
@@ -23,9 +23,11 @@ export default function Card(props: APITypes.Article) {
         <CardText className="gray">{props.source.name}</CardText>
         <CardText className="limit">{props.description}</CardText>
         <PrimaryButton className="right" onClick={openLinkInNewTab}>
-          {cardString.NAVIGATE_TO_DISPATCH} <ArrowSvg />
+          {cardString.NavigateToDispatch} <ArrowSvg />
         </PrimaryButton>
       </CardContent>
     </CardLayout>
   );
-}
+};
+
+export default Card;

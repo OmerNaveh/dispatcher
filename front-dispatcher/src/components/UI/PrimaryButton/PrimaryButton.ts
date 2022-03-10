@@ -5,7 +5,11 @@ const PrimaryButton = styled.button`
   background: ${colors.Blue};
   border-radius: 20px;
   font-weight: 500;
-  color: ${colors.WHITE};
+  line-height: 26px;
+  letter-spacing: 0.25px;
+  font-family: Roboto;
+  font-style: normal;
+  color: ${colors.White};
   border: none;
   padding: 0.5em 1em;
   display: flex;
