@@ -8,6 +8,7 @@ import HeadrUserBtn from "../HeaderUserBtn/HeadrUserBtn";
 import { Container } from "../../UI/Container/Container";
 import { headerStrings } from "../../../strings/headerString";
 import SvgBtns from "../HeaderSvgs/SvgBtns";
+import SearchBar from "../../SearchBar/SearchBar";
 
 export default {
   title: storyStrings.HeaderTitle,
@@ -16,7 +17,7 @@ export default {
 const Template: ComponentStory<typeof Header> = (args) => (
   <Header {...args}>
     <LogoSvg className="header" />
-    <input></input>
+    <SearchBar />
     <Container className="flex relative">
       <SvgBtns settings={true} />
       <SvgBtns />

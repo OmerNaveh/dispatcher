@@ -6,7 +6,7 @@ import DropDown from "../UI/DropDown/DropDown";
 import { Divider } from "@mui/material";
 const SearchBar = () => {
   return (
-    <StyledSearchBarDiv>
+    <StyledSearchBarDiv className="grid">
       <InputWithIcon />
       <Divider orientation="vertical" variant="middle" flexItem />
       <DropDown options={["1"]} />

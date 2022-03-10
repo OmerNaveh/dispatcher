@@ -5,6 +5,7 @@ export const StyledSearchBarDiv = styled.div`
   background: ${colors.White};
   border-radius: 10px;
   display: flex;
+  width: 40%;
   align-items: center;
   &.grid {
     display: grid;
