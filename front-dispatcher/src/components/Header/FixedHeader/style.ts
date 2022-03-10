@@ -8,7 +8,7 @@ const HeaderStyle = styled.header`
   height: 10vh;
   top: 0;
   left: 0;
-  background-color: ${colors.Dark};
+  background-color: ${colors.DarkestBlue};
   padding: 1em;
   display: flex;
   justify-content: space-between;
