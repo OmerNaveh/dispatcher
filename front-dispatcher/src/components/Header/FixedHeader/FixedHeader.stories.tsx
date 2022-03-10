@@ -7,10 +7,10 @@ import { storyStrings } from "../../../strings/storyStrings";
 import HeadrUserBtn from "../HeaderUserBtn/HeadrUserBtn";
 import { Container } from "../../UI/Container/Container";
 import { headerStrings } from "../../../strings/headerString";
-import SvgBtn from "../HeaderSvgs/svgBtn";
+import SvgBtn from "../HeaderSvgs/SvgBtn";
 
 export default {
-  title: storyStrings.headerTitle,
+  title: storyStrings.HeaderTitle,
   component: Header,
 } as ComponentMeta<typeof Header>;
 const Template: ComponentStory<typeof Header> = (args) => (
@@ -18,9 +18,9 @@ const Template: ComponentStory<typeof Header> = (args) => (
     <LogoSvg className="header" />
     <input></input>
     <Container className="flex relative">
-      <SvgBtn />
       <SvgBtn settings={true} />
-      <HeadrUserBtn userInitials={headerStrings.user_initials} />
+      <SvgBtn />
+      <HeadrUserBtn userInitials={headerStrings.UserInitials} />
     </Container>
   </Header>
 );

@@ -1,4 +1,4 @@
 export const headerStrings = {
-  sign_out: "Sign Out",
-  user_initials: "ON",
+  SignOut: "Sign Out",
+  UserInitials: "ON",
 };

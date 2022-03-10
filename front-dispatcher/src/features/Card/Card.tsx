@@ -23,7 +23,7 @@ export default function Card(props: APITypes.Article) {
         <CardText className="gray">{props.source.name}</CardText>
         <CardText className="limit">{props.description}</CardText>
         <PrimaryButton className="right" onClick={openLinkInNewTab}>
-          {cardString.NAVIGATE_TO_DISPATCH} <ArrowSvg />
+          {cardString.NavigateToDispatch} <ArrowSvg />
         </PrimaryButton>
       </CardContent>
     </CardLayout>

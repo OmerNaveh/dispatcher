@@ -8,7 +8,7 @@ export const StyledHeaderBtn = styled.button`
   border-radius: 100%;
   letter-spacing: 0.25px;
   border: none;
-  color: ${colors.WHITE};
+  color: ${colors.White};
   cursor: pointer;
   padding: 1em;
 `;

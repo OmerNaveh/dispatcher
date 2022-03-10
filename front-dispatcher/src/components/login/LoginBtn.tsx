@@ -9,7 +9,7 @@ export default function LoginBtn() {
 
   return (
     <PrimaryButton onClick={() => loginWithRedirect()}>
-      {cardString.CONTINUE} <ArrowSvg />
+      {cardString.Continue} <ArrowSvg />
     </PrimaryButton>
   );
 }

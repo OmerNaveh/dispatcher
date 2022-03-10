@@ -11,7 +11,7 @@ export default {
   component: PrimaryButton,
 } as ComponentMeta<typeof PrimaryButton>;
 const Template: ComponentStory<typeof PrimaryButton> = (args) => (
-  <PrimaryButton {...args}>{cardString.CONTINUE}</PrimaryButton>
+  <PrimaryButton {...args}>{cardString.Continue}</PrimaryButton>
 );
 
 export const PrimaryBtnStory = Template.bind({});

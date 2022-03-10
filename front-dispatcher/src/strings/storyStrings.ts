@@ -1,6 +1,6 @@
 export const storyStrings = {
-  headerTitle: "HEADER",
+  HeaderTitle: "HEADER",
   UITitle: "UI",
   CardTitle: "CARD",
-  dashTitle: "DASHBOARD",
+  DashTitle: "DASHBOARD",
 };

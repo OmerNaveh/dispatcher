@@ -5,7 +5,7 @@ const PrimaryButton = styled.button`
   background: ${colors.Blue};
   border-radius: 20px;
   font-weight: 500;
-  color: ${colors.WHITE};
+  color: ${colors.White};
   border: none;
   padding: 0.5em 1em;
   display: flex;

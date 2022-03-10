@@ -11,7 +11,7 @@ export default {
   component: Card,
 } as ComponentMeta<typeof Card>;
 const Template: ComponentStory<typeof Card> = (args) => (
-  <Card {...args}>{cardString.CONTINUE}</Card>
+  <Card {...args}>{cardString.Continue}</Card>
 );
 
 export const CardLayoutStory = Template.bind({});

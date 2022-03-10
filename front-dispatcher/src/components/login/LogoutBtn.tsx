@@ -9,7 +9,7 @@ export default function LogoutBtn() {
     <LogoutBtnStyled
       onClick={() => logout({ returnTo: window.location.origin })}
     >
-      {headerStrings.sign_out}
+      {headerStrings.SignOut}
     </LogoutBtnStyled>
   );
 }
