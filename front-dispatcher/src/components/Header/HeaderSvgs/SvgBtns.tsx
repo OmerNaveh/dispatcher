@@ -6,10 +6,13 @@ import { ReactComponent as NotificationsIcon } from "../../../assets/notificatio
 interface svgBtnProps {
   settings?: boolean;
 }
-export default function SvgBtn({ settings }: svgBtnProps) {
+
+const SvgBtns = ({ settings }: svgBtnProps) => {
   return (
     <IconButton>
       {settings ? <SettingsIcon /> : <NotificationsIcon />}
     </IconButton>
   );
-}
+};
+
+export default SvgBtns;

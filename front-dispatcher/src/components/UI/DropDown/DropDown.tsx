@@ -10,12 +10,12 @@ interface dropDownProps {
   deleteHistoryFunc?: () => {};
 }
 
-export default function DropDown({
+const DropDown = ({
   options,
   placeHolder,
   history,
   deleteHistoryFunc,
-}: dropDownProps) {
+}: dropDownProps) => {
   const [value, setValue] = React.useState<string | null>(placeHolder || "");
 
   const allOptions = () => {
@@ -43,4 +43,6 @@ export default function DropDown({
       {allOptions()}
     </CustomSelect>
   );
-}
+};
+
+export default DropDown;

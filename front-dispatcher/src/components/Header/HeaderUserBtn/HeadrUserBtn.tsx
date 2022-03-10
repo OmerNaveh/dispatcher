@@ -4,7 +4,8 @@ import { StyledHeaderBtn } from "./style";
 interface UserBtnProps {
   userInitials: string;
 }
-export default function HeadrUserBtn({ userInitials }: UserBtnProps) {
+
+const HeadrUserBtn = ({ userInitials }: UserBtnProps) => {
   const [clicked, setClicked] = useState<boolean>(false);
 
   return (
@@ -15,4 +16,6 @@ export default function HeadrUserBtn({ userInitials }: UserBtnProps) {
       {clicked && <LogoutBtn />}
     </Fragment>
   );
-}
+};
+
+export default HeadrUserBtn;

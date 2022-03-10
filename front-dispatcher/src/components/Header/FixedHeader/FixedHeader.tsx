@@ -3,6 +3,9 @@ import HeaderStyle from "./style";
 interface HeaderProps {
   children: React.ReactNode;
 }
-export default function FixedHeader({ children }: HeaderProps) {
+
+const FixedHeader = ({ children }: HeaderProps) => {
   return <HeaderStyle>{children}</HeaderStyle>;
-}
+};
+
+export default FixedHeader;

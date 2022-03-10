@@ -7,7 +7,7 @@ import { storyStrings } from "../../../strings/storyStrings";
 import HeadrUserBtn from "../HeaderUserBtn/HeadrUserBtn";
 import { Container } from "../../UI/Container/Container";
 import { headerStrings } from "../../../strings/headerString";
-import SvgBtn from "../HeaderSvgs/SvgBtn";
+import SvgBtns from "../HeaderSvgs/SvgBtns";
 
 export default {
   title: storyStrings.HeaderTitle,
@@ -18,8 +18,8 @@ const Template: ComponentStory<typeof Header> = (args) => (
     <LogoSvg className="header" />
     <input></input>
     <Container className="flex relative">
-      <SvgBtn settings={true} />
-      <SvgBtn />
+      <SvgBtns settings={true} />
+      <SvgBtns />
       <HeadrUserBtn userInitials={headerStrings.UserInitials} />
     </Container>
   </Header>

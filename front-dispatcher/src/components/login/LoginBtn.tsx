@@ -4,7 +4,7 @@ import PrimaryButton from "../UI/PrimaryButton/PrimaryButton";
 import ArrowSvg from "../UI/ArrowSvg/ArrowSvg";
 import { cardString } from "../../strings/cardStrings";
 
-export default function LoginBtn() {
+const LoginBtn = () => {
   const { loginWithRedirect } = useAuth0();
 
   return (
@@ -12,4 +12,6 @@ export default function LoginBtn() {
       {cardString.Continue} <ArrowSvg />
     </PrimaryButton>
   );
-}
+};
+
+export default LoginBtn;
