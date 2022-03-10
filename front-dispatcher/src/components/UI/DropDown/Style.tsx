@@ -9,6 +9,7 @@ import OptionUnstyled, {
 import PopperUnstyled from "@mui/base/PopperUnstyled";
 import { styled } from "@mui/system";
 import drowDownSvg from "../../../assets/dropdown.svg";
+import { colors } from "../../../strings/colors";
 
 const blue = {
   100: "#DAECFF",
@@ -33,29 +34,26 @@ const grey = {
 
 const StyledButton = styled("button")(
   ({ theme }) => `
-  font-family: IBM Plex Sans, sans-serif;
+  font-family: Roboto;
+  font-weight:400;
   font-size: 0.875rem;
   box-sizing: border-box;
-  min-height: calc(1.5em + 22px);
-  min-width: 320px;
-  background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
-  border: 1px solid ${theme.palette.mode === "dark" ? grey[800] : grey[300]};
+  background: ${colors.White};
+  border: none;
   border-radius: 0.75em;
   margin: 0.5em;
-  padding: 10px;
+  padding: 1em;
   text-align: left;
   line-height: 1.5;
-  color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-
+  color: ${colors.DarkBlue};
   &:hover {
-    background: ${theme.palette.mode === "dark" ? "" : grey[100]};
+    background: ${colors.LightGray};
     border-color: ${theme.palette.mode === "dark" ? grey[700] : grey[400]};
   }
 
   &.${selectUnstyledClasses.focusVisible} {
     outline: 3px solid ${theme.palette.mode === "dark" ? blue[600] : blue[100]};
   }
-
   &.${selectUnstyledClasses.expanded} {
     &::after {
       content: url(${drowDownSvg});
@@ -72,16 +70,17 @@ const StyledButton = styled("button")(
 
 const StyledListbox = styled("ul")(
   ({ theme }) => `
-  font-family: IBM Plex Sans, sans-serif;
+  font-family: Roboto;
+  font-weight:400;
   font-size: 0.875rem;
   box-sizing: border-box;
   padding: 5px;
   margin: 10px 0;
   min-width: 320px;
-  background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
-  border: 1px solid ${theme.palette.mode === "dark" ? grey[800] : grey[300]};
+  background: ${colors.White};
+  border: none;
   border-radius: 0.75em;
-  color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
+  color: ${colors.DarkBlue};
   overflow: auto;
   outline: 0px;
   max-height: 25vh;
@@ -106,18 +105,18 @@ export const StyledOption = styled(OptionUnstyled)(
   }
 
   &.${optionUnstyledClasses.selected} {
-    background-color: ${theme.palette.mode === "dark" ? blue[900] : blue[100]};
-    color: ${theme.palette.mode === "dark" ? blue[100] : blue[900]};
+    background-color: ${colors.Gray};
+    color: ${colors.DarkBlue};
   }
 
   &.${optionUnstyledClasses.highlighted} {
-    background-color: ${theme.palette.mode === "dark" ? grey[800] : grey[100]};
-    color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
+    background-color: ${colors.Gray};
+    color: ${colors.DarkBlue};
   }
 
   &.${optionUnstyledClasses.highlighted}.${optionUnstyledClasses.selected} {
-    background-color: ${theme.palette.mode === "dark" ? blue[900] : blue[100]};
-    color: ${theme.palette.mode === "dark" ? blue[100] : blue[900]};
+    background-color: ${colors.LightGray};
+    color: ${colors.DarkBlue};
   }
 
   &.${optionUnstyledClasses.disabled} {
@@ -125,7 +124,7 @@ export const StyledOption = styled(OptionUnstyled)(
   }
 
   &:hover:not(.${optionUnstyledClasses.disabled}) {
-    background-color: ${theme.palette.mode === "dark" ? grey[800] : grey[100]};
+    background-color: ${colors.LightestGray};
     color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
   }
   `
