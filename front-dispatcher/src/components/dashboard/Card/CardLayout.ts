@@ -10,6 +10,12 @@ const CardLayout = styled.div`
   @media only screen and (max-width: 450px) {
     flex-direction: column;
   }
+  &.graph {
+    flex-direction: column;
+    padding: 25px 15px 25px 25px;
+    width: 30%;
+    height: 350px;
+  }
 `;
 
 export default CardLayout;

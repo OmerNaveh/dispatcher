@@ -7,6 +7,7 @@ const CardText = styled.p`
   font-weight: 400;
   font-style: normal;
   margin-top: 0;
+  color: ${colors.DarkBlue};
   &.gray {
     color: ${colors.GrayCardText};
   }

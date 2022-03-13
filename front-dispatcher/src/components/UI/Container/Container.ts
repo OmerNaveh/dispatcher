@@ -6,6 +6,12 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
   }
+  &.column {
+    flex-direction: column;
+  }
+  &.graph {
+    margin-top: 10%;
+  }
   &.relative {
     position: relative;
   }
