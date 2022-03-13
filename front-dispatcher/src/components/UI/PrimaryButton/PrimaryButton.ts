@@ -23,5 +23,10 @@ const PrimaryButton = styled.button`
   &.right {
     float: right;
   }
+  &.login {
+    width: 100%;
+    padding: 0.2em 1em;
+    border-radius: 10px;
+  }
 `;
 export default PrimaryButton;

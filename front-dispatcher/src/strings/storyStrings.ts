@@ -3,4 +3,5 @@ export const storyStrings = {
   UITitle: "UI",
   CardTitle: "CARD",
   DashTitle: "DASHBOARD",
+  LoginTitle: "Login",
 };

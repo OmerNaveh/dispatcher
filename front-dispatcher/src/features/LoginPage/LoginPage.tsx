@@ -1,11 +1,18 @@
 import React from "react";
-import LoginBtn from "../../components/login/LoginBtn";
+
+import LoginMainContentDiv from "../../components/login/LoginMainContentDiv";
+import LoginSideLogoDiv from "../../components/login/LoginSideLogoDiv";
+import { Container } from "../../components/UI/Container/Container";
+import LogoSvg from "../../components/UI/LogoSvg/LogoSvg";
 
 const LoginPage = () => {
   return (
-    <div>
-      <LoginBtn />
-    </div>
+    <Container className="flex fullScreen">
+      <LoginSideLogoDiv>
+        <LogoSvg />
+      </LoginSideLogoDiv>
+      <LoginMainContentDiv />
+    </Container>
   );
 };
 

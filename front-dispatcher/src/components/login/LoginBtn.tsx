@@ -8,7 +8,7 @@ const LoginBtn = () => {
   const { loginWithRedirect } = useAuth0();
 
   return (
-    <PrimaryButton onClick={() => loginWithRedirect()}>
+    <PrimaryButton className="login" onClick={() => loginWithRedirect()}>
       {cardString.Continue} <ArrowSvg />
     </PrimaryButton>
   );
