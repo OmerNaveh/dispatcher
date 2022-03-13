@@ -6,7 +6,7 @@ import CardLayout from "../Card/CardLayout";
 import CardText from "../Card/CardText";
 import CardTitle from "../Card/CardTitle";
 import NoGraphIcon from "./NoGraphIcon";
-import TitleDivider from "./titleDivider";
+import TitleDivider from "./TitleDivider";
 
 interface graphProps {
   title: string;

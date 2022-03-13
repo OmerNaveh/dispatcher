@@ -7,7 +7,7 @@ import { cardString } from "../../../strings/cardStrings";
 import Graph from "./Graph";
 
 export default {
-  title: storyStrings.CardTitle,
+  title: storyStrings.DashTitle,
   component: Graph,
 } as ComponentMeta<typeof Graph>;
 const Template: ComponentStory<typeof Graph> = (args) => (
