@@ -59,6 +59,17 @@ export const Container = styled.div`
   &.column {
     flex-direction: column;
   }
+  &.cardContainer {
+    overflow-y: scroll;
+    max-height: 80vh;
+    width: 60%;
+    margin: 0;
+  }
+  &.mainContent {
+    margin-top: 5%;
+    overflow: hidden;
+    max-height: 85vh;
+  }
   &.graph {
     margin-top: 10%;
   }

@@ -1,6 +1,6 @@
-export const apiStrings = {
+export const apiStrings: { [key: string]: string[] } = {
   TopHeadlinesOptions: ["Country", "Catagory", "Sources"],
-  CountryOptions: [
+  Country: [
     "ae",
     "ar",
     "at",
@@ -56,7 +56,7 @@ export const apiStrings = {
     "ve",
     "za",
   ],
-  CatagoryOptions: [
+  Catagory: [
     "business",
     "entertainment",
     "general",
@@ -66,7 +66,7 @@ export const apiStrings = {
     "technology",
   ],
   EverythingOptions: ["Sort by", "Dates", "Sources", "Language"],
-  LanguageOptions: [
+  Language: [
     "ar",
     "de",
     "en",
@@ -82,5 +82,5 @@ export const apiStrings = {
     "ud",
     "zh",
   ],
-  SortByOptions: ["relevancy", "popularity", "publishedAt"],
+  ["Sort by"]: ["relevancy", "popularity", "publishedAt"],
 };
