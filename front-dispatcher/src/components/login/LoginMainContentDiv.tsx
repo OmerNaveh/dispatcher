@@ -13,8 +13,10 @@ const LoginMainContentDiv = () => {
           <LoginText className="title">{loginString.title}</LoginText>
           <LoginText>{loginString.desc}</LoginText>
         </Container>
-        <CustomDivider />
-        <LoginBtn />
+        <Container className="noPadLower">
+          <CustomDivider />
+          <LoginBtn />
+        </Container>
       </Container>
     </Container>
   );

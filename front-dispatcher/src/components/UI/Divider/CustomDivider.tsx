@@ -6,7 +6,7 @@ const CustomDivider = styled.div`
   background-color: ${colors.Gray};
   width: 100%;
   opacity: 0.5;
-  margin: 2em 0 1em 0;
+  margin: 1em 0;
 `;
 
 export default CustomDivider;

@@ -9,6 +9,13 @@ const LoginSideLogoDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 900px) {
+    width: 100%;
+    height: 25%;
+  }
+  @media only screen and (max-width: 450px) {
+    height: 40%;
+  }
 `;
 
 export default LoginSideLogoDiv;

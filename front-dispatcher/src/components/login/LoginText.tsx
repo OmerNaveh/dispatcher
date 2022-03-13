@@ -14,6 +14,9 @@ const LoginText = styled.p`
     font-weight: 300;
     font-size: 2em;
   }
+  @media only screen and (max-width: 900px) {
+    text-align: center;
+  }
 `;
 
 export default LoginText;
