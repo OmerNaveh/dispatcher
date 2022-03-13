@@ -10,7 +10,10 @@ const SearchBar = () => {
     <StyledSearchBarDiv className="grid">
       <InputWithIcon />
       <Divider orientation="vertical" variant="middle" flexItem />
-      <DropDown options={searchBarStrings.searchDropDownOptions} />
+      <DropDown
+        options={searchBarStrings.searchDropDownOptions}
+        placeHolder={searchBarStrings.searchDropDownOptions[0]}
+      />
     </StyledSearchBarDiv>
   );
 };
