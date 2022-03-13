@@ -11,9 +11,10 @@ const DropDowns = ({ searchMainQuery }: props) => {
   const createDropDowns = () => {
     if (searchMainQuery === searchBarStrings.searchDropDownOptions[0]) {
       return apiStrings.TopHeadlinesOptions.map((cat) => {
-        if (cat === "Sources") {
+        if (cat === apiStrings.TopHeadlinesOptions[2]) {
           return <DropDown options={[]} placeHolder={cat}></DropDown>;
         }
+        //sources catagory case
         if (cat && apiStrings[cat]) {
           return (
             <DropDown options={apiStrings[cat]} placeHolder={cat}></DropDown>
@@ -22,10 +23,12 @@ const DropDowns = ({ searchMainQuery }: props) => {
       });
     } else {
       return apiStrings.EverythingOptions.map((cat) => {
-        if (cat === "Dates") {
+        //date catagory case
+        if (cat === apiStrings.EverythingOptions[1]) {
           return <DropDown options={[]} placeHolder={cat}></DropDown>;
         }
-        if (cat === "Sources") {
+        //sources catagory case
+        if (apiStrings.TopHeadlinesOptions[2]) {
           return <DropDown options={[]} placeHolder={cat}></DropDown>;
         }
         if (cat && apiStrings[cat]) {
