@@ -3,7 +3,7 @@ import CardContainer from "../../components/dashboard/CardsContainer/CardContain
 import DropDowns from "../../components/dashboard/CardsContainer/DropDowns";
 import { Container } from "../../components/UI/Container/Container";
 import CustomDivider from "../../components/UI/Divider/CustomDivider";
-import { searchBarStrings } from "../../strings/searchBarStrings";
+import { searchBarStrings } from "../../strings/strings";
 
 import Header from "../Header/Header";
 

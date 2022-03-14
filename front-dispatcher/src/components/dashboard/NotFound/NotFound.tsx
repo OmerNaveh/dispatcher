@@ -1,5 +1,6 @@
 import React from "react";
-import { searchBarStrings } from "../../../strings/searchBarStrings";
+import { searchBarStrings } from "../../../strings/strings";
+
 import { Container } from "../../UI/Container/Container";
 import CardText from "../Card/CardText";
 import NotFoundIcon from "./NotFoundIcon";

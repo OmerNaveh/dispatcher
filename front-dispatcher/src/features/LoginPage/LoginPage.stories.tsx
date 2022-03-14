@@ -2,7 +2,7 @@ import React from "react";
 
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import LoginPage from "./LoginPage";
-import { storyStrings } from "../../strings/storyStrings";
+import { storyStrings } from "../../strings/strings";
 
 export default {
   title: storyStrings.LoginTitle,

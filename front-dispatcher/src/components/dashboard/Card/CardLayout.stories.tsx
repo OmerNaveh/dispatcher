@@ -3,8 +3,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Card from "./CardLayout";
-import { storyStrings } from "../../../strings/storyStrings";
-import { cardString } from "../../../strings/cardStrings";
+import { cardString, storyStrings } from "../../../strings/strings";
 
 export default {
   title: storyStrings.CardTitle,

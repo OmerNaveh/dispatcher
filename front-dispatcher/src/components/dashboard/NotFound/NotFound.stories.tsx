@@ -2,8 +2,8 @@ import React from "react";
 
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { storyStrings } from "../../../strings/storyStrings";
 import NotFound from "./NotFound";
+import { storyStrings } from "../../../strings/strings";
 
 export default {
   title: storyStrings.DashTitle,

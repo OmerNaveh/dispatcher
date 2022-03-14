@@ -84,3 +84,33 @@ export const apiStrings: { [key: string]: string[] } = {
   ],
   ["Sort by"]: ["relevancy", "popularity", "publishedAt"],
 };
+export const cardString = {
+  NavigateToDispatch: "NAVIGATE TO DISPATCH",
+  Continue: "CONTINUE",
+};
+export const graphString = {
+  noDataToDisplay: "No data to display",
+  containerClass: "flex column graph",
+  cardLayoutClass: "graph",
+};
+export const headerStrings = {
+  SignOut: "Sign Out",
+  UserInitials: "ON",
+  Search: "Search",
+};
+export const loginString = {
+  title: "Welcome to Dispatcher",
+  desc: "Locate articles and breaking news headlines from news sources and blogs across the web",
+};
+export const searchBarStrings = {
+  searchDropDownOptions: ["Top Headlines", "Everything"],
+  noMatches: "We couldn't find any matches for your query",
+  noMatchesContainerClasses: "flex column",
+};
+export const storyStrings = {
+  HeaderTitle: "HEADER",
+  UITitle: "UI",
+  CardTitle: "CARD",
+  DashTitle: "DASHBOARD",
+  LoginTitle: "Login",
+};

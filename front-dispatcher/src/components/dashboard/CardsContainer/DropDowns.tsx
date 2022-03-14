@@ -1,6 +1,6 @@
 import React from "react";
-import { apiStrings } from "../../../strings/apiStrings";
-import { searchBarStrings } from "../../../strings/searchBarStrings";
+import { apiStrings, searchBarStrings } from "../../../strings/strings";
+
 import { Container } from "../../UI/Container/Container";
 import DropDown from "../../UI/DropDown/DropDown";
 

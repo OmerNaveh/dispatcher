@@ -3,7 +3,8 @@ import { StyledSearchBarDiv } from "./SearchBarDiv/style";
 import InputWithIcon from "./InputWithIcon/InputWithIcon";
 import DropDown from "../UI/DropDown/DropDown";
 import { Divider } from "@mui/material";
-import { searchBarStrings } from "../../strings/searchBarStrings";
+import { searchBarStrings } from "../../strings/strings";
+
 const SearchBar = () => {
   return (
     <StyledSearchBarDiv className="grid">

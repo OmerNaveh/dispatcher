@@ -7,7 +7,7 @@ import ArrowSvg from "../../components/UI/ArrowSvg/ArrowSvg";
 import PrimaryButton from "../../components/UI/PrimaryButton/PrimaryButton";
 import { convertStringToLocaleDate } from "../../helpers/dateConverter";
 import CardContent from "../../components/dashboard/Card/CardContent";
-import { cardString } from "../../strings/cardStrings";
+import { cardString } from "../../strings/strings";
 
 const Card = (props: APITypes.Article) => {
   const dateString = convertStringToLocaleDate(props.publishedAt);

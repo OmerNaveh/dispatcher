@@ -5,7 +5,7 @@ import HeadrUserBtn from "../../components/Header/HeaderUserBtn/HeadrUserBtn";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { Container } from "../../components/UI/Container/Container";
 import LogoSvg from "../../components/UI/LogoSvg/LogoSvg";
-import { headerStrings } from "../../strings/headerString";
+import { headerStrings } from "../../strings/strings";
 
 const Header = () => {
   return (
