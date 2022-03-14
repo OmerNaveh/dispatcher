@@ -66,7 +66,7 @@ export const Container = styled.div`
   }
   &.cardContainer {
     overflow-y: scroll;
-    max-height: 90vh;
+    max-height: 80vh;
     width: 100%;
     margin: 0;
   }

@@ -5,7 +5,6 @@ const CardLayout = styled.div`
 
   border: 1px solid #d9dbe9;
   display: flex;
-  box-shadow: 0px 32px 64px rgba(0, 0, 0, 0.05);
   border-radius: 20px;
   margin: 1em;
   @media only screen and (max-width: 450px) {
