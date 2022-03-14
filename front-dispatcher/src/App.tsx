@@ -5,7 +5,6 @@ import NotAuthenticatedRoute from "./Routes/NotAuthenticatedRoute";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  console.log(user, isAuthenticated, isLoading);
 
   return (
     <div className="App">
