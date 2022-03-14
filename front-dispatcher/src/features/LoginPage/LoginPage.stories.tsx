@@ -8,9 +8,7 @@ export default {
   title: storyStrings.LoginTitle,
   component: LoginPage,
 } as ComponentMeta<typeof LoginPage>;
-const Template: ComponentStory<typeof LoginPage> = (args) => (
-  <LoginPage></LoginPage>
-);
+const Template: ComponentStory<typeof LoginPage> = (args) => <LoginPage />;
 
 export const LoginPageStory = Template.bind({});
 

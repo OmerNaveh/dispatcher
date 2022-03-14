@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-import LoginPage from "./features/LoginPage/LoginPage";
+import AuthenticatedRoute from "./Routes/AuthenticatedRoute";
+import NotAuthenticatedRoute from "./Routes/NotAuthenticatedRoute";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -9,17 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      {!isAuthenticated ? (
-        <Routes>
-          <Route path="/*" element={<LoginPage />} />
-        </Routes>
-      ) : (
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/dashboard" element={<p>dash</p>} />
-          <Route path="/" element={<LoginPage />} />
-        </Routes>
-      )}
+      {isAuthenticated ? <AuthenticatedRoute /> : <NotAuthenticatedRoute />}
     </div>
   );
 }
