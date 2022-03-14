@@ -3,7 +3,7 @@ import mock from "../../mock/mockData.json";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Card from "./Card";
-import { storyStrings } from "../../strings/storyStrings";
+import { storyStrings } from "../../strings/strings";
 
 const {
   author,

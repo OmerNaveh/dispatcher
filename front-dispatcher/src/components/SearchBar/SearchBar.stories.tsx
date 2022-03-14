@@ -1,12 +1,12 @@
 import React from "react";
 
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { storyStrings } from "../../strings/storyStrings";
 import { StyledSearchBarDiv } from "./SearchBarDiv/style";
 import InputWithIcon from "./InputWithIcon/InputWithIcon";
 import DropDown from "../UI/DropDown/DropDown";
-import { headerStrings } from "../../strings/headerString";
+
 import { Divider } from "@mui/material";
+import { headerStrings, storyStrings } from "../../strings/strings";
 
 const options = ["x", "y"];
 export default {
