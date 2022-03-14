@@ -92,6 +92,7 @@ export const graphString = {
   noDataToDisplay: "No data to display",
   containerClass: "flex column graph",
   cardLayoutClass: "graph",
+  graphTypeArray: ["Sources", "Dates", "Tags"],
 };
 export const headerStrings = {
   SignOut: "Sign Out",

@@ -13,9 +13,10 @@ const CardLayout = styled.div`
   }
   &.graph {
     flex-direction: column;
-    padding: 25px 15px 25px 25px;
-    width: 30%;
-    height: 350px;
+    padding: 1em;
+    width: 90%;
+    height: 30%;
+    margin: 0.3em 0;
   }
 `;
 
