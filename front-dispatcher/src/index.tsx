@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { BrowserRouter } from "react-router-dom";
-const domain = "dev-a194tman.us.auth0.com";
-const clientId = "Yyn4S2mF60BUYHMbQjOEf2Nn2kXQsVTg";
-const redirectTo = "http://localhost:3000/dashboard";
+import { routeStrings } from "./strings/strings";
+
 ReactDOM.render(
   <React.StrictMode>
-    <Auth0Provider domain={domain} clientId={clientId} redirectUri={redirectTo}>
+    <Auth0Provider
+      domain={routeStrings.domain}
+      clientId={routeStrings.clientId}
+      redirectUri={routeStrings.dashboardPath}
+    >
       <BrowserRouter>
         <App />
       </BrowserRouter>

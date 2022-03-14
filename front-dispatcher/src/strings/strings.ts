@@ -115,3 +115,9 @@ export const storyStrings = {
   DashTitle: "DASHBOARD",
   LoginTitle: "Login",
 };
+export const routeStrings = {
+  dashboardPath: "http://localhost:3000/dashboard",
+  loginPath: "http://localhost:3000/login",
+  domain: "dev-a194tman.us.auth0.com",
+  clientId: "Yyn4S2mF60BUYHMbQjOEf2Nn2kXQsVTg",
+};
