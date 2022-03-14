@@ -9,6 +9,7 @@ const CardContainer = () => {
     return mockData.articles.map((article) => {
       return (
         <Card
+          key={article.title}
           publishedAt={article.publishedAt}
           source={
             article.source.id

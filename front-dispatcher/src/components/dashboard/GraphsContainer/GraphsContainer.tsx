@@ -7,7 +7,7 @@ interface graphProps {
 const GraphsContainer = ({ graphTypeArray }: graphProps) => {
   const graphCards = () => {
     return graphTypeArray.map((graphType) => {
-      return <Graph title={graphType} graphType={""} />;
+      return <Graph key={graphType} title={graphType} graphType={""} />;
     });
   };
   return <StyledGraphsContainer>{graphCards()}</StyledGraphsContainer>;
