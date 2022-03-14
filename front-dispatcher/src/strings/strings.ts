@@ -84,6 +84,10 @@ export const apiStrings: { [key: string]: string[] } = {
   ],
   ["Sort by"]: ["relevancy", "popularity", "publishedAt"],
 };
+export const ipUrls = {
+  getClientIpUrl: "https://api.ipify.org/?format=json",
+  getInfoFromIpUrl: "http://ip-api.com/json/",
+};
 export const cardString = {
   NavigateToDispatch: "NAVIGATE TO DISPATCH",
   Continue: "CONTINUE",
