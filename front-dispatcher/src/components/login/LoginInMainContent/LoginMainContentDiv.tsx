@@ -1,10 +1,10 @@
 import React from "react";
-import { Container } from "../UI/Container/Container";
-import LoginBtn from "./LoginBtn";
-import LoginText from "./LoginText";
+import { Container } from "../../UI/Container/Container";
+import LoginBtn from "../LogInBtn/LoginBtn";
 
-import CustomDivider from "../UI/Divider/CustomDivider";
-import { loginString } from "../../strings/strings";
+import CustomDivider from "../../UI/Divider/style";
+import { loginString } from "../../../strings/strings";
+import { LoginText } from "./style";
 
 const LoginMainContentDiv = () => {
   return (

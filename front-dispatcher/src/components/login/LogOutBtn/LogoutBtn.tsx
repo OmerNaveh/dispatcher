@@ -1,15 +1,15 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import { LogoutBtnStyled } from "./LogoutBtnStyle";
-import { headerStrings } from "../../strings/strings";
+import { headerStrings, routeStrings } from "../../../strings/strings";
+import { LogoutBtnStyled } from "./style";
 
 const LogoutBtn = () => {
   const { logout } = useAuth0();
 
   return (
     <LogoutBtnStyled
-      onClick={() => logout({ returnTo: window.location.origin })}
+      onClick={() => logout({ returnTo: routeStrings.loginPath })}
     >
       {headerStrings.SignOut}
     </LogoutBtnStyled>

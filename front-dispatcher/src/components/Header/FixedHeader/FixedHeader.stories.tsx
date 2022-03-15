@@ -2,7 +2,7 @@ import React from "react";
 
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Header from "./FixedHeader";
-import LogoSvg from "../../UI/LogoSvg/LogoSvg";
+import LogoSvg from "../../UI/LogoSvg/style";
 
 import HeadrUserBtn from "../HeaderUserBtn/HeadrUserBtn";
 import { Container } from "../../UI/Container/Container";

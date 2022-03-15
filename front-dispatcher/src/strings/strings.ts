@@ -84,6 +84,10 @@ export const apiStrings: { [key: string]: string[] } = {
   ],
   ["Sort by"]: ["relevancy", "popularity", "publishedAt"],
 };
+export const ipUrls = {
+  getClientIpUrl: "https://api.ipify.org/?format=json",
+  getInfoFromIpUrl: "http://ip-api.com/json/",
+};
 export const cardString = {
   NavigateToDispatch: "NAVIGATE TO DISPATCH",
   Continue: "CONTINUE",
@@ -92,6 +96,7 @@ export const graphString = {
   noDataToDisplay: "No data to display",
   containerClass: "flex column graph",
   cardLayoutClass: "graph",
+  graphTypeArray: ["Sources", "Dates", "Tags"],
 };
 export const headerStrings = {
   SignOut: "Sign Out",
@@ -113,4 +118,10 @@ export const storyStrings = {
   CardTitle: "CARD",
   DashTitle: "DASHBOARD",
   LoginTitle: "Login",
+};
+export const routeStrings = {
+  dashboardPath: "http://localhost:3000/dashboard",
+  loginPath: "http://localhost:3000/login",
+  domain: "dev-a194tman.us.auth0.com",
+  clientId: "Yyn4S2mF60BUYHMbQjOEf2Nn2kXQsVTg",
 };

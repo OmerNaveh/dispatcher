@@ -12,12 +12,12 @@ const DropDowns = ({ searchMainQuery }: props) => {
     if (searchMainQuery === searchBarStrings.searchDropDownOptions[0]) {
       return apiStrings.TopHeadlinesOptions.map((cat) => {
         if (cat === apiStrings.TopHeadlinesOptions[2]) {
-          return <DropDown options={[]} placeHolder={cat}></DropDown>;
+          return <DropDown key={cat} options={[]} placeHolder={cat} />;
         }
         //sources catagory case
         if (cat && apiStrings[cat]) {
           return (
-            <DropDown options={apiStrings[cat]} placeHolder={cat}></DropDown>
+            <DropDown key={cat} options={apiStrings[cat]} placeHolder={cat} />
           );
         }
       });
@@ -25,15 +25,15 @@ const DropDowns = ({ searchMainQuery }: props) => {
       return apiStrings.EverythingOptions.map((cat) => {
         //date catagory case
         if (cat === apiStrings.EverythingOptions[1]) {
-          return <DropDown options={[]} placeHolder={cat}></DropDown>;
+          return <DropDown key={cat} options={[]} placeHolder={cat} />;
         }
         //sources catagory case
         if (apiStrings.TopHeadlinesOptions[2]) {
-          return <DropDown options={[]} placeHolder={cat}></DropDown>;
+          return <DropDown key={cat} options={[]} placeHolder={cat} />;
         }
         if (cat && apiStrings[cat]) {
           return (
-            <DropDown options={apiStrings[cat]} placeHolder={cat}></DropDown>
+            <DropDown key={cat} options={apiStrings[cat]} placeHolder={cat} />
           );
         }
       });

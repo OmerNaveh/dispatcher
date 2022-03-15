@@ -1,9 +1,9 @@
 import React from "react";
 
-import LoginMainContentDiv from "../../components/login/LoginMainContentDiv";
-import LoginSideLogoDiv from "../../components/login/LoginSideLogoDiv";
+import LoginMainContentDiv from "../../components/login/LoginInMainContent/LoginMainContentDiv";
+import { LoginSideLogoDiv } from "../../components/login/LoginInMainContent/style";
 import { Container } from "../../components/UI/Container/Container";
-import LogoSvg from "../../components/UI/LogoSvg/LogoSvg";
+import LogoSvg from "../../components/UI/LogoSvg/style";
 
 const LoginPage = () => {
   return (

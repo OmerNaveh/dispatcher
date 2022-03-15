@@ -1,9 +1,9 @@
 import React from "react";
+import { CardText } from "../../../features/Card/style";
 import { searchBarStrings } from "../../../strings/strings";
 
 import { Container } from "../../UI/Container/Container";
-import CardText from "../Card/CardText";
-import NotFoundIcon from "./NotFoundIcon";
+import NotFoundIcon from "./style";
 
 const NotFound = () => {
   return (

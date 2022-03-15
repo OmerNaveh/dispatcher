@@ -5,12 +5,11 @@ import Card from "../../../features/Card/Card";
 import NotFound from "../NotFound/NotFound";
 const CardContainer = () => {
   const allCards = () => {
-    if (mockData.articles.length === 0) {
-      return <NotFound />;
-    }
+    if (mockData.articles.length === 0) return <NotFound />;
     return mockData.articles.map((article) => {
       return (
         <Card
+          key={article.title}
           publishedAt={article.publishedAt}
           source={
             article.source.id

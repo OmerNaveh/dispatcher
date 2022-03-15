@@ -25,9 +25,14 @@ export const Container = styled.div`
     margin: 0;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     @media only screen and (max-width: 900px) {
       flex-direction: column;
     }
+  }
+  &.dashColor {
+    margin-top: 74px;
+    background-color: ${colors.LightestGray};
   }
   &.login {
     background-color: ${colors.LightestGray};
@@ -62,13 +67,13 @@ export const Container = styled.div`
   &.cardContainer {
     overflow-y: scroll;
     max-height: 80vh;
-    width: 60%;
+    width: 100%;
     margin: 0;
   }
   &.mainContent {
-    margin-top: 5%;
+    padding: 1em;
     overflow: hidden;
-    max-height: 85vh;
+    max-height: 90vh;
   }
   &.graph {
     margin-top: 10%;
