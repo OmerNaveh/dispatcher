@@ -8,7 +8,7 @@ import { NoGraphIcon, TitleDivider } from "./style";
 
 interface graphProps {
   title: string;
-  graphType: string;
+  graphType?: string;
 }
 
 const Graph = ({ title, graphType }: graphProps) => {
