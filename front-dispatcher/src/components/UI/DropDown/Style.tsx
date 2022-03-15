@@ -78,6 +78,7 @@ const StyledListbox = styled("ul")(
   padding: 5px;
   margin: 10px 0;
   min-width: 320px;
+  width:110%;
   background: ${colors.White};
   border: none;
   border-radius: 0.75em;

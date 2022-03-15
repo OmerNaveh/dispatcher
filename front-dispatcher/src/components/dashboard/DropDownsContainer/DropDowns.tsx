@@ -1,8 +1,8 @@
 import React from "react";
 import { apiStrings, searchBarStrings } from "../../../strings/strings";
 
-import { Container } from "../../UI/Container/Container";
 import DropDown from "../../UI/DropDown/DropDown";
+import { DropDownsContainer } from "./style";
 
 interface props {
   searchMainQuery: string;
@@ -40,7 +40,11 @@ const DropDowns = ({ searchMainQuery }: props) => {
     }
   };
 
-  return <Container className="flex">{createDropDowns()}</Container>;
+  return (
+    <DropDownsContainer className="flex">
+      {createDropDowns()}
+    </DropDownsContainer>
+  );
 };
 
 export default DropDowns;
