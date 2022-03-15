@@ -71,7 +71,7 @@ export const Container = styled.div`
     margin: 0;
   }
   &.mainContent {
-    padding: 1em;
+    padding: 1em 5%;
     overflow: hidden;
     max-height: 90vh;
   }

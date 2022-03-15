@@ -40,9 +40,10 @@ const StyledButton = styled("button")(
   box-sizing: border-box;
   background: ${colors.White};
   border: none;
+  width:100%;
   border-radius: 0.75em;
   margin: 0.5em;
-  padding: 1em;
+  padding: 2%;
   text-align: left;
   line-height: 1.5;
   color: ${colors.DarkBlue};

@@ -47,6 +47,7 @@ export const CardText = styled.p`
   letter-spacing: 0.25px;
   font-family: Roboto;
   font-weight: 400;
+  word-wrap: break-word;
   font-style: normal;
   margin-top: 0;
   color: ${colors.DarkBlue};
@@ -62,6 +63,8 @@ export const CardTitle = styled.p`
   color: ${colors.CardTitle};
   font-weight: 700;
   font-family: Roboto;
+  word-wrap: break-word;
   font-size: 1.2em;
   line-height: 21px;
+  max-width: 90%;
 `;

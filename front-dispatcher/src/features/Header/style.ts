@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { colors } from "../../../strings/colors";
+import { colors } from "../../strings/colors";
 
 const HeaderStyle = styled.header`
   position: fixed;

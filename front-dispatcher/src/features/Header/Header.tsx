@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import FixedHeader from "../../components/Header/FixedHeader/FixedHeader";
+
 import SvgBtns from "../../components/Header/HeaderSvgs/SvgBtns";
 import HeadrUserBtn from "../../components/Header/HeaderUserBtn/HeadrUserBtn";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { Container } from "../../components/UI/Container/Container";
 import LogoSvg from "../../components/UI/LogoSvg/style";
 import { headerStrings } from "../../strings/strings";
+import HeaderStyle from "./style";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
@@ -16,7 +17,7 @@ const Header = () => {
   }, []);
 
   return (
-    <FixedHeader>
+    <HeaderStyle>
       <LogoSvg className="header" />
       <SearchBar />
       <Container className="flex relative">
@@ -25,7 +26,7 @@ const Header = () => {
         <SvgBtns />
         <HeadrUserBtn userInitials={headerStrings.UserInitials} />
       </Container>
-    </FixedHeader>
+    </HeaderStyle>
   );
 };
 
