@@ -8,7 +8,7 @@ import { StyledSearchBarDiv } from "./style";
 
 const SearchBar = () => {
   return (
-    <StyledSearchBarDiv className="grid">
+    <StyledSearchBarDiv>
       <InputWithIcon />
       <Divider orientation="vertical" variant="middle" flexItem />
       <DropDown

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FixedHeader from "../../components/Header/FixedHeader/FixedHeader";
 import SvgBtns from "../../components/Header/HeaderSvgs/SvgBtns";
 import HeadrUserBtn from "../../components/Header/HeaderUserBtn/HeadrUserBtn";
@@ -8,11 +8,19 @@ import LogoSvg from "../../components/UI/LogoSvg/style";
 import { headerStrings } from "../../strings/strings";
 
 const Header = () => {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setIsMobile(window.innerWidth <= 450);
+    });
+  }, []);
+
   return (
     <FixedHeader>
       <LogoSvg className="header" />
       <SearchBar />
       <Container className="flex relative">
+        {(window.innerWidth <= 450 || isMobile) && <SvgBtns search={true} />}
         <SvgBtns settings={true} />
         <SvgBtns />
         <HeadrUserBtn userInitials={headerStrings.UserInitials} />
