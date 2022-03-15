@@ -36,13 +36,13 @@ const StyledButton = styled("button")(
   ({ theme }) => `
   font-family: Roboto;
   font-weight:400;
-  font-size: 0.875rem;
+  font-size: 90%;
   box-sizing: border-box;
   background: ${colors.White};
   border: none;
   width:100%;
   border-radius: 0.75em;
-  margin: 0.5em;
+  margin: 0 0.5em;
   padding: 2%;
   text-align: left;
   line-height: 1.5;

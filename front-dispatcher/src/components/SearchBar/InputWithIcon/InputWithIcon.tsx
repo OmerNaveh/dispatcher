@@ -8,9 +8,14 @@ import { ReactComponent as SearchIcon } from "../../../assets/search.svg";
 import { colors } from "../../../strings/colors";
 import { headerStrings } from "../../../strings/strings";
 
-export default function InputWithIcon() {
+interface props {
+  onFocusFC?: () => void;
+}
+export default function InputWithIcon({ onFocusFC }: props) {
   return (
     <Input
+      onFocus={onFocusFC}
+      onBlur={onFocusFC}
       placeholder={headerStrings.Search}
       disableUnderline={true}
       startAdornment={
