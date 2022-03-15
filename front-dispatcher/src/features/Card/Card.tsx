@@ -1,4 +1,3 @@
-import { CardContent } from "@mui/material";
 import React from "react";
 
 import ArrowSvg from "../../components/UI/ArrowSvg/style";
@@ -6,7 +5,13 @@ import PrimaryButton from "../../components/UI/PrimaryButton/style";
 import { convertStringToLocaleDate } from "../../helpers/dateConverter";
 
 import { cardString } from "../../strings/strings";
-import { CardImage, CardLayout, CardText, CardTitle } from "./style";
+import {
+  CardContent,
+  CardImage,
+  CardLayout,
+  CardText,
+  CardTitle,
+} from "./style";
 
 const Card = (props: APITypes.Article) => {
   const dateString = convertStringToLocaleDate(props.publishedAt);

@@ -22,6 +22,10 @@ const PrimaryButton = styled.button`
   }
   &.right {
     float: right;
+    @media only screen and (max-width: 450px) {
+      float: none;
+      width: 90%;
+    }
   }
   &.login {
     width: 100%;

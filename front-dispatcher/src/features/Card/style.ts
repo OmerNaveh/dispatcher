@@ -5,6 +5,11 @@ export const CardContent = styled.div`
   margin: 0 1%;
   padding: 1% 0;
   width: 100%;
+  @media only screen and (max-width: 450px) {
+    display: flex;
+    flex-direction: column;
+    margin: 0 3%;
+  }
 `;
 
 export const CardImage = styled.img`
