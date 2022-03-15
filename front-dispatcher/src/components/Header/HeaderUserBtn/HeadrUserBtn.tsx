@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import LogoutBtn from "../../login/LogoutBtn";
+import LogoutBtn from "../../login/LogOutBtn/LogoutBtn";
 import { StyledHeaderBtn } from "./style";
 interface UserBtnProps {
   userInitials: string;

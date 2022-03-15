@@ -1,5 +1,5 @@
 import React from "react";
-import ExitSVG from "../ExitSvg/ExitSVG";
+import ExitSVG from "../ExitSvg/style";
 
 import { CustomSelect, StyledOption } from "./Style";
 

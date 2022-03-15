@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { StyledSearchBarDiv } from "./SearchBarDiv/style";
+import { StyledSearchBarDiv } from "./style";
 import InputWithIcon from "./InputWithIcon/InputWithIcon";
 import DropDown from "../UI/DropDown/DropDown";
 

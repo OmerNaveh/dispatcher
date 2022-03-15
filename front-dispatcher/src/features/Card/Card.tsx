@@ -1,13 +1,12 @@
+import { CardContent } from "@mui/material";
 import React from "react";
-import CardText from "../../components/dashboard/Card/CardText";
-import CardImage from "../../components/dashboard/Card/CardImage";
-import CardLayout from "../../components/dashboard/Card/CardLayout";
-import CardTitle from "../../components/dashboard/Card/CardTitle";
-import ArrowSvg from "../../components/UI/ArrowSvg/ArrowSvg";
-import PrimaryButton from "../../components/UI/PrimaryButton/PrimaryButton";
+
+import ArrowSvg from "../../components/UI/ArrowSvg/style";
+import PrimaryButton from "../../components/UI/PrimaryButton/style";
 import { convertStringToLocaleDate } from "../../helpers/dateConverter";
-import CardContent from "../../components/dashboard/Card/CardContent";
+
 import { cardString } from "../../strings/strings";
+import { CardImage, CardLayout, CardText, CardTitle } from "./style";
 
 const Card = (props: APITypes.Article) => {
   const dateString = convertStringToLocaleDate(props.publishedAt);

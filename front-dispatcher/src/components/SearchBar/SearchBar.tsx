@@ -1,9 +1,10 @@
 import React from "react";
-import { StyledSearchBarDiv } from "./SearchBarDiv/style";
+
 import InputWithIcon from "./InputWithIcon/InputWithIcon";
 import DropDown from "../UI/DropDown/DropDown";
 import { Divider } from "@mui/material";
 import { searchBarStrings } from "../../strings/strings";
+import { StyledSearchBarDiv } from "./style";
 
 const SearchBar = () => {
   return (

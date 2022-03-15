@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../strings/colors";
+import { colors } from "../../../strings/colors";
 
 export const LogoutBtnStyled = styled.button`
   position: absolute;
