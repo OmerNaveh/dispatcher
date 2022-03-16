@@ -111,6 +111,7 @@ export const searchBarStrings = {
   searchDropDownOptions: ["Top Headlines", "Everything"],
   noMatches: "We couldn't find any matches for your query",
   noMatchesContainerClasses: "flex column",
+  viewResults: "VIEW RESULTS",
 };
 export const storyStrings = {
   HeaderTitle: "HEADER",
