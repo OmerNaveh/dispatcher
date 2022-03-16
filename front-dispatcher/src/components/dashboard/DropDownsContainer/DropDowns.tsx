@@ -40,11 +40,7 @@ const DropDowns = ({ searchMainQuery }: props) => {
     }
   };
 
-  return (
-    <DropDownsContainer className="flex">
-      {createDropDowns()}
-    </DropDownsContainer>
-  );
+  return <DropDownsContainer>{createDropDowns()}</DropDownsContainer>;
 };
 
 export default DropDowns;

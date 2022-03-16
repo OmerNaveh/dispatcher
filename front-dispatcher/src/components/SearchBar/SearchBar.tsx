@@ -11,7 +11,7 @@ const SearchBar = () => {
   return (
     <StyledSearchBarDiv focused={focused}>
       <InputWithIcon onFocusFC={() => setFocused(!focused)} />
-      <Divider orientation="vertical" variant="middle" flexItem />
+      <Divider orientation="vertical" flexItem />
       <DropDown
         options={searchBarStrings.searchDropDownOptions}
         placeHolder={searchBarStrings.searchDropDownOptions[0]}

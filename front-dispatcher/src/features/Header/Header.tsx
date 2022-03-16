@@ -7,13 +7,12 @@ import { Container } from "../../components/UI/Container/Container";
 import LogoSvg from "../../components/UI/LogoSvg/style";
 import { headerStrings } from "../../strings/strings";
 import HeaderStyle from "./style";
+import { resizeListener } from "./utils/listenerUtils";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   useEffect(() => {
-    window.addEventListener("resize", () => {
-      setIsMobile(window.innerWidth <= 450);
-    });
+    resizeListener(setIsMobile);
   }, []);
 
   return (

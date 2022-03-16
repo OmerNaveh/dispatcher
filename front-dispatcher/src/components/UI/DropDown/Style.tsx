@@ -73,12 +73,11 @@ const StyledListbox = styled("ul")(
   ({ theme }) => `
   font-family: Roboto;
   font-weight:400;
-  font-size: 0.875rem;
+  font-size: 90%;
   box-sizing: border-box;
   padding: 5px;
   margin: 10px 0;
-  min-width: 320px;
-  width:110%;
+  width:100%;
   background: ${colors.White};
   border: none;
   border-radius: 0.75em;
@@ -101,7 +100,6 @@ export const StyledOption = styled(OptionUnstyled)(
   padding: 8px;
   border-radius: 0.45em;
   cursor: default;
-
   &:last-of-type {
     border-bottom: none;
   }
