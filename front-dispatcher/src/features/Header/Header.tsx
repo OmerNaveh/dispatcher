@@ -22,7 +22,7 @@ const Header = () => {
       <LogoSvg className="header" />
       <SearchBar />
       <Container className="flex relative">
-        {(window.innerWidth <= 450 || isMobile) && <SvgBtns search={true} />}
+        {(window.innerWidth <= 580 || isMobile) && <SvgBtns search={true} />}
         <SvgBtns settings={true} />
         <SvgBtns />
         <HeadrUserBtn userInitials={headerStrings.UserInitials} />

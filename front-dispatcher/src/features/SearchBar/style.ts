@@ -9,6 +9,7 @@ export const StyledSearchBarDiv = styled.div<props>`
   border-radius: 10px;
   font-size: 87.5%;
   display: grid;
+  min-width: 322px;
   grid-template-columns: ${(props) =>
     props.focused ? "65% 5% 30%" : "60% 5% 35%"};
   padding: 0.5% 1%;
@@ -25,7 +26,7 @@ export const StyledSearchBarDiv = styled.div<props>`
       display: none;
     }
   }
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 580px) {
     display: none;
   }
 `;
