@@ -5,6 +5,11 @@ export const CardContent = styled.div`
   margin: 0 1%;
   padding: 1% 0;
   width: 100%;
+  @media only screen and (max-width: 450px) {
+    display: flex;
+    flex-direction: column;
+    margin: 0 3%;
+  }
 `;
 
 export const CardImage = styled.img`
@@ -14,7 +19,7 @@ export const CardImage = styled.img`
     width: 25%;
   }
   @media only screen and (max-width: 450px) {
-    width 100%;
+    width: 100%;
     border-radius: 20px 20px 0px 0px;
   }
 `;
@@ -26,6 +31,7 @@ export const CardLayout = styled.div`
   display: flex;
   border-radius: 20px;
   margin: 1em;
+
   @media only screen and (max-width: 450px) {
     flex-direction: column;
   }
@@ -42,6 +48,7 @@ export const CardText = styled.p`
   letter-spacing: 0.25px;
   font-family: Roboto;
   font-weight: 400;
+  word-wrap: break-word;
   font-style: normal;
   margin-top: 0;
   color: ${colors.DarkBlue};
@@ -57,6 +64,8 @@ export const CardTitle = styled.p`
   color: ${colors.CardTitle};
   font-weight: 700;
   font-family: Roboto;
+  word-wrap: break-word;
   font-size: 1.2em;
   line-height: 21px;
+  max-width: 90%;
 `;
