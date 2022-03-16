@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as ArrowIcon } from "../../../assets/back.svg";
+import { ReactComponent as ArrowIcon } from "../../assets/back.svg";
 import styled from "styled-components";
 
 const ArrowSvg = styled(ArrowIcon)`

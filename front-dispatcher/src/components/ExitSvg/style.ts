@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as ExitIcon } from "../../../assets/exit.svg";
+import { ReactComponent as ExitIcon } from "../../assets/exit.svg";
 import styled from "styled-components";
 
 const ExitSVG = styled(ExitIcon)`

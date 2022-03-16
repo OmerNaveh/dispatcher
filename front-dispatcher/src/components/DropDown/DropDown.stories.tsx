@@ -3,7 +3,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import DropDown from "./DropDown";
-import { storyStrings } from "../../../strings/strings";
+import { storyStrings } from "../../strings/strings";
 
 const arrayofString = ["a", "b", "c", "d", "e", "f", "g"];
 export default {

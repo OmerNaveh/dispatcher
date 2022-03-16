@@ -1,6 +1,7 @@
 import { Divider } from "@mui/material";
 import React from "react";
-import { Container } from "../../../../components/UI/Container/Container";
+import { Container } from "../../../../components/Container/Container";
+
 import { graphString } from "../../../../strings/strings";
 import { CardLayout, CardText, CardTitle } from "../../../Card/style";
 

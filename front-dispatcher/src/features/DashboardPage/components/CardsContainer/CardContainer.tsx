@@ -1,5 +1,6 @@
 import React from "react";
-import { Container } from "../../../../components/UI/Container/Container";
+import { Container } from "../../../../components/Container/Container";
+
 import mockData from "../../../../mock/mockData.json";
 import Card from "../../../Card/Card";
 import NotFound from "../NotFound/NotFound";

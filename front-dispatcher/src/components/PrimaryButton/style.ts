@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../../strings/colors";
+import { colors } from "../../strings/colors";
 
 const PrimaryButton = styled.button`
   background: ${colors.Blue};

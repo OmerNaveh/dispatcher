@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../../strings/colors";
+import { colors } from "../../strings/colors";
 
 const CustomDivider = styled.div`
   padding: 1px 0;

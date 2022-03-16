@@ -8,8 +8,8 @@ import OptionUnstyled, {
 } from "@mui/base/OptionUnstyled";
 import PopperUnstyled from "@mui/base/PopperUnstyled";
 import { styled } from "@mui/system";
-import drowDownSvg from "../../../assets/dropdown.svg";
-import { colors } from "../../../strings/colors";
+import drowDownSvg from "../../assets/dropdown.svg";
+import { colors } from "../../strings/colors";
 
 const blue = {
   100: "#DAECFF",

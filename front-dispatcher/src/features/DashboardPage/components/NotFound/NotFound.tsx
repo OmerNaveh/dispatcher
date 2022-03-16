@@ -1,5 +1,6 @@
 import React from "react";
-import { Container } from "../../../../components/UI/Container/Container";
+import { Container } from "../../../../components/Container/Container";
+
 import { searchBarStrings } from "../../../../strings/strings";
 import { CardText } from "../../../Card/style";
 

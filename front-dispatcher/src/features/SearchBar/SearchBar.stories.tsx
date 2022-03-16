@@ -3,10 +3,10 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { StyledSearchBarDiv } from "./style";
 import InputWithIcon from "./InputWithIcon/InputWithIcon";
-import DropDown from "../UI/DropDown/DropDown";
 
 import { Divider } from "@mui/material";
 import { headerStrings, storyStrings } from "../../strings/strings";
+import DropDown from "../../components/DropDown/DropDown";
 
 const options = ["x", "y"];
 export default {

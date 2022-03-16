@@ -3,7 +3,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import PrimaryButton from "./style";
-import { cardString, storyStrings } from "../../../strings/strings";
+import { cardString, storyStrings } from "../../strings/strings";
 
 export default {
   title: storyStrings.UITitle,

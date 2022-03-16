@@ -1,7 +1,8 @@
 import React from "react";
 
-import ArrowSvg from "../../components/UI/ArrowSvg/style";
-import PrimaryButton from "../../components/UI/PrimaryButton/style";
+import ArrowSvg from "../../components/ArrowSvg/style";
+import PrimaryButton from "../../components/PrimaryButton/style";
+
 import { convertStringToLocaleDate } from "../../helpers/dateConverter";
 
 import { cardString } from "../../strings/strings";

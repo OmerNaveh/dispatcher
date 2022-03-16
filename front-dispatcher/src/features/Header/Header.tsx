@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 
 import SvgBtns from "./components/HeaderSvgs/SvgBtns";
 
-import SearchBar from "../../components/SearchBar/SearchBar";
-import { Container } from "../../components/UI/Container/Container";
-import LogoSvg from "../../components/UI/LogoSvg/style";
+import SearchBar from "../SearchBar/SearchBar";
+
 import { headerStrings } from "../../strings/strings";
 import HeaderStyle from "./style";
 import { resizeListener } from "./utils/listenerUtils";
 import HeadrUserBtn from "./components/HeaderUserBtn/HeadrUserBtn";
+import LogoSvg from "../../components/LogoSvg/style";
+import { Container } from "../../components/Container/Container";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);

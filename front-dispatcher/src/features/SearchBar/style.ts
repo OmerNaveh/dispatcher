@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import { colors } from "../../strings/colors";
-import DropDown from "../UI/DropDown/DropDown";
-import { CustomSelect } from "../UI/DropDown/Style";
 
 interface props {
   focused?: boolean;

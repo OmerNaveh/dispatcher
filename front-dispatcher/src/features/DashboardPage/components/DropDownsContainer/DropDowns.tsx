@@ -1,5 +1,6 @@
 import React from "react";
-import DropDown from "../../../../components/UI/DropDown/DropDown";
+import DropDown from "../../../../components/DropDown/DropDown";
+
 import { apiStrings, searchBarStrings } from "../../../../strings/strings";
 
 import { DropDownsContainer } from "./style";

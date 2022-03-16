@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
 import InputWithIcon from "./InputWithIcon/InputWithIcon";
-import DropDown from "../UI/DropDown/DropDown";
+
 import { Divider } from "@mui/material";
 import { searchBarStrings } from "../../strings/strings";
 import { StyledSearchBarDiv } from "./style";
+import DropDown from "../../components/DropDown/DropDown";
 
 const SearchBar = () => {
   const [focused, setFocused] = useState<boolean>(false);

@@ -1,6 +1,7 @@
 import React from "react";
-import { Container } from "../../../../components/UI/Container/Container";
-import CustomDivider from "../../../../components/UI/Divider/style";
+import { Container } from "../../../../components/Container/Container";
+import CustomDivider from "../../../../components/Divider/style";
+
 import { loginString } from "../../../../strings/strings";
 import LoginBtn from "../LogInBtn/LoginBtn";
 import { LoginText } from "./style";

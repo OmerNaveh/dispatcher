@@ -1,8 +1,9 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import PrimaryButton from "../../../../components/UI/PrimaryButton/style";
-import ArrowSvg from "../../../../components/UI/ArrowSvg/style";
+
+import ArrowSvg from "../../../../components/ArrowSvg/style";
 import { cardString } from "../../../../strings/strings";
+import PrimaryButton from "../../../../components/PrimaryButton/style";
 
 const LoginBtn = () => {
   const { loginWithRedirect } = useAuth0();
