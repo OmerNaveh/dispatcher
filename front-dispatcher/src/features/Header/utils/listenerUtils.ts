@@ -1,7 +1,8 @@
 export const resizeListener = (
-  setIsMobile: React.Dispatch<React.SetStateAction<boolean>>
+  setIsMobile: React.Dispatch<React.SetStateAction<boolean>>,
+  size: number
 ) => {
   window.addEventListener("resize", () => {
-    setIsMobile(window.innerWidth <= 580);
+    setIsMobile(window.innerWidth <= size);
   });
 };
