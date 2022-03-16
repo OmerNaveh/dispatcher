@@ -27,7 +27,9 @@ export const FilterDiv = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  transition: all 200ms ease-in;
+  @media only screen and (max-width: 580px) {
+    width: 79%;
+  }
 `;
 export const FilterBtnDiv = styled.div`
   background-color: ${colors.LightestGray};
