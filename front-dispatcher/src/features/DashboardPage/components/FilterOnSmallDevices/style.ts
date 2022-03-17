@@ -44,26 +44,28 @@ export const FilterItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-height: 91.5%;
+  overflow-y: scroll;
 `;
 export const FilterItemCardContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
   border-bottom: 1px solid ${colors.Gray};
+
   :hover {
     background-color: ${colors.LightestGray};
     cursor: pointer;
   }
 `;
-
-export const FilterItemText = styled.p`
+interface filterTextProps {
+  notSelected?: boolean;
+}
+export const FilterItemText = styled.p<filterTextProps>`
   font-family: Roboto;
   font-weight: 400;
-  color: ${colors.DarkBlue};
+  color: ${(p) => (p.notSelected ? colors.Gray : colors.DarkBlue)};
   padding: 0 8%;
-  &.notSelected {
-    color: ${colors.Gray};
-  }
 `;
 interface filterTitleProps {
   pointer?: boolean;
@@ -75,6 +77,7 @@ export const FilterItemTitle = styled.p<filterTitleProps>`
   color: ${colors.DarkBlue};
   padding: 0 8%;
   height: 74px;
+  min-height: 74px;
   cursor: ${(p) => (p.pointer ? "pointer" : "")};
   display: flex;
   align-items: center;

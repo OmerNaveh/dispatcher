@@ -12,16 +12,16 @@ import {
 } from "../style";
 
 const FilterContent = () => {
+  // will have state that contains all filter types for api usage
+  const mainFilterState = searchBarStrings.searchDropDownOptions[0];
   const [filterTitle, setFilterTitle] = useState<string>(
     searchBarStrings.filter
   );
   const cardContainers = () => {
     if (apiStrings[filterTitle]) {
       return apiStrings[filterTitle].map((title) => (
-        <FilterItemCardContainer
-          key={title}
-          onClick={() => setFilterTitle(title)}
-        >
+        // on click on container will change api state settings for selected filter title
+        <FilterItemCardContainer key={title}>
           <FilterItemText>{title}</FilterItemText>
         </FilterItemCardContainer>
       ));
@@ -34,10 +34,20 @@ const FilterContent = () => {
           <FilterItemText>{searchBarStrings.searchIn}</FilterItemText>
           <FilterItemText>
             {/* will be replaced with state of search */}
-            {searchBarStrings.searchDropDownOptions[0]}
+            {mainFilterState}
           </FilterItemText>
         </FilterItemCardContainer>
-        {}
+        {apiStrings[mainFilterState].map((filterOption) => (
+          <FilterItemCardContainer
+            key={filterOption}
+            onClick={() => setFilterTitle(filterOption)}
+          >
+            <FilterItemText>{filterOption}</FilterItemText>
+            <FilterItemText notSelected={true}>
+              {searchBarStrings.all}
+            </FilterItemText>
+          </FilterItemCardContainer>
+        ))}
       </>
     );
   };

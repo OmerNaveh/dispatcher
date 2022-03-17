@@ -115,6 +115,7 @@ export const searchBarStrings = {
   viewResults: "VIEW RESULTS",
   filter: "FILTER",
   searchIn: "Search in",
+  all: "All",
 };
 export const storyStrings = {
   HeaderTitle: "HEADER",
