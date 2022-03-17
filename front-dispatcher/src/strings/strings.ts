@@ -112,6 +112,7 @@ export const searchBarStrings = {
   noMatches: "We couldn't find any matches for your query",
   noMatchesContainerClasses: "flex column",
   viewResults: "VIEW RESULTS",
+  filter: "FILTER",
 };
 export const storyStrings = {
   HeaderTitle: "HEADER",

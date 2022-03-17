@@ -5,7 +5,7 @@ export const CardContent = styled.div`
   margin: 0 1%;
   padding: 1% 0;
   width: 100%;
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 580px) {
     display: flex;
     flex-direction: column;
     margin: 0 3%;
@@ -18,7 +18,7 @@ export const CardImage = styled.img`
   @media only screen and (max-width: 900px) {
     width: 25%;
   }
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 580px) {
     width: 100%;
     border-radius: 20px 20px 0px 0px;
   }
@@ -32,7 +32,7 @@ export const CardLayout = styled.div`
   border-radius: 20px;
   margin: 1em;
 
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 580px) {
     flex-direction: column;
   }
   &.graph {

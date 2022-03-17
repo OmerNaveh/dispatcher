@@ -22,7 +22,7 @@ const PrimaryButton = styled.button`
   }
   &.right {
     float: right;
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 580px) {
       float: none;
       width: 90%;
     }
