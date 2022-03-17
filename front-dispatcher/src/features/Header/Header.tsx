@@ -14,7 +14,7 @@ import { Container } from "../../components/Container/Container";
 const Header = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   useEffect(() => {
-    resizeListener(setIsMobile);
+    resizeListener(setIsMobile, 580);
   }, []);
 
   return (
