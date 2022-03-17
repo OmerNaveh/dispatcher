@@ -13,7 +13,7 @@ const FilterOnSmallDevices = () => {
     <>
       <SortByDiv onClick={() => setClicked(!clicked)}>
         <div>
-          {apiStrings.EverythingOptions[0]}
+          {apiStrings.Everything[0]}
           <DropIcon style={{ marginLeft: "1em" }} />
         </div>
         <FilterIcon />

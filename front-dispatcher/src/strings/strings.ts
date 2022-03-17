@@ -1,5 +1,6 @@
 export const apiStrings: { [key: string]: string[] } = {
-  TopHeadlinesOptions: ["Country", "Catagory", "Sources"],
+  ["Search in"]: ["Top Headlines", "Everything"],
+  ["Top Headlines"]: ["Country", "Catagory", "Sources"],
   Country: [
     "ae",
     "ar",
@@ -65,7 +66,7 @@ export const apiStrings: { [key: string]: string[] } = {
     "sports",
     "technology",
   ],
-  EverythingOptions: ["Sort by", "Dates", "Sources", "Language"],
+  Everything: ["Sort by", "Dates", "Sources", "Language"],
   Language: [
     "ar",
     "de",
@@ -113,6 +114,7 @@ export const searchBarStrings = {
   noMatchesContainerClasses: "flex column",
   viewResults: "VIEW RESULTS",
   filter: "FILTER",
+  searchIn: "Search in",
 };
 export const storyStrings = {
   HeaderTitle: "HEADER",

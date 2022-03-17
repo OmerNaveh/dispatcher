@@ -50,6 +50,10 @@ export const FilterItemCardContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   border-bottom: 1px solid ${colors.Gray};
+  :hover {
+    background-color: ${colors.LightestGray};
+    cursor: pointer;
+  }
 `;
 
 export const FilterItemText = styled.p`
@@ -60,4 +64,20 @@ export const FilterItemText = styled.p`
   &.notSelected {
     color: ${colors.Gray};
   }
+`;
+interface filterTitleProps {
+  pointer?: boolean;
+}
+export const FilterItemTitle = styled.p<filterTitleProps>`
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 120%;
+  color: ${colors.DarkBlue};
+  padding: 0 8%;
+  height: 74px;
+  cursor: ${(p) => (p.pointer ? "pointer" : "")};
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid ${colors.Gray};
+  margin: 0;
 `;
