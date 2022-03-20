@@ -24,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
 &.recharts-legend-wrapper{
   width: 100% !important; 
 }
+&.recharts-cartesian-axis-tick-value{
+  font-family: 'Roboto' !important;
+  font-weight: 700;
+}
 body {
   margin: 0;
   max-height: 100vh;
