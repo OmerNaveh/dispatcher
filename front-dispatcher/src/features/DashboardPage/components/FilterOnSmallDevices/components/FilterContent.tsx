@@ -17,23 +17,22 @@ const FilterContent = () => {
   const [filterTitle, setFilterTitle] = useState<string>(
     searchBarStrings.filter
   );
-  const cardContainers = () => {
-    if (apiStrings[filterTitle]) {
-      return apiStrings[filterTitle].map((title) => (
-        // on click on container will change api state settings for selected filter title
+  const cardContainers = () =>
+    apiStrings[filterTitle] ? (
+      apiStrings[filterTitle].map((title) => (
+        // TODO: on click on container will change api state settings for selected filter title
         <FilterItemCardContainer key={title}>
           <FilterItemText>{title}</FilterItemText>
         </FilterItemCardContainer>
-      ));
-    }
-    return (
+      ))
+    ) : (
       <>
         <FilterItemCardContainer
           onClick={() => setFilterTitle(searchBarStrings.searchIn)}
         >
           <FilterItemText>{searchBarStrings.searchIn}</FilterItemText>
           <FilterItemText>
-            {/* will be replaced with state of search */}
+            {/* TODO:  will be replaced with state of search */}
             {mainFilterState}
           </FilterItemText>
         </FilterItemCardContainer>
@@ -50,7 +49,6 @@ const FilterContent = () => {
         ))}
       </>
     );
-  };
   return (
     <FilterDiv>
       <FilterItemsContainer>

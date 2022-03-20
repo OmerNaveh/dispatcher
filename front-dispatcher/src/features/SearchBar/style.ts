@@ -7,7 +7,7 @@ interface props {
 export const StyledSearchBarDiv = styled.div<props>`
   background: ${colors.White};
   border-radius: 10px;
-  transition: all 200ms ease-in;
+  transition: width 200ms ease;
   font-size: 87.5%;
   display: grid;
   min-width: 322px;

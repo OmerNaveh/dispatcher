@@ -17,6 +17,13 @@ const GlobalStyle = createGlobalStyle`
 &.MuiSelectUnstyled-root{
   min-width: 11px;
 }
+&.recharts-label{
+  color: ${colors.DarkestBlue} !important;
+  font-family: "Mulish" !important;
+}
+&.recharts-legend-wrapper{
+  width: 100% !important; 
+}
 body {
   margin: 0;
   max-height: 100vh;
