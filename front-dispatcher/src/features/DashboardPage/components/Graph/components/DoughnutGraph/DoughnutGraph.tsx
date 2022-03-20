@@ -1,7 +1,7 @@
 import React from "react";
-
-import { colors } from "../../../../../strings/colors";
 import { PieChart, Pie, Legend, Cell, Label } from "recharts";
+import { colors } from "../../../../../../strings/colors";
+import { graphString } from "../../../../../../strings/strings";
 import { LegendText, StyledLi, StyledUl } from "./style";
 
 interface doughnutProps {
@@ -22,7 +22,7 @@ const DoughnutGraph = ({ data }: doughnutProps) => {
         paddingAngle={0}
         dataKey="value"
       >
-        <Label value="Sum" position="center" />
+        <Label value={graphString.Sum} position="center" />
         {data.map((entry, index) => (
           <Cell
             key={`cell-${index}`}

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { storyStrings } from "../../../../../strings/strings";
+import { storyStrings } from "../../../../../../strings/strings";
 import DoughnutGraph from "./DoughnutGraph";
 
 export default {

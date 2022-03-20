@@ -98,6 +98,7 @@ export const graphString = {
   containerClass: "flex column graph",
   cardLayoutClass: "graph",
   graphTypeArray: ["Sources", "Dates", "Tags"],
+  Sum: "Sum",
 };
 export const headerStrings = {
   SignOut: "Sign Out",
