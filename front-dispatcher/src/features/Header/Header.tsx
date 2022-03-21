@@ -13,16 +13,29 @@ import { Container } from "../../components/Container/Container";
 
 const Header = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [mobileSearchClicked, setMobileSearchedClick] =
+    useState<boolean>(false);
   useEffect(() => {
     resizeListener(setIsMobile, 580);
   }, []);
-
-  return (
+  return mobileSearchClicked ? (
+    <HeaderStyle>
+      <SearchBar
+        fullScreen={mobileSearchClicked}
+        mobileBackFC={() => setMobileSearchedClick(false)}
+      />
+    </HeaderStyle>
+  ) : (
     <HeaderStyle>
       <LogoSvg className="header" />
       <SearchBar />
       <Container className="flex relative">
-        {(window.innerWidth <= 580 || isMobile) && <SvgBtns search={true} />}
+        {(window.innerWidth <= 580 || isMobile) && (
+          <SvgBtns
+            search={true}
+            onClickFunc={() => setMobileSearchedClick(true)}
+          />
+        )}
         <SvgBtns settings={true} />
         <SvgBtns />
         <HeadrUserBtn userInitials={headerStrings.UserInitials} />
