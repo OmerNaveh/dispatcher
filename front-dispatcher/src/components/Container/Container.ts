@@ -77,6 +77,10 @@ export const Container = styled.div`
     padding: 1em 5%;
     overflow: hidden;
     max-height: 90vh;
+    @media only screen and (max-width: 900px) {
+      padding: 1em 0;
+      margin: 0 2.5%;
+    }
   }
   &.graph {
     margin-top: 10%;
