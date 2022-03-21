@@ -11,6 +11,7 @@ export const CardContent = styled.div`
     flex-direction: column;
     margin: 0 3%;
     width: unset;
+    height: fit-content;
   }
 `;
 
@@ -24,6 +25,7 @@ export const CardImage = styled.img`
   @media only screen and (max-width: 580px) {
     width: 100%;
     border-radius: 20px 20px 0px 0px;
+    height: 149px;
   }
 `;
 
