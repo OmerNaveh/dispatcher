@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { colors } from "../../strings/colors";
 
 export const CardContent = styled.div`
-  margin: auto 1%;
-  padding: 1% 0;
+  margin: auto 2%;
+  padding: 1.5% 0;
   overflow-wrap: break-word;
   width: 100%;
   @media only screen and (max-width: 580px) {
@@ -32,7 +32,7 @@ export const CardLayout = styled.div`
   border: 1px solid #d9dbe9;
   display: flex;
   border-radius: 20px;
-  margin: 1em;
+  margin: 0.8em;
   @media only screen and (max-width: 580px) {
     flex-direction: column;
   }
@@ -59,6 +59,12 @@ export const CardText = styled.p`
   }
   &.limit {
     width: 90%;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 `;
 
@@ -75,7 +81,7 @@ export const CardTitle = styled.p`
 export const CardButtonContainer = styled.div`
   display: flex;
   justify-content: right;
-  margin-bottom: 2%;
+  margin: 0;
   @media only screen and (max-width: 580px) {
     justify-content: center;
 
