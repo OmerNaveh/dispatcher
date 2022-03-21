@@ -7,13 +7,14 @@ import { ReactComponent as SearchIcon } from "../../../../assets/search.svg";
 interface svgBtnProps {
   settings?: boolean;
   search?: boolean;
+  onClickFunc?: () => void;
 }
 
-const SvgBtns = ({ settings, search }: svgBtnProps) => {
+const SvgBtns = ({ settings, search, onClickFunc }: svgBtnProps) => {
   return (
     <IconButton>
       {search ? (
-        <SearchIcon />
+        <SearchIcon onClick={onClickFunc} />
       ) : settings ? (
         <SettingsIcon />
       ) : (

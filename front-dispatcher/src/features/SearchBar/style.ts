@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { colors } from "../../strings/colors";
-
+import Input from "@mui/material/Input";
+import { ReactComponent as ExitIcon } from "../../assets/exit.svg";
+import { ReactComponent as BackIcon } from "../../assets/back.svg";
 interface props {
   focused?: boolean;
 }
@@ -30,4 +32,32 @@ export const StyledSearchBarDiv = styled.div<props>`
   @media only screen and (max-width: 580px) {
     display: none;
   }
+`;
+export const StyledMobileSearchDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: ${colors.White};
+  position: fixed;
+  width: 100vw;
+  height: 74px;
+  top: 0;
+  left: 0;
+`;
+interface mobile {
+  mobile?: boolean;
+}
+export const StyledInputWithIcon = styled(Input)<mobile>`
+  width: ${(props) => props.mobile && "100%"};
+  padding: ${(props) => props.mobile && "0 3% 0 1%"};
+`;
+export const StyledExitIcon = styled(ExitIcon)`
+  height: 18px;
+  width: 18px;
+  cursor: pointer;
+`;
+
+export const StyledBackIcon = styled(BackIcon)`
+  cursor: pointer;
+  margin: 0 0 0 16px;
 `;
