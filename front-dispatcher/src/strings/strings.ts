@@ -143,3 +143,7 @@ export const routeStrings = {
   domain: "dev-a194tman.us.auth0.com",
   clientId: "Yyn4S2mF60BUYHMbQjOEf2Nn2kXQsVTg",
 };
+export const historyStrings = {
+  RecentSearches: "RECENT SEARCHES",
+  Clear: "CLEAR",
+};

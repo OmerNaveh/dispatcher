@@ -17,16 +17,21 @@ interface searchbarProps {
 }
 const SearchBar = ({ fullScreen, mobileBackFC }: searchbarProps) => {
   const [focused, setFocused] = useState<boolean>(false);
+
   if (fullScreen)
     return (
       <StyledMobileSearchDiv>
         <StyledBackIcon onClick={mobileBackFC} />
-        <InputWithIcon mobile={true} />
+        <InputWithIcon
+          mobile={true}
+          onFocusFC={() => setFocused(!focused)}
+          focused={focused}
+        />
       </StyledMobileSearchDiv>
     );
   return (
     <StyledSearchBarDiv focused={focused}>
-      <InputWithIcon onFocusFC={() => setFocused(!focused)} />
+      <InputWithIcon onFocusFC={() => setFocused(!focused)} focused={focused} />
       <Divider orientation="vertical" flexItem />
       <DropDown
         options={searchBarStrings.searchDropDownOptions}
