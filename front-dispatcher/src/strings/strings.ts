@@ -84,6 +84,18 @@ export const apiStrings: { [key: string]: string[] } = {
     "zh",
   ],
   ["Sort by"]: ["relevancy", "popularity", "publishedAt"],
+  Sources: [
+    "Engadget",
+    "Reuters",
+    "MacRumors",
+    "The Verge",
+    "CNET",
+    "ESPN",
+    "New York Times",
+    "NBC",
+    "CNN",
+    "Ynet",
+  ],
 };
 export const ipUrls = {
   getClientIpUrl: "https://api.ipify.org/?format=json",

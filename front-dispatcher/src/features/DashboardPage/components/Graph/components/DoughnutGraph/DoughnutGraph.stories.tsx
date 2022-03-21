@@ -3,7 +3,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { storyStrings } from "../../../../../../strings/strings";
 import DoughnutGraph from "./DoughnutGraph";
-
+import mock from "../../../../../../mock/mockData.json";
 export default {
   title: storyStrings.DashTitle,
   component: DoughnutGraph,
@@ -19,6 +19,7 @@ const data = [
   { name: "Group C", value: 300 },
   { name: "Group D", value: 200 },
 ];
+
 DoughnutGraphStory.args = {
   data,
 };
