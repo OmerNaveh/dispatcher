@@ -11,8 +11,8 @@ interface props {
 const DropDowns = ({ searchMainQuery }: props) => {
   const createDropDowns = () => {
     if (searchMainQuery === searchBarStrings.searchDropDownOptions[0]) {
-      return apiStrings.TopHeadlinesOptions.map((cat) => {
-        if (cat === apiStrings.TopHeadlinesOptions[2]) {
+      return apiStrings[searchMainQuery].map((cat) => {
+        if (cat === apiStrings[searchMainQuery][2]) {
           return <DropDown key={cat} options={[]} placeHolder={cat} />;
         }
         //sources catagory case
@@ -23,13 +23,13 @@ const DropDowns = ({ searchMainQuery }: props) => {
         }
       });
     } else {
-      return apiStrings.EverythingOptions.map((cat) => {
+      return apiStrings.Everything.map((cat) => {
         //date catagory case
-        if (cat === apiStrings.EverythingOptions[1]) {
+        if (cat === apiStrings.Everything[1]) {
           return <DropDown key={cat} options={[]} placeHolder={cat} />;
         }
         //sources catagory case
-        if (apiStrings.TopHeadlinesOptions[2]) {
+        if (apiStrings[searchMainQuery][2]) {
           return <DropDown key={cat} options={[]} placeHolder={cat} />;
         }
         if (cat && apiStrings[cat]) {

@@ -35,4 +35,52 @@ export const FilterBtnDiv = styled.div`
   background-color: ${colors.LightestGray};
   height: 9.5%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FilterItemsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 91.5%;
+  overflow-y: scroll;
+`;
+export const FilterItemCardContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid ${colors.Gray};
+
+  :hover {
+    background-color: ${colors.LightestGray};
+    cursor: pointer;
+  }
+`;
+interface filterTextProps {
+  notSelected?: boolean;
+}
+export const FilterItemText = styled.p<filterTextProps>`
+  font-family: Roboto;
+  font-weight: 400;
+  color: ${(p) => (p.notSelected ? colors.Gray : colors.DarkBlue)};
+  padding: 0 8%;
+`;
+interface filterTitleProps {
+  pointer?: boolean;
+}
+export const FilterItemTitle = styled.p<filterTitleProps>`
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 120%;
+  color: ${colors.DarkBlue};
+  padding: 0 8%;
+  height: 74px;
+  min-height: 74px;
+  cursor: ${(p) => (p.pointer ? "pointer" : "")};
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid ${colors.Gray};
+  margin: 0;
 `;

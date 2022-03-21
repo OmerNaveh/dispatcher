@@ -17,6 +17,17 @@ const GlobalStyle = createGlobalStyle`
 &.MuiSelectUnstyled-root{
   min-width: 11px;
 }
+&.recharts-label{
+  color: ${colors.DarkestBlue} !important;
+  font-family: "Mulish" !important;
+}
+&.recharts-legend-wrapper{
+  width: 100% !important; 
+}
+&.recharts-cartesian-axis-tick-value{
+  font-family: 'Roboto' !important;
+  font-weight: 700;
+}
 body {
   margin: 0;
   max-height: 100vh;

@@ -1,5 +1,6 @@
 export const apiStrings: { [key: string]: string[] } = {
-  TopHeadlinesOptions: ["Country", "Catagory", "Sources"],
+  ["Search in"]: ["Top Headlines", "Everything"],
+  ["Top Headlines"]: ["Country", "Catagory", "Sources"],
   Country: [
     "ae",
     "ar",
@@ -65,7 +66,7 @@ export const apiStrings: { [key: string]: string[] } = {
     "sports",
     "technology",
   ],
-  EverythingOptions: ["Sort by", "Dates", "Sources", "Language"],
+  Everything: ["Sort by", "Dates", "Sources", "Language"],
   Language: [
     "ar",
     "de",
@@ -83,6 +84,18 @@ export const apiStrings: { [key: string]: string[] } = {
     "zh",
   ],
   ["Sort by"]: ["relevancy", "popularity", "publishedAt"],
+  Sources: [
+    "Engadget",
+    "Reuters",
+    "MacRumors",
+    "The Verge",
+    "CNET",
+    "ESPN",
+    "New York Times",
+    "NBC",
+    "CNN",
+    "Ynet",
+  ],
 };
 export const ipUrls = {
   getClientIpUrl: "https://api.ipify.org/?format=json",
@@ -97,6 +110,7 @@ export const graphString = {
   containerClass: "flex column graph",
   cardLayoutClass: "graph",
   graphTypeArray: ["Sources", "Dates", "Tags"],
+  Sum: "Sum",
 };
 export const headerStrings = {
   SignOut: "Sign Out",
@@ -112,6 +126,9 @@ export const searchBarStrings = {
   noMatches: "We couldn't find any matches for your query",
   noMatchesContainerClasses: "flex column",
   viewResults: "VIEW RESULTS",
+  filter: "FILTER",
+  searchIn: "Search in",
+  all: "All",
 };
 export const storyStrings = {
   HeaderTitle: "HEADER",

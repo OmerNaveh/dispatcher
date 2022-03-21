@@ -7,6 +7,7 @@ import { convertStringToLocaleDate } from "../../helpers/dateConverter";
 
 import { cardString } from "../../strings/strings";
 import {
+  CardButtonContainer,
   CardContent,
   CardImage,
   CardLayout,
@@ -27,9 +28,11 @@ const Card = (props: APITypes.Article) => {
         <CardTitle>{props.title}</CardTitle>
         <CardText className="gray">{props.source.name}</CardText>
         <CardText className="limit">{props.description}</CardText>
-        <PrimaryButton className="right" onClick={openLinkInNewTab}>
-          {cardString.NavigateToDispatch} <ArrowSvg />
-        </PrimaryButton>
+        <CardButtonContainer>
+          <PrimaryButton onClick={openLinkInNewTab}>
+            {cardString.NavigateToDispatch} <ArrowSvg />
+          </PrimaryButton>
+        </CardButtonContainer>
       </CardContent>
     </CardLayout>
   );

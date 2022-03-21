@@ -20,13 +20,6 @@ const PrimaryButton = styled.button`
     opacity: 0.8;
     cursor: pointer;
   }
-  &.right {
-    float: right;
-    @media only screen and (max-width: 450px) {
-      float: none;
-      width: 90%;
-    }
-  }
   &.login {
     width: 100%;
     padding: 0.2em 1em;

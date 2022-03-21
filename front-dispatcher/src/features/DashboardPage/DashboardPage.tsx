@@ -33,5 +33,4 @@ const DashboardPage = () => {
     </Container>
   );
 };
-
 export default DashboardPage;
