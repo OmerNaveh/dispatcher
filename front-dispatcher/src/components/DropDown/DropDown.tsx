@@ -10,7 +10,8 @@ interface dropDownProps {
 }
 
 const DropDown = ({ options, placeHolder }: dropDownProps) => {
-  const [value, setValue] = React.useState<string | null>(placeHolder || "");
+  const [selectValue, setSelectValue] =
+    React.useState<string | undefined | null>(placeHolder);
 
   const allOptions = () => {
     return options.map((optionString) => (
@@ -23,9 +24,9 @@ const DropDown = ({ options, placeHolder }: dropDownProps) => {
   return (
     <StyledDropDownDiv>
       <CustomSelect
-        value={value}
-        onChange={setValue}
-        defaultValue={placeHolder || ""}
+        value={selectValue}
+        onChange={setSelectValue}
+        defaultValue={placeHolder}
       >
         {placeHolder && (
           <StyledOption disabled value={placeHolder}>
