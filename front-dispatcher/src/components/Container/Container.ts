@@ -59,6 +59,11 @@ export const Container = styled.div`
       margin: 0;
       padding: 0 10%;
       height: 75%;
+      justify-content: space-between;
+    }
+    @media only screen and (max-width: 580px) {
+      padding: 0 2%;
+      align-items: center;
     }
   }
   &.column {
