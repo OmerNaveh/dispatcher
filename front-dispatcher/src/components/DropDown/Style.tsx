@@ -37,13 +37,12 @@ const StyledButton = styled("button")(
   font-family: Roboto;
   font-weight:400;
   font-size: 90%;
+  padding: 8%;
   box-sizing: border-box;
   background: ${colors.White};
   border: none;
   width:100%;
   border-radius: 0.75em;
-  margin: 0 0.5em;
-  padding: 2%;
   text-align: left;
   line-height: 1.5;
   color: ${colors.DarkBlue};
@@ -85,6 +84,7 @@ const StyledListbox = styled("ul")(
   overflow: auto;
   outline: 0px;
   max-height: 25vh;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
   @media only screen and (max-width: 900px) {
     max-height: 15vh;
   }
@@ -125,13 +125,13 @@ export const StyledOption = styled(OptionUnstyled)(
 
   &:hover:not(.${optionUnstyledClasses.disabled}) {
     background-color: ${colors.LightestGray};
-    color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
   }
   `
 );
 
 const StyledPopper = styled(PopperUnstyled)`
-  z-index: 1;
+  z-index: 2;
+  width: 100%;
 `;
 
 export const CustomSelect = React.forwardRef(function CustomSelect<TValue>(

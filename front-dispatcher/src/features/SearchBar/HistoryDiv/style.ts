@@ -4,9 +4,8 @@ import { ReactComponent as ExitIcon } from "../../../assets/exit.svg";
 export const StyledHistoryDiv = styled.div`
   position: absolute;
   left: 0%;
-  top: 50px;
+  top: 110%;
   width: 92.5%;
-  z-index: 2;
   background-color: ${colors.White};
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
   border-radius: 10px;

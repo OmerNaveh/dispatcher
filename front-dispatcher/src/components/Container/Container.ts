@@ -59,6 +59,11 @@ export const Container = styled.div`
       margin: 0;
       padding: 0 10%;
       height: 75%;
+      justify-content: space-between;
+    }
+    @media only screen and (max-width: 580px) {
+      padding: 0 2%;
+      align-items: center;
     }
   }
   &.column {
@@ -79,7 +84,7 @@ export const Container = styled.div`
     max-height: 90vh;
     @media only screen and (max-width: 900px) {
       padding: 1em 0;
-      margin: 0 2.5%;
+      margin: 0 1em;
     }
   }
   &.graph {

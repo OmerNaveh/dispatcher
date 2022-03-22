@@ -19,5 +19,4 @@ export const DropDownStory = Template.bind({});
 DropDownStory.args = {
   options: arrayofString,
   placeHolder: storyStrings.UITitle,
-  history: true,
 };

@@ -15,8 +15,8 @@ interface historyProps {
 // TODO: implement utils fucntion to fetch data from local storage and clear on click on clear text
 const HistoryDiv = ({ data }: historyProps) => {
   const genrateStorageHistoryOptions = () => {
-    return data.map((historyStr) => (
-      <StyledHistoryTextDiv>
+    return data.map((historyStr, index) => (
+      <StyledHistoryTextDiv key={index}>
         <StyledHistoryTexts>{historyStr}</StyledHistoryTexts>
         <StyledHistoryExitIcon />
       </StyledHistoryTextDiv>

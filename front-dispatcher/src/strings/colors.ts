@@ -8,6 +8,7 @@ export const colors = {
   DarkestBlue: "#262146",
   CardTitle: "#14142b",
   GrayCardText: "rgba(90, 90, 137, 0.5)",
+  DividerGray: "#D9DBE950",
   DoughnutGraphColors: [
     "#FF9800",
     "#030035",

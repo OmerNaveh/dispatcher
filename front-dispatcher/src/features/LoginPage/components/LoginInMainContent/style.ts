@@ -13,7 +13,7 @@ export const LoginSideLogoDiv = styled.div`
     width: 100%;
     height: 25%;
   }
-  @media only screen and (max-width: 450px) {
+  @media only screen and (max-width: 580px) {
     height: 40%;
   }
 `;
@@ -30,6 +30,12 @@ export const LoginText = styled.p`
   &.title {
     font-weight: 300;
     font-size: 2em;
+    @media only screen and (max-width: 900px) {
+      margin: 1em;
+    }
+    @media only screen and (max-width: 580px) {
+      margin: 1em 0;
+    }
   }
   @media only screen and (max-width: 900px) {
     text-align: center;

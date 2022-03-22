@@ -4,6 +4,7 @@ import { colors } from "../../strings/colors";
 
 const HeaderStyle = styled.header`
   position: fixed;
+  z-index: 5;
   width: 100vw;
   height: 74px;
   top: 0;

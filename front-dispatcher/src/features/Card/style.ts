@@ -25,7 +25,7 @@ export const CardImage = styled.img`
   @media only screen and (max-width: 580px) {
     width: 100%;
     border-radius: 20px 20px 0px 0px;
-    height: 149px;
+    max-height: 200px;
   }
 `;
 
@@ -37,6 +37,7 @@ export const CardLayout = styled.div`
   margin: 0.8em;
   @media only screen and (max-width: 580px) {
     flex-direction: column;
+    margin: 0.8em 0;
   }
 
   &.graph {
@@ -78,6 +79,14 @@ export const CardTitle = styled.p`
   font-size: 1.2em;
   line-height: 21px;
   max-width: 90%;
+  @media only screen and (max-width: 580px) {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
 `;
 
 export const CardButtonContainer = styled.div`
