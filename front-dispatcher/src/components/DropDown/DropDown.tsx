@@ -7,15 +7,13 @@ import { StyledDropDownDiv } from "./styled";
 interface dropDownProps {
   options: string[];
   placeHolder?: string;
-  history?: boolean;
-  deleteHistoryFunc?: () => {};
+  searchBarFocused?: boolean;
 }
 
 const DropDown = ({
   options,
   placeHolder,
-  history,
-  deleteHistoryFunc,
+  searchBarFocused,
 }: dropDownProps) => {
   const [value, setValue] = React.useState<string | null>(placeHolder || "");
 
@@ -23,15 +21,12 @@ const DropDown = ({
     return options.map((optionString) => (
       <StyledOption key={optionString} value={optionString}>
         {optionString}
-        {history && value !== optionString && (
-          <ExitSVG onClick={deleteHistoryFunc} />
-        )}
       </StyledOption>
     ));
   };
 
   return (
-    <StyledDropDownDiv>
+    <StyledDropDownDiv searchBarFocused={searchBarFocused}>
       <CustomSelect
         value={value}
         onChange={setValue}
