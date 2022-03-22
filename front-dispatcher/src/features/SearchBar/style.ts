@@ -12,21 +12,22 @@ export const StyledSearchBarDiv = styled.div<props>`
   transition: width 200ms ease;
   font-size: 87.5%;
   display: grid;
-  min-width: 322px;
-  grid-template-columns: ${(props) =>
-    props.focused ? "65% 5% 30%" : "60% 5% 35%"};
+  min-width: 351px;
+  grid-template-columns: 60% 5% 35%;
   padding: 0.5% 1%;
   width: ${(props) => (props.focused ? "34%" : "21%")};
+  max-width: 625px;
   position: absolute;
   left: 10%;
   max-height: 50%;
   align-content: center;
   @media only screen and (max-width: 970px) {
     width: 21%;
-    grid-template-columns: 60% 5% 35%;
   }
   @media only screen and (max-width: 900px) {
     width: 50%;
+    grid-template-columns: 1fr;
+    min-width: 250px;
     left: 15%;
     > * {
       display: none;

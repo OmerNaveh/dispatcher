@@ -5,9 +5,7 @@ const GlobalStyle = createGlobalStyle`
 &.css-1x51dt5-MuiInputBase-input-MuiInput-input{
     position: relative;
 }
-&.MuiSelectUnstyled-popper{
-    min-width: 12.5% !important;
-}
+
 &.MuiInput-input{
   font-size: 90% !important;
   font-family: Roboto !important;

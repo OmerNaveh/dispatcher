@@ -3,9 +3,8 @@ import { colors } from "../../strings/colors";
 
 const CustomDivider = styled.div`
   padding: 1px 0;
-  background-color: ${colors.Gray};
+  background-color: ${colors.DividerGray};
   width: 100%;
-  opacity: 0.5;
   margin: 1em 0;
 `;
 

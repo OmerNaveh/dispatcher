@@ -2,6 +2,7 @@ import React from "react";
 import ExitSVG from "../ExitSvg/style";
 
 import { CustomSelect, StyledOption } from "./Style";
+import { StyledDropDownDiv } from "./styled";
 
 interface dropDownProps {
   options: string[];
@@ -30,18 +31,20 @@ const DropDown = ({
   };
 
   return (
-    <CustomSelect
-      value={value}
-      onChange={setValue}
-      defaultValue={placeHolder || ""}
-    >
-      {placeHolder && (
-        <StyledOption disabled value={placeHolder}>
-          {placeHolder}
-        </StyledOption>
-      )}
-      {allOptions()}
-    </CustomSelect>
+    <StyledDropDownDiv>
+      <CustomSelect
+        value={value}
+        onChange={setValue}
+        defaultValue={placeHolder || ""}
+      >
+        {placeHolder && (
+          <StyledOption disabled value={placeHolder}>
+            {placeHolder}
+          </StyledOption>
+        )}
+        {allOptions()}
+      </CustomSelect>
+    </StyledDropDownDiv>
   );
 };
 
