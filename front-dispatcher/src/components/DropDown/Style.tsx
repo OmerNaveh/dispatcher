@@ -85,6 +85,7 @@ const StyledListbox = styled("ul")(
   overflow: auto;
   outline: 0px;
   max-height: 25vh;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
   @media only screen and (max-width: 900px) {
     max-height: 15vh;
   }

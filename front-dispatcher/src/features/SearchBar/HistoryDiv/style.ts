@@ -15,6 +15,9 @@ export const StyledHistoryDiv = styled.div`
   color: ${colors.DarkBlue};
   display: flex;
   flex-direction: column;
+  @media only screen and (min-width: 1650px) {
+    top: 55px;
+  }
   @media only screen and (max-width: 580px) {
     width: 93vw;
     height: 100vh;

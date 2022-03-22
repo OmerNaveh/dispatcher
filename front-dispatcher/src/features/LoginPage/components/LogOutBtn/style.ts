@@ -6,7 +6,7 @@ export const LogoutBtnStyled = styled.button`
   z-index: 1;
   border-radius: 10px;
   border: none;
-  color: ${colors.DarkestBlue};
+  color: ${colors.DarkBlue};
   font-family: Roboto;
   font-weight: 400;
   background-color: ${colors.LightestGray};

@@ -21,7 +21,10 @@ export const StyledSearchBarDiv = styled.div<props>`
   left: 10%;
   max-height: 50%;
   align-content: center;
-
+  @media only screen and (max-width: 970px) {
+    width: 21%;
+    grid-template-columns: 60% 5% 35%;
+  }
   @media only screen and (max-width: 900px) {
     width: 50%;
     left: 15%;
