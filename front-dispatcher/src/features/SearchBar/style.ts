@@ -54,6 +54,7 @@ interface mobile {
 export const StyledInputWithIcon = styled(Input)<mobile>`
   width: ${(props) => props.mobile && "100%"};
   padding: ${(props) => props.mobile && "0 3% 0 1%"};
+  min-height: 41.5px;
 `;
 export const StyledExitIcon = styled(ExitIcon)`
   height: 18px;
