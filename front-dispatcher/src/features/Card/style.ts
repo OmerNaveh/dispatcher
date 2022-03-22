@@ -25,7 +25,7 @@ export const CardImage = styled.img`
   @media only screen and (max-width: 580px) {
     width: 100%;
     border-radius: 20px 20px 0px 0px;
-    height: 149px;
+    max-height: 200px;
   }
 `;
 
@@ -37,7 +37,7 @@ export const CardLayout = styled.div`
   margin: 0.8em;
   @media only screen and (max-width: 580px) {
     flex-direction: column;
-    max-width: 331px;
+    margin: 0.8em 0;
   }
 
   &.graph {
