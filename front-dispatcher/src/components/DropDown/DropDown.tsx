@@ -10,7 +10,7 @@ interface dropDownProps {
 }
 
 const DropDown = ({ options, placeHolder }: dropDownProps) => {
-  const [selectValue, setSelectValue] =
+  const [selectFilterValue, setSelectFilterValue] =
     React.useState<string | undefined | null>(placeHolder);
 
   const allOptions = () => {
@@ -24,8 +24,8 @@ const DropDown = ({ options, placeHolder }: dropDownProps) => {
   return (
     <StyledDropDownDiv>
       <CustomSelect
-        value={selectValue}
-        onChange={setSelectValue}
+        value={selectFilterValue}
+        onChange={setSelectFilterValue}
         defaultValue={placeHolder}
       >
         {placeHolder && (
