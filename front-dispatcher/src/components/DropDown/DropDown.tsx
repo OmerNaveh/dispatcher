@@ -7,14 +7,9 @@ import { StyledDropDownDiv } from "./styled";
 interface dropDownProps {
   options: string[];
   placeHolder?: string;
-  searchBarFocused?: boolean;
 }
 
-const DropDown = ({
-  options,
-  placeHolder,
-  searchBarFocused,
-}: dropDownProps) => {
+const DropDown = ({ options, placeHolder }: dropDownProps) => {
   const [value, setValue] = React.useState<string | null>(placeHolder || "");
 
   const allOptions = () => {
@@ -26,7 +21,7 @@ const DropDown = ({
   };
 
   return (
-    <StyledDropDownDiv searchBarFocused={searchBarFocused}>
+    <StyledDropDownDiv>
       <CustomSelect
         value={value}
         onChange={setValue}
