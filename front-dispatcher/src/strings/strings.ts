@@ -147,3 +147,7 @@ export const historyStrings = {
   RecentSearches: "RECENT SEARCHES",
   Clear: "CLEAR",
 };
+export const positionString: { [key: string]: "start" | "end" } = {
+  Start: "start",
+  End: "end",
+};

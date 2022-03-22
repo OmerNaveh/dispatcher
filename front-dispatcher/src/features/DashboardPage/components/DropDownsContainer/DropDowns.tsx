@@ -12,10 +12,6 @@ const DropDowns = ({ searchMainQuery }: props) => {
   const createDropDowns = () => {
     if (searchMainQuery === searchBarStrings.searchDropDownOptions[0]) {
       return apiStrings[searchMainQuery].map((cat) => {
-        if (cat === apiStrings[searchMainQuery][2]) {
-          return <DropDown key={cat} options={[]} placeHolder={cat} />;
-        }
-        //sources catagory case
         if (cat && apiStrings[cat]) {
           return (
             <DropDown key={cat} options={apiStrings[cat]} placeHolder={cat} />
@@ -26,10 +22,6 @@ const DropDowns = ({ searchMainQuery }: props) => {
       return apiStrings.Everything.map((cat) => {
         //date catagory case
         if (cat === apiStrings.Everything[1]) {
-          return <DropDown key={cat} options={[]} placeHolder={cat} />;
-        }
-        //sources catagory case
-        if (apiStrings[searchMainQuery][2]) {
           return <DropDown key={cat} options={[]} placeHolder={cat} />;
         }
         if (cat && apiStrings[cat]) {
