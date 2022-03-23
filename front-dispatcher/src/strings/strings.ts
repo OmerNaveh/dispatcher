@@ -151,3 +151,7 @@ export const positionString: { [key: string]: "start" | "end" } = {
   Start: "start",
   End: "end",
 };
+export const cardResultsStrings = {
+  totalResults: "Total results",
+  topHeadlinesIn: "Top Headlines in Israel",
+};
