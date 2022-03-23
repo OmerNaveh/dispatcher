@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors } from "../../strings/colors";
 
 const HeaderStyle = styled.header`
-  position: fixed;
+  position: absolute;
   z-index: 5;
   width: 100vw;
   height: 74px;

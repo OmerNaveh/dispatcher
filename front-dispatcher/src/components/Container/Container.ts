@@ -71,7 +71,7 @@ export const Container = styled.div`
   }
   &.cardContainer {
     overflow-y: scroll;
-    max-height: 82vh;
+    max-height: 86vh;
     width: 100%;
     margin: 0;
     @media only screen and (max-width: 900px) {
@@ -79,9 +79,9 @@ export const Container = styled.div`
     }
   }
   &.mainContent {
-    padding: 1em 5%;
+    padding: 1em 5% 0 5%;
     overflow: hidden;
-    max-height: 90vh;
+    height: 100vh;
     @media only screen and (max-width: 900px) {
       padding: 1em 0;
       margin: 0 1em;
