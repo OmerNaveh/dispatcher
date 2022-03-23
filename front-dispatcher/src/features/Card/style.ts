@@ -3,9 +3,12 @@ import { colors } from "../../strings/colors";
 
 export const CardContent = styled.div`
   margin: auto 2%;
-  padding: 1.5% 0;
+  padding: 1em 0;
   overflow-wrap: break-word;
   width: 100%;
+  @media only screen and (max-width: 900px) {
+    padding: 0.5em 0;
+  }
   @media only screen and (max-width: 580px) {
     display: flex;
     flex-direction: column;
@@ -57,7 +60,11 @@ export const CardText = styled.p`
   word-wrap: break-word;
   font-style: normal;
   margin-top: 0;
+  margin-bottom: 1.4em;
   color: ${colors.DarkBlue};
+  @media only screen and (max-width: 580px) {
+    margin-bottom: 0.75em;
+  }
   &.gray {
     color: ${colors.GrayCardText};
   }
@@ -75,6 +82,7 @@ export const CardText = styled.p`
 export const CardTitle = styled.p`
   color: ${colors.CardTitle};
   font-weight: 700;
+  margin: 1.1em 0;
   font-family: Roboto;
   word-wrap: break-word;
   font-size: 1.12em;
@@ -83,6 +91,7 @@ export const CardTitle = styled.p`
   @media only screen and (max-width: 580px) {
     display: -webkit-box;
     overflow: hidden;
+    margin: 0.56em 0;
     text-overflow: ellipsis;
     -webkit-line-clamp: 3;
     line-clamp: 3;
