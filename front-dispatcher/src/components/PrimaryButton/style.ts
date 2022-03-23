@@ -11,7 +11,7 @@ const PrimaryButton = styled.button`
   font-style: normal;
   color: ${colors.White};
   border: none;
-  padding: 0.5em 1em;
+  padding: 0.5em 1.5em;
   display: flex;
   flex-direction: row;
   justify-content: center;

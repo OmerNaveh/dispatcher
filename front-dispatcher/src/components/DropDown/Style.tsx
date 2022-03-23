@@ -37,7 +37,7 @@ const StyledButton = styled("button")(
   font-family: Roboto;
   font-weight:400;
   font-size: 90%;
-  padding: 8%;
+  padding: 7%;
   box-sizing: border-box;
   background: ${colors.White};
   border: none;

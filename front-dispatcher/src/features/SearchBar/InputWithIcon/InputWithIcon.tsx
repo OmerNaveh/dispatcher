@@ -29,7 +29,7 @@ export default function InputWithIcon({ onFocusFC, mobile, focused }: props) {
         onChange={(event) => {
           setInputValue(event.target.value);
         }}
-        placeholder={headerStrings.Search}
+        placeholder={!focused ? headerStrings.Search : undefined}
         disableUnderline={true}
         endAdornment={
           <InputAdornment

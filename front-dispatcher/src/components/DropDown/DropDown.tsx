@@ -1,6 +1,4 @@
 import React from "react";
-import ExitSVG from "../ExitSvg/style";
-
 import { CustomSelect, StyledOption } from "./Style";
 import { StyledDropDownDiv } from "./styled";
 
