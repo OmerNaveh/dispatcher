@@ -1,22 +1,24 @@
 import React, { useRef, useState } from "react";
 
-import { apiStrings, searchBarStrings } from "../../../../strings/strings";
+import { apiStrings } from "../../../../strings/strings";
 import { FilterIconStyled, MobileFilterDiv, SortByDiv } from "./style";
-import { ReactComponent as DropIcon } from "../../../../assets/dropdown.svg";
-
 import { Backdrop } from "@mui/material";
 import FilterContent from "./components/FilterContent";
+import DropDown from "../../../../components/DropDown/DropDown";
 const FilterOnSmallDevices = () => {
   const [clicked, setClicked] = useState<boolean>();
   const backDropElem = useRef(null);
+  const SortByString = apiStrings.Everything[0];
   //TODO: react to state of primary search type to decide showing SortBy DropDown
   return (
     <>
       <MobileFilterDiv>
         {/*TODO: conditional if not TOP HEADLINES <div /> */}
         <SortByDiv>
-          {apiStrings.Everything[0]}
-          <DropIcon style={{ marginLeft: "1em" }} />
+          <DropDown
+            options={apiStrings[SortByString]}
+            placeHolder={SortByString}
+          />
         </SortByDiv>
         {/* TODO: Pass Changes made to filterIcon to changeColor */}
         <FilterIconStyled onClick={() => setClicked(!clicked)} />

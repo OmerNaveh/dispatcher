@@ -16,8 +16,7 @@ export const MobileFilterDiv = styled.div`
   font-weight: 400;
 `;
 export const SortByDiv = styled.div`
-  display: flex;
-  align-items: center;
+  width: 110px;
 `;
 export const FilterDiv = styled.div`
   z-index: 500;

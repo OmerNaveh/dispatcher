@@ -1,6 +1,6 @@
 import React from "react";
 import { CustomSelect, StyledOption } from "./Style";
-import { StyledDropDownDiv } from "./styled";
+import { PersonalStyledOption, StyledDropDownDiv } from "./styled";
 
 interface dropDownProps {
   options: string[];
@@ -27,9 +27,13 @@ const DropDown = ({ options, placeHolder }: dropDownProps) => {
         defaultValue={placeHolder}
       >
         {placeHolder && (
-          <StyledOption disabled value={placeHolder}>
+          <PersonalStyledOption
+            disabled
+            value={placeHolder}
+            isPlaceHolder={true}
+          >
             {placeHolder}
-          </StyledOption>
+          </PersonalStyledOption>
         )}
         {allOptions()}
       </CustomSelect>
