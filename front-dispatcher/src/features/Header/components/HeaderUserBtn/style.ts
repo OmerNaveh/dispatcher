@@ -9,7 +9,7 @@ export const StyledHeaderBtn = styled.button`
   font-family: Roboto Mono Medium for Powerline;
   font-weight: 400;
   font-style: normal;
-  font-size: 1em;
+  font-size: 0.875em;
   letter-spacing: 0.25px;
   line-height: 16px;
   border: none;

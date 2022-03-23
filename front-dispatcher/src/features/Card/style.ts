@@ -25,7 +25,7 @@ export const CardImage = styled.img`
   @media only screen and (max-width: 580px) {
     width: 100%;
     border-radius: 20px 20px 0px 0px;
-    max-height: 200px;
+    max-height: 149px;
   }
 `;
 
@@ -53,6 +53,7 @@ export const CardText = styled.p`
   letter-spacing: 0.25px;
   font-family: Roboto;
   font-weight: 400;
+  font-size: 0.875em;
   word-wrap: break-word;
   font-style: normal;
   margin-top: 0;
@@ -76,7 +77,7 @@ export const CardTitle = styled.p`
   font-weight: 700;
   font-family: Roboto;
   word-wrap: break-word;
-  font-size: 1.2em;
+  font-size: 1.12em;
   line-height: 21px;
   max-width: 90%;
   @media only screen and (max-width: 580px) {

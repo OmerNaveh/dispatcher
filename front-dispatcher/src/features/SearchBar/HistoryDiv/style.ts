@@ -52,6 +52,10 @@ export const StyledHistoryTitleTexts = styled.p<titleTextProps>`
   cursor: ${(props) => props.clickable && "pointer"};
   font-family: "Roboto";
   font-weight: 500;
+  font-size: ${(props) => props.clickable && "0.8em"};
+  &:hover {
+    opacity: ${(props) => props.clickable && 0.8};
+  }
 `;
 export const StyledHistoryTexts = styled.p`
   font-family: "Roboto";

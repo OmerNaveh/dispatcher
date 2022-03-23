@@ -6,6 +6,7 @@ const PrimaryButton = styled.button`
   border-radius: 20px;
   font-weight: 500;
   line-height: 26px;
+  font-size: 0.875em;
   letter-spacing: 0.25px;
   font-family: Roboto;
   font-style: normal;
