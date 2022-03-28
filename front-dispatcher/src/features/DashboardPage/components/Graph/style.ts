@@ -22,6 +22,7 @@ export const GraphLayout = styled.div`
   padding: 1em;
   width: 90%;
   height: 30%;
+  min-height: 355px;
   margin: 0;
   margin-bottom: 1em;
   justify-content: space-between;
@@ -42,4 +43,12 @@ export const NoContentDiv = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+`;
+export const GraphContentDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 80%;
+  width: 100%;
 `;

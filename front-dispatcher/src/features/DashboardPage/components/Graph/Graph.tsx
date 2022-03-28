@@ -1,11 +1,12 @@
-import { Divider } from "@mui/material";
 import React from "react";
-import { Container } from "../../../../components/Container/Container";
-
 import { graphString } from "../../../../strings/strings";
-import { CardLayout, CardText, CardTitle } from "../../../Card/style";
+import { CardText } from "../../../Card/style";
+import DoughnutGraph from "./components/DoughnutGraph/DoughnutGraph";
+import LineGraph from "./components/LineGraph/LineGraph";
+import { doughnutMockdata, lineGraphMockData } from "./mock/graphsMockData";
 
 import {
+  GraphContentDiv,
   GraphLayout,
   GraphTitle,
   NoContentDiv,
@@ -19,6 +20,27 @@ interface graphProps {
 }
 
 const Graph = ({ title, graphType }: graphProps) => {
+  const showGraphByType = () => {
+    return graphType === graphString.graphTypeArray[0] ? (
+      <GraphContentDiv>
+        <DoughnutGraph data={doughnutMockdata} />
+      </GraphContentDiv>
+    ) : graphType === graphString.graphTypeArray[1] ? (
+      <GraphContentDiv>
+        <LineGraph data={lineGraphMockData} />
+      </GraphContentDiv>
+    ) : (
+      showNoGraphType()
+    );
+  };
+  const showNoGraphType = () => {
+    return (
+      <NoContentDiv>
+        <NoGraphIcon />
+        <CardText>{graphString.noDataToDisplay}</CardText>
+      </NoContentDiv>
+    );
+  };
   return (
     <GraphLayout>
       <div>
@@ -31,6 +53,7 @@ const Graph = ({ title, graphType }: graphProps) => {
           <CardText>{graphString.noDataToDisplay}</CardText>
         </NoContentDiv>
       )}
+      {graphType && showGraphByType()}
     </GraphLayout>
   );
 };
