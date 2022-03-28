@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
 
 &.MuiInput-input{
   font-size: 90% !important;
+  padding: unset !important;
   font-family: Roboto !important;
   font-weight: 400 !important;
   color: ${colors.DarkestBlue} !important;
@@ -29,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
 body {
   margin: 0;
   max-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 `;
 

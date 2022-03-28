@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../../../strings/colors";
-
-export const SortByDiv = styled.div`
+import { ReactComponent as FilterIcon } from "../../../../assets/filter.svg";
+export const MobileFilterDiv = styled.div`
   background-color: ${colors.White};
   display: flex;
   justify-content: space-between;
@@ -13,8 +13,10 @@ export const SortByDiv = styled.div`
   color: ${colors.DarkBlue};
   font-size: 95%;
   font-family: Roboto;
-  cursor: pointer;
   font-weight: 400;
+`;
+export const SortByDiv = styled.div`
+  width: 110px;
 `;
 export const FilterDiv = styled.div`
   z-index: 500;
@@ -29,6 +31,17 @@ export const FilterDiv = styled.div`
   align-items: flex-start;
   @media only screen and (max-width: 580px) {
     width: 79%;
+  }
+`;
+interface filterIconProps {
+  changesMade?: boolean;
+}
+export const FilterIconStyled = styled(FilterIcon)<filterIconProps>`
+  cursor: pointer;
+  filter: ${(props) =>
+    props.changesMade && "sepia(100%) hue-rotate(190deg) saturate(500%)"};
+  &:hover {
+    opacity: 0.8;
   }
 `;
 export const FilterBtnDiv = styled.div`

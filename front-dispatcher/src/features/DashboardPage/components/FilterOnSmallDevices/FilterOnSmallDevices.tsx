@@ -1,23 +1,28 @@
 import React, { useRef, useState } from "react";
 
-import { apiStrings, searchBarStrings } from "../../../../strings/strings";
-import { SortByDiv } from "./style";
-import { ReactComponent as DropIcon } from "../../../../assets/dropdown.svg";
-import { ReactComponent as FilterIcon } from "../../../../assets/filter.svg";
+import { apiStrings } from "../../../../strings/strings";
+import { FilterIconStyled, MobileFilterDiv, SortByDiv } from "./style";
 import { Backdrop } from "@mui/material";
 import FilterContent from "./components/FilterContent";
+import DropDown from "../../../../components/DropDown/DropDown";
 const FilterOnSmallDevices = () => {
   const [clicked, setClicked] = useState<boolean>();
   const backDropElem = useRef(null);
+  const SortByString = apiStrings.Everything[0];
+  //TODO: react to state of primary search type to decide showing SortBy DropDown
   return (
     <>
-      <SortByDiv onClick={() => setClicked(!clicked)}>
-        <div>
-          {apiStrings.Everything[0]}
-          <DropIcon style={{ marginLeft: "1em" }} />
-        </div>
-        <FilterIcon />
-      </SortByDiv>
+      <MobileFilterDiv>
+        {/*TODO: conditional if not TOP HEADLINES <div /> */}
+        <SortByDiv>
+          <DropDown
+            options={apiStrings[SortByString]}
+            placeHolder={SortByString}
+          />
+        </SortByDiv>
+        {/* TODO: Pass Changes made to filterIcon to changeColor */}
+        <FilterIconStyled onClick={() => setClicked(!clicked)} />
+      </MobileFilterDiv>
       {clicked && (
         <Backdrop
           ref={backDropElem}

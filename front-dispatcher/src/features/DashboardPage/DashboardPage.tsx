@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Container } from "../../components/Container/Container";
 import CustomDivider from "../../components/Divider/style";
 
-import { searchBarStrings } from "../../strings/strings";
+import { cardResultsStrings, searchBarStrings } from "../../strings/strings";
 
 import Header from "../Header/Header";
 import DashboardContenContainer from "./components/DashboardContentContainer/DashboardContenContainer";
 import DropDowns from "./components/DropDownsContainer/DropDowns";
 import FilterOnSmallDevices from "./components/FilterOnSmallDevices/FilterOnSmallDevices";
 import { resizeListener } from "../Header/utils/listenerUtils";
+import { CustomDashboardText } from "./style";
 
 const DashboardPage = () => {
   const [isNotDesktop, setIsNotDesktop] = useState<boolean>(
@@ -28,6 +29,10 @@ const DashboardPage = () => {
           />
         )}
         {!isNotDesktop && <CustomDivider />}
+        {/* TODO: Make Text change based on state */}
+        <CustomDashboardText firstVisit={true}>
+          {cardResultsStrings.topHeadlinesIn}
+        </CustomDashboardText>
         <DashboardContenContainer />
       </Container>
     </Container>

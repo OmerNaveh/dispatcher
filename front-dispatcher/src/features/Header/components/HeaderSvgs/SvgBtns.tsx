@@ -1,8 +1,8 @@
 import React from "react";
 import IconButton from "@mui/material/IconButton";
 import { ReactComponent as SettingsIcon } from "../../../../assets/settings.svg";
-import { ReactComponent as NotificationsIcon } from "../../../../assets/notifications.svg";
 import { ReactComponent as SearchIcon } from "../../../../assets/search.svg";
+import { StyledNotificationIcon } from "./style";
 
 interface svgBtnProps {
   settings?: boolean;
@@ -18,7 +18,7 @@ const SvgBtns = ({ settings, search, onClickFunc }: svgBtnProps) => {
       ) : settings ? (
         <SettingsIcon />
       ) : (
-        <NotificationsIcon />
+        <StyledNotificationIcon />
       )}
     </IconButton>
   );
