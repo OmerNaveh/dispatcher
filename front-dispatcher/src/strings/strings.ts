@@ -83,7 +83,7 @@ export const apiStrings: { [key: string]: string[] } = {
     "UD",
     "ZH",
   ],
-  ["Sort by"]: ["relevancy", "popularity", "publishedAt"],
+  ["Sort by"]: ["Relevancy", "Popularity", "PublishedAt"],
   Sources: [
     "Engadget",
     "Reuters",
