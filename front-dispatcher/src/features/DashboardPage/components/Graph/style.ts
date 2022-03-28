@@ -24,6 +24,7 @@ export const GraphLayout = styled.div`
   height: 30%;
   margin: 0;
   margin-bottom: 1em;
+  justify-content: space-between;
 `;
 export const GraphTitle = styled.p`
   color: ${colors.CardTitle};
@@ -35,4 +36,10 @@ export const GraphTitle = styled.p`
   font-size: 1.12em;
   line-height: 21px;
   max-width: 90%;
+`;
+export const NoContentDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 `;

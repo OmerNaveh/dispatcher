@@ -5,7 +5,13 @@ import { Container } from "../../../../components/Container/Container";
 import { graphString } from "../../../../strings/strings";
 import { CardLayout, CardText, CardTitle } from "../../../Card/style";
 
-import { GraphLayout, GraphTitle, NoGraphIcon, TitleDivider } from "./style";
+import {
+  GraphLayout,
+  GraphTitle,
+  NoContentDiv,
+  NoGraphIcon,
+  TitleDivider,
+} from "./style";
 
 interface graphProps {
   title: string;
@@ -15,13 +21,15 @@ interface graphProps {
 const Graph = ({ title, graphType }: graphProps) => {
   return (
     <GraphLayout>
-      <GraphTitle>{title}</GraphTitle>
-      <TitleDivider />
+      <div>
+        <GraphTitle>{title}</GraphTitle>
+        <TitleDivider />
+      </div>
       {!graphType && (
-        <Container className={graphString.containerClass}>
+        <NoContentDiv>
           <NoGraphIcon />
           <CardText>{graphString.noDataToDisplay}</CardText>
-        </Container>
+        </NoContentDiv>
       )}
     </GraphLayout>
   );
