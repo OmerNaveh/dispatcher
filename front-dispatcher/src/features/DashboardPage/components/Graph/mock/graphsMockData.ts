@@ -15,6 +15,14 @@ export const lineGraphMockData = [
     identifier: "June",
     value: 2000,
   },
+  {
+    identifier: "January",
+    value: 2500,
+  },
+  {
+    identifier: "May",
+    value: 2100,
+  },
 ];
 export const doughnutMockdata = [
   { name: "NBC", value: 400 },
