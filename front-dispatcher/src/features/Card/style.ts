@@ -42,14 +42,6 @@ export const CardLayout = styled.div`
     flex-direction: column;
     margin: 0.8em 0;
   }
-
-  &.graph {
-    flex-direction: column;
-    padding: 1em;
-    width: 90%;
-    height: 30%;
-    margin: 0.3em 0;
-  }
 `;
 
 export const CardText = styled.p`

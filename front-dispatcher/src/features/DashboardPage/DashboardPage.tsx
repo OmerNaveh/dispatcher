@@ -9,7 +9,11 @@ import DashboardContenContainer from "./components/DashboardContentContainer/Das
 import DropDowns from "./components/DropDownsContainer/DropDowns";
 import FilterOnSmallDevices from "./components/FilterOnSmallDevices/FilterOnSmallDevices";
 import { resizeListener } from "../Header/utils/listenerUtils";
-import { CustomDashboardText } from "./style";
+import {
+  CustomDashboardText,
+  StyledDashboardDiv,
+  StyledMainContentDiv,
+} from "./style";
 
 const DashboardPage = () => {
   const [isNotDesktop, setIsNotDesktop] = useState<boolean>(
@@ -19,10 +23,10 @@ const DashboardPage = () => {
     resizeListener(setIsNotDesktop, 900);
   }, []);
   return (
-    <Container className="fullScreen dashColor">
+    <StyledDashboardDiv>
       <Header />
       {isNotDesktop && <FilterOnSmallDevices />}
-      <Container className="mainContent">
+      <StyledMainContentDiv>
         {!isNotDesktop && (
           <DropDowns
             searchMainQuery={searchBarStrings.searchDropDownOptions[0]}
@@ -34,8 +38,8 @@ const DashboardPage = () => {
           {cardResultsStrings.topHeadlinesIn}
         </CustomDashboardText>
         <DashboardContenContainer />
-      </Container>
-    </Container>
+      </StyledMainContentDiv>
+    </StyledDashboardDiv>
   );
 };
 export default DashboardPage;
