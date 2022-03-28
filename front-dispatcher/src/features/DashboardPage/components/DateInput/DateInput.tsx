@@ -1,7 +1,7 @@
 import React from "react";
 import { DatePicker, LocalizationProvider } from "@mui/lab";
 import { TextField } from "@mui/material";
-import { apiStrings } from "../../../../strings/strings";
+import { apiStrings, dateStrings } from "../../../../strings/strings";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { ReactComponent as DateIcon } from "../../../../assets/date.svg";
 import { StyledDateDiv } from "./style";
@@ -13,8 +13,8 @@ const DateInput = () => {
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
           disableFuture
-          openTo="year"
-          views={["year", "month", "day"]}
+          openTo={dateStrings.Year}
+          views={[dateStrings.Year, dateStrings.Month, dateStrings.Day]}
           value={selectedDate}
           onChange={(newValue) => {
             setSelectedDate(newValue);

@@ -155,3 +155,12 @@ export const cardResultsStrings = {
   totalResults: "Total results",
   topHeadlinesIn: "Top Headlines in Israel",
 };
+export const dateStrings: {
+  Year: "year";
+  Month: "month";
+  Day: "day";
+} = {
+  Year: "year",
+  Month: "month",
+  Day: "day",
+};
