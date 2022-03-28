@@ -9,7 +9,7 @@ export const NoGraphIcon = styled(GraphIcon)`
 `;
 export const TitleDivider = styled.div`
   background-color: ${colors.DarkBlue};
-  width: 3%;
+  width: 0.75em;
   padding: 0.5%;
   border-radius: 1em;
 `;
@@ -19,7 +19,7 @@ export const GraphLayout = styled.div`
   display: flex;
   border-radius: 20px;
   flex-direction: column;
-  padding: 1em;
+  padding: 1.5em 1em 1em 1em;
   width: 90%;
   height: 30%;
   min-height: 355px;
@@ -31,10 +31,10 @@ export const GraphTitle = styled.p`
   color: ${colors.CardTitle};
   font-weight: 700;
   margin: 0;
-  margin-bottom: 0.7em;
-  font-family: Roboto;
+  font-size: 24px;
+  margin-bottom: 0.5em;
+  font-family: "Roboto";
   word-wrap: break-word;
-  font-size: 1.12em;
   line-height: 21px;
   max-width: 90%;
 `;
