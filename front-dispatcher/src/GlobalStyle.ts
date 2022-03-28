@@ -16,6 +16,30 @@ const GlobalStyle = createGlobalStyle`
 &.MuiSelectUnstyled-root{
   min-width: 11px;
 }
+&.css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root{ 
+    font-family: "Roboto" !important;
+    color: ${colors.DarkBlue} !important;
+    width: 100%;
+    >input{
+      cursor: default !important;
+      font-size: 90% !important;
+      &::placeholder {
+        opacity: 1;
+        color: ${colors.DarkBlue} !important;
+      }
+    }
+}
+&.css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+  border: none !important;
+}
+&.css-1u3bzj6-MuiFormControl-root-MuiTextField-root{
+  width: 100% !important;
+  height: 100% !important;
+  justify-content: center;
+}
+&.css-1ozefeb{
+  margin:5px !important;
+}
 &.recharts-label{
   color: ${colors.DarkestBlue} !important;
   font-family: "Mulish" !important;

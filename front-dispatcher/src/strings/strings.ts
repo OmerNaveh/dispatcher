@@ -83,7 +83,7 @@ export const apiStrings: { [key: string]: string[] } = {
     "UD",
     "ZH",
   ],
-  ["Sort by"]: ["relevancy", "popularity", "publishedAt"],
+  ["Sort by"]: ["Relevancy", "Popularity", "PublishedAt"],
   Sources: [
     "Engadget",
     "Reuters",
@@ -154,4 +154,13 @@ export const positionString: { [key: string]: "start" | "end" } = {
 export const cardResultsStrings = {
   totalResults: "Total results",
   topHeadlinesIn: "Top Headlines in Israel",
+};
+export const dateStrings: {
+  Year: "year";
+  Month: "month";
+  Day: "day";
+} = {
+  Year: "year",
+  Month: "month",
+  Day: "day",
 };

@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { colors } from "../../strings/colors";
 import { StyledOption } from "./Style";
-
-export const StyledDropDownDiv = styled.div`
+interface styledDiv {
+  searchbar?: boolean;
+}
+export const StyledDropDownDiv = styled.div<styledDiv>`
   position: relative;
   width: 100%;
   margin: 0 0.5em;
+  display: ${(props) => !props.searchbar && "flex"};
+  justify-content: ${(props) => !props.searchbar && "center"};
   background: ${colors.White};
   border-radius: 10px;
   padding: 0;

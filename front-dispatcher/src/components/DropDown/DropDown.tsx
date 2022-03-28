@@ -5,9 +5,10 @@ import { PersonalStyledOption, StyledDropDownDiv } from "./styled";
 interface dropDownProps {
   options: string[];
   placeHolder?: string;
+  searchbar?: boolean;
 }
 
-const DropDown = ({ options, placeHolder }: dropDownProps) => {
+const DropDown = ({ options, placeHolder, searchbar }: dropDownProps) => {
   const [selectFilterValue, setSelectFilterValue] =
     React.useState<string | undefined | null>(placeHolder);
 
@@ -20,7 +21,7 @@ const DropDown = ({ options, placeHolder }: dropDownProps) => {
   };
 
   return (
-    <StyledDropDownDiv>
+    <StyledDropDownDiv searchbar={searchbar}>
       <CustomSelect
         value={selectFilterValue}
         onChange={setSelectFilterValue}
