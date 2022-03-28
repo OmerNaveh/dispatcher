@@ -34,6 +34,7 @@ const SearchBar = ({ fullScreen, mobileBackFC }: searchbarProps) => {
       <InputWithIcon onFocusFC={() => setFocused(!focused)} focused={focused} />
       <Divider orientation="vertical" flexItem />
       <DropDown
+        searchbar={true}
         options={searchBarStrings.searchDropDownOptions}
         placeHolder={searchBarStrings.searchDropDownOptions[0]}
       />

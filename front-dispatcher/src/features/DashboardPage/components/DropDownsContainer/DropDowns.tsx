@@ -2,6 +2,7 @@ import React from "react";
 import DropDown from "../../../../components/DropDown/DropDown";
 
 import { apiStrings, searchBarStrings } from "../../../../strings/strings";
+import DateInput from "../DateInput/DateInput";
 
 import { DropDownsContainer } from "./style";
 
@@ -22,7 +23,7 @@ const DropDowns = ({ searchMainQuery }: props) => {
       return apiStrings.Everything.map((cat) => {
         //date catagory case
         if (cat === apiStrings.Everything[1]) {
-          return <DropDown key={cat} options={[]} placeHolder={cat} />;
+          return <DateInput />;
         }
         if (cat && apiStrings[cat]) {
           return (
