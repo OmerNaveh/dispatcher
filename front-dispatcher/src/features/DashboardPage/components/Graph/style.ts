@@ -43,6 +43,7 @@ export const NoContentDiv = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 100%;
 `;
 export const GraphContentDiv = styled.div`
   display: flex;

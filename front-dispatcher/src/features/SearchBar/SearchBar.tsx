@@ -3,11 +3,7 @@ import React, { useState } from "react";
 import InputWithIcon from "./InputWithIcon/InputWithIcon";
 
 import { Divider } from "@mui/material";
-import {
-  filterActionsStrings,
-  ReduxString,
-  searchBarStrings,
-} from "../../strings/strings";
+import { filterActionsStrings, searchBarStrings } from "../../strings/strings";
 import {
   StyledBackIcon,
   StyledMobileSearchDiv,

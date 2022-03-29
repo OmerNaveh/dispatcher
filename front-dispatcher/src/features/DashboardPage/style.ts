@@ -22,7 +22,7 @@ export const StyledDashboardDiv = styled.div`
   background-color: ${colors.LightestGray};
 `;
 export const StyledMainContentDiv = styled.div`
-  padding: 1em 5% 0 5%;
+  padding: 1em 10% 0 10%;
   overflow: hidden;
 
   @media only screen and (max-width: 900px) {
