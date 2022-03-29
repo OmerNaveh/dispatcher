@@ -7,7 +7,7 @@ import { LoadingScreenDiv } from "./style";
 const LoadingScreen = () => {
   return (
     <LoadingScreenDiv>
-      <Backdrop sx={{ color: colors.Black, zIndex: 500 }} open={true}>
+      <Backdrop open={true}>
         <CircularProgress color={"primary"} />
       </Backdrop>
     </LoadingScreenDiv>
