@@ -97,6 +97,11 @@ export const apiStrings: { [key: string]: string[] } = {
     "Ynet",
   ],
 };
+export const ReduxString = {
+  TopHeadlines: "Top Headlines",
+  Everything: "Everything",
+  Filters: "filters",
+};
 export const ipUrls = {
   getClientIpUrl: "https://api.ipify.org/?format=json",
   getInfoFromIpUrl: "http://ip-api.com/json/",
