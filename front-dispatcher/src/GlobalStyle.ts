@@ -53,7 +53,6 @@ const GlobalStyle = createGlobalStyle`
 }
 body {
   margin: 0;
-  max-height: 100vh;
   overflow-x: hidden;
 }
 `;

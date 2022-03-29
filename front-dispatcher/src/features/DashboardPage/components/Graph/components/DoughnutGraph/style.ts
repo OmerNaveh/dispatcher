@@ -4,8 +4,8 @@ interface liProps {
   color: string;
 }
 export const StyledLi = styled.li<liProps>`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 5% 95%;
   align-items: center;
   list-style-type: none;
   :before {
@@ -23,7 +23,13 @@ export const LegendText = styled.p`
   color: ${colors.DarkestBlue};
   font-family: "Mulish";
   font-weight: 400;
+  margin: 0.35em;
   &.gray {
     color: ${colors.Gray};
   }
+`;
+export const ListTextsFlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;

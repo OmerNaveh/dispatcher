@@ -10,3 +10,23 @@ export const CustomDashboardText = styled.p<customDashboardTextProps>`
   color: ${(props) => (props.firstVisit ? colors.Black : colors.GrayCardText)};
   margin: ${(props) => (props.firstVisit ? "0.1em 0 0.8em 0" : "0 0 0.4em 0")};
 `;
+export const StyledDashboardDiv = styled.div`
+  margin: 0;
+  width: 100vw;
+
+  overflow: hidden;
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+  }
+  margin-top: 74px;
+  background-color: ${colors.LightestGray};
+`;
+export const StyledMainContentDiv = styled.div`
+  padding: 1em 5% 0 5%;
+  overflow: hidden;
+
+  @media only screen and (max-width: 900px) {
+    padding: 1em 0;
+    margin: 0 1em;
+  }
+`;
