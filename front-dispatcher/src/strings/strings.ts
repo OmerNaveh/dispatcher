@@ -106,6 +106,8 @@ export const ReduxString = {
   Set: "set",
   SortBy: "Sort by",
   Sources: "Sources",
+  SearchIn: "Search in",
+  Dates: "Dates",
 };
 export const filterActionsStrings: filterActionsStringTypes[] = [
   "setEndpoint",

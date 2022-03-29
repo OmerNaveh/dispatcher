@@ -8,6 +8,7 @@ export const MobileFilterDiv = styled.div`
   padding: 0 12px 0 16px;
   max-width: 100vw;
   height: 5%;
+  min-height: 39px;
   align-items: center;
   border: 1px solid ${colors.Gray};
   color: ${colors.DarkBlue};

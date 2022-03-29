@@ -1,27 +1,56 @@
 import React, { useRef, useState } from "react";
 
-import { apiStrings } from "../../../../strings/strings";
+import {
+  apiStrings,
+  filterActionsStrings,
+  ReduxString,
+} from "../../../../strings/strings";
 import { FilterIconStyled, MobileFilterDiv, SortByDiv } from "./style";
 import { Backdrop } from "@mui/material";
 import FilterContent from "./components/FilterContent";
 import DropDown from "../../../../components/DropDown/DropDown";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../../store";
 const FilterOnSmallDevices = () => {
   const [clicked, setClicked] = useState<boolean>();
+  const filterState = useSelector((state: RootState) => state.filters);
+  const {
+    endpoint,
+    category,
+    country,
+    sortBy,
+    sourceEverything,
+    sourceTopHeadlines,
+  } = filterState;
   const backDropElem = useRef(null);
   const SortByString = apiStrings.Everything[0];
-  //TODO: react to state of primary search type to decide showing SortBy DropDown
   return (
     <>
       <MobileFilterDiv>
-        {/*TODO: conditional if not TOP HEADLINES <div /> */}
-        <SortByDiv>
-          <DropDown
-            options={apiStrings[SortByString]}
-            placeHolder={SortByString}
-          />
-        </SortByDiv>
-        {/* TODO: Pass Changes made to filterIcon to changeColor */}
-        <FilterIconStyled onClick={() => setClicked(!clicked)} />
+        {endpoint === ReduxString.Everything ? (
+          <SortByDiv>
+            <DropDown
+              options={apiStrings[SortByString]}
+              placeHolder={SortByString}
+              reduxActionType={filterActionsStrings[1]}
+            />
+          </SortByDiv>
+        ) : (
+          <div></div>
+        )}
+
+        <FilterIconStyled
+          onClick={() => setClicked(!clicked)}
+          changesMade={
+            category ||
+            country ||
+            sortBy ||
+            sourceEverything ||
+            sourceTopHeadlines
+              ? true
+              : false
+          }
+        />
       </MobileFilterDiv>
       {clicked && (
         <Backdrop

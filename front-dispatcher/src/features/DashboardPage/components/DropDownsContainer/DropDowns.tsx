@@ -1,5 +1,6 @@
 import React from "react";
 import DropDown from "../../../../components/DropDown/DropDown";
+import { chooseCorrectActionType } from "../../../../helpers/actionTypeSelector";
 import { filterActionsStringTypes } from "../../../../store/slicers/filtersSlice";
 
 import {
@@ -17,15 +18,6 @@ interface props {
 }
 
 const DropDowns = ({ searchMainQuery }: props) => {
-  const chooseCorrectActionType = (cat: string) => {
-    return cat !== ReduxString.SortBy && cat !== ReduxString.Sources
-      ? (`${ReduxString.Set}${cat}` as filterActionsStringTypes)
-      : cat === ReduxString.SortBy
-      ? filterActionsStrings[1]
-      : searchMainQuery !== ReduxString.TopHeadlines
-      ? filterActionsStrings[8]
-      : filterActionsStrings[9];
-  };
   const createDropDowns = () => {
     if (searchMainQuery === searchBarStrings.searchDropDownOptions[0]) {
       return apiStrings[searchMainQuery].map((cat) => {
@@ -35,7 +27,7 @@ const DropDowns = ({ searchMainQuery }: props) => {
               key={cat}
               options={apiStrings[cat]}
               placeHolder={cat}
-              reduxActionType={chooseCorrectActionType(cat)}
+              reduxActionType={chooseCorrectActionType(cat, searchMainQuery)}
             />
           );
         }
@@ -52,7 +44,7 @@ const DropDowns = ({ searchMainQuery }: props) => {
               key={cat}
               options={apiStrings[cat]}
               placeHolder={cat}
-              reduxActionType={chooseCorrectActionType(cat)}
+              reduxActionType={chooseCorrectActionType(cat, searchMainQuery)}
             />
           );
         }
