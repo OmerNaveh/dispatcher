@@ -22,7 +22,6 @@ const DropDown = ({
 }: dropDownProps) => {
   const [selectFilterValue, setSelectFilterValue] =
     React.useState<string | undefined | null>(placeHolder);
-
   const allOptions = () => {
     return options.map((optionString) => (
       <StyledOption key={optionString} value={optionString}>

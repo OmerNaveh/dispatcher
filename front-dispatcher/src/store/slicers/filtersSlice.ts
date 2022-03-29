@@ -1,12 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ReduxString } from "../../strings/strings";
-
-const initialState = {
+export interface reduxState {
+  endpoint: string;
+  searchInput: string;
+  sourceEverything: string;
+  sourceTopHeadlines: string;
+  date: string;
+  language: string;
+  sortBy: string;
+  country: string;
+  category: string;
+}
+const initialState: reduxState = {
   endpoint: ReduxString.TopHeadlines,
   searchInput: "",
   sourceEverything: "",
   sourceTopHeadlines: "",
-  dateFrom: "",
+  date: "",
   language: "",
   sortBy: "",
   country: "",
@@ -19,28 +29,28 @@ const filterSlice = createSlice({
     setEndpoint(state, action) {
       state.endpoint = action.payload;
     },
-    setSearchInput(state, action) {
+    setSearchInput(state, action: PayloadAction<string>) {
       state.searchInput = action.payload;
     },
-    setCategory(state, action) {
+    setCategory(state, action: PayloadAction<string>) {
       state.category = action.payload;
     },
-    setCountry(state, action) {
+    setCountry(state, action: PayloadAction<string>) {
       state.country = action.payload;
     },
-    setLanguage(state, action) {
+    setLanguage(state, action: PayloadAction<string>) {
       state.language = action.payload;
     },
-    setSortBy(state, action) {
+    setSortBy(state, action: PayloadAction<string>) {
       state.sortBy = action.payload;
     },
-    setDateFrom(state, action) {
-      state.dateFrom = action.payload;
+    setDate(state, action: PayloadAction<string>) {
+      state.date = action.payload;
     },
-    setSourceEverything(state, action) {
+    setSourceEverything(state, action: PayloadAction<string>) {
       state.sourceEverything = action.payload;
     },
-    setSourceTopheadlines(state, action) {
+    setSourceTopheadlines(state, action: PayloadAction<string>) {
       state.sourceTopHeadlines = action.payload;
     },
   },
@@ -54,7 +64,7 @@ export type filterActionsStringTypes =
   | "setLanguage"
   | "setLanguage"
   | "setSortBy"
-  | "setDateFrom"
+  | "setDate"
   | "setSourceEverything"
   | "setSourceTopheadlines";
 export default filterSlice;

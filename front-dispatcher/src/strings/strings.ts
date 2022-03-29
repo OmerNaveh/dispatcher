@@ -2,7 +2,7 @@ import { filterActionsStringTypes } from "../store/slicers/filtersSlice";
 
 export const apiStrings: { [key: string]: string[] } = {
   ["Search in"]: ["Top Headlines", "Everything"],
-  ["Top Headlines"]: ["Country", "Catagory", "Sources"],
+  ["Top Headlines"]: ["Country", "Category", "Sources"],
   Country: [
     "AE",
     "AR",
@@ -59,7 +59,7 @@ export const apiStrings: { [key: string]: string[] } = {
     "VE",
     "ZA",
   ],
-  Catagory: [
+  Category: [
     "Business",
     "Enetertainment",
     "General",
@@ -103,16 +103,19 @@ export const ReduxString = {
   TopHeadlines: "Top Headlines",
   Everything: "Everything",
   Filters: "filters",
+  Set: "set",
+  SortBy: "Sort by",
+  Sources: "Sources",
 };
 export const filterActionsStrings: filterActionsStringTypes[] = [
   "setEndpoint",
+  "setSortBy",
   "setSearchInput",
   "setCategory",
   "setCountry",
   "setLanguage",
   "setLanguage",
-  "setSortBy",
-  "setDateFrom",
+  "setDate",
   "setSourceEverything",
   "setSourceTopheadlines",
 ];
