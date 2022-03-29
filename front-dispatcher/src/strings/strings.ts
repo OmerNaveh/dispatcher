@@ -1,3 +1,5 @@
+import { filterActionsStringTypes } from "../store/slicers/filtersSlice";
+
 export const apiStrings: { [key: string]: string[] } = {
   ["Search in"]: ["Top Headlines", "Everything"],
   ["Top Headlines"]: ["Country", "Catagory", "Sources"],
@@ -102,6 +104,18 @@ export const ReduxString = {
   Everything: "Everything",
   Filters: "filters",
 };
+export const filterActionsStrings: filterActionsStringTypes[] = [
+  "setEndpoint",
+  "setSearchInput",
+  "setCategory",
+  "setCountry",
+  "setLanguage",
+  "setLanguage",
+  "setSortBy",
+  "setDateFrom",
+  "setSourceEverything",
+  "setSourceTopheadlines",
+];
 export const ipUrls = {
   getClientIpUrl: "https://api.ipify.org/?format=json",
   getInfoFromIpUrl: "http://ip-api.com/json/",

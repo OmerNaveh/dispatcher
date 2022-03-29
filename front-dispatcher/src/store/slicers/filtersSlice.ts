@@ -46,4 +46,15 @@ const filterSlice = createSlice({
   },
 });
 export const filterActions = filterSlice.actions;
+export type filterActionsStringTypes =
+  | "setEndpoint"
+  | "setSearchInput"
+  | "setCategory"
+  | "setCountry"
+  | "setLanguage"
+  | "setLanguage"
+  | "setSortBy"
+  | "setDateFrom"
+  | "setSourceEverything"
+  | "setSourceTopheadlines";
 export default filterSlice;

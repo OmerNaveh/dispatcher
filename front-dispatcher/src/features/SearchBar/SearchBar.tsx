@@ -3,7 +3,11 @@ import React, { useState } from "react";
 import InputWithIcon from "./InputWithIcon/InputWithIcon";
 
 import { Divider } from "@mui/material";
-import { searchBarStrings } from "../../strings/strings";
+import {
+  filterActionsStrings,
+  ReduxString,
+  searchBarStrings,
+} from "../../strings/strings";
 import {
   StyledBackIcon,
   StyledMobileSearchDiv,
@@ -34,6 +38,7 @@ const SearchBar = ({ fullScreen, mobileBackFC }: searchbarProps) => {
       <InputWithIcon onFocusFC={() => setFocused(!focused)} focused={focused} />
       <Divider orientation="vertical" flexItem />
       <DropDown
+        reduxActionType={filterActionsStrings[0]}
         searchbar={true}
         options={searchBarStrings.searchDropDownOptions}
         placeHolder={searchBarStrings.searchDropDownOptions[0]}
