@@ -103,6 +103,7 @@ export const ReduxString = {
   TopHeadlines: "Top Headlines",
   Everything: "Everything",
   Filters: "filters",
+  ApiSlicer: "apiSlicer",
   Set: "set",
   SortBy: "Sort by",
   Sources: "Sources",
@@ -128,6 +129,8 @@ export const ipUrls = {
 export const cardString = {
   NavigateToDispatch: "NAVIGATE TO DISPATCH",
   Continue: "CONTINUE",
+  defaultImageUrl:
+    "https://media.istockphoto.com/photos/breaking-news-world-news-with-map-backgorund-picture-id1182477852?k=20&m=1182477852&s=612x612&w=0&h=I3wdSzT_5h1y9dHq_YpZ9AqdIKg8epthr8Guva8FkPA=",
 };
 export const graphString = {
   noDataToDisplay: "No data to display",
@@ -187,4 +190,18 @@ export const dateStrings: {
   Year: "year",
   Month: "month",
   Day: "day",
+};
+export const apiUrlsStrings = {
+  apiBaseUrl: "https://newsapi.org/v2/",
+  questionMark: "?",
+  query: "q=",
+  dateFrom: "&from=",
+  dateTo: "&to=",
+  sortBy: "&sortBy=",
+  sources: "&sources=",
+  language: "&language=",
+  category: "&category=",
+  country: "&country=",
+  topHeadlines: "top-headlines",
+  apikey: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
 };

@@ -13,7 +13,7 @@ export const CustomDashboardText = styled.p<customDashboardTextProps>`
 export const StyledDashboardDiv = styled.div`
   margin: 0;
   width: 100vw;
-
+  min-height: 100vh;
   overflow: hidden;
   @media only screen and (max-width: 900px) {
     flex-direction: column;

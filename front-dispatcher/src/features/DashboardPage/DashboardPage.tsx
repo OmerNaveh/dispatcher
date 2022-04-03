@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "../../components/Container/Container";
 import CustomDivider from "../../components/Divider/style";
-
 import { cardResultsStrings } from "../../strings/strings";
-
 import Header from "../Header/Header";
 import DashboardContenContainer from "./components/DashboardContentContainer/DashboardContenContainer";
 import DropDowns from "./components/DropDownsContainer/DropDowns";
@@ -14,16 +11,22 @@ import {
   StyledDashboardDiv,
   StyledMainContentDiv,
 } from "./style";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
+import { apiDataSliceActions } from "../../store/slicers/apiDataSlicer";
+import { apiCallthunk, getApiUrl } from "../../helpers/apiCall";
 
 const DashboardPage = () => {
   const [isNotDesktop, setIsNotDesktop] = useState<boolean>(
     window.innerWidth < 900
   );
   const filterState = useSelector((state: RootState) => state.filters);
+  const dispatch = useDispatch();
   useEffect(() => {
     resizeListener(setIsNotDesktop, 900);
+    // TODO: change starting default country based on users ip
+    const apiUrl = getApiUrl({ ...filterState, country: "il" });
+    dispatch(apiCallthunk(apiUrl));
   }, []);
   return (
     <StyledDashboardDiv>
