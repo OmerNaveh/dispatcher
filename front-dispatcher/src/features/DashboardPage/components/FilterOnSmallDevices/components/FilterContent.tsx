@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ReactComponent as ArrowIcon } from "../../../../../assets/back.svg";
 import PrimaryButton from "../../../../../components/PrimaryButton/style";
 import { chooseCorrectActionType } from "../../../../../helpers/actionTypeSelector";
+import { apiCallthunk, getApiUrl } from "../../../../../helpers/apiCall";
 import { useAppDispatch, useAppSelector } from "../../../../../store";
 import { filterActions } from "../../../../../store/slicers/filtersSlice";
 import {
@@ -78,6 +79,10 @@ const FilterContent = () => {
         )}
       </>
     );
+  const ButtonApiSearchOnClick = () => {
+    const url = getApiUrl(filterState);
+    dispatch(apiCallthunk(url));
+  };
   return (
     <FilterDiv>
       <FilterItemsContainer>
@@ -99,7 +104,9 @@ const FilterContent = () => {
         {cardContainers()}
       </FilterItemsContainer>
       <FilterBtnDiv>
-        <PrimaryButton>{searchBarStrings.viewResults}</PrimaryButton>
+        <PrimaryButton onClick={ButtonApiSearchOnClick}>
+          {searchBarStrings.viewResults}
+        </PrimaryButton>
       </FilterBtnDiv>
     </FilterDiv>
   );
