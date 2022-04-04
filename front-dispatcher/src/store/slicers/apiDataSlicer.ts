@@ -13,7 +13,7 @@ const apiDataSlice = createSlice({
   reducers: {},
   extraReducers: {
     [apiCallthunk.pending.type]: (state, action) => {
-      state.status = "loading";
+      state.status = ReduxString.Loading;
     },
     [apiCallthunk.fulfilled.type]: (
       state,

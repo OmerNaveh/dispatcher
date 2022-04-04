@@ -1,13 +1,16 @@
 import React from "react";
-
 import { Container } from "../../../../components/Container/Container";
 import { useAppSelector } from "../../../../store";
-import { cardString } from "../../../../strings/strings";
+import { cardString, ReduxString } from "../../../../strings/strings";
 import Card from "../../../Card/Card";
+import LoadingIcon from "../LoadingIcon/LoadingIcon";
 import NotFound from "../NotFound/NotFound";
 const CardContainer = () => {
-  const { articles, totalResults } = useAppSelector((state) => state.apiData);
+  const { articles, totalResults, status } = useAppSelector(
+    (state) => state.apiData
+  );
   const allCards = () => {
+    if (status === ReduxString.Loading) return <LoadingIcon />;
     if (totalResults === 0) return <NotFound />;
     return articles.map((article) => {
       return (
