@@ -207,5 +207,5 @@ export const apiUrlsStrings = {
   apikey: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
 };
 export const usefulStrings = {
-  whiteSpace: "&nbsp;",
+  whiteSpace: "\xa0",
 };
