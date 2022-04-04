@@ -11,17 +11,15 @@ import {
   StyledDashboardDiv,
   StyledMainContentDiv,
 } from "./style";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store";
-import { apiDataSliceActions } from "../../store/slicers/apiDataSlicer";
+import { useAppDispatch, useAppSelector } from "../../store";
 import { apiCallthunk, getApiUrl } from "../../helpers/apiCall";
 
 const DashboardPage = () => {
   const [isNotDesktop, setIsNotDesktop] = useState<boolean>(
     window.innerWidth < 900
   );
-  const filterState = useSelector((state: RootState) => state.filters);
-  const dispatch = useDispatch();
+  const filterState = useAppSelector((state) => state.filters);
+  const dispatch = useAppDispatch();
   useEffect(() => {
     resizeListener(setIsNotDesktop, 900);
     // TODO: change starting default country based on users ip

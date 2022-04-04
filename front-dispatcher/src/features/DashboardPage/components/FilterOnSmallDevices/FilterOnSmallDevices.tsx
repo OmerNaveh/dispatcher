@@ -9,11 +9,10 @@ import { FilterIconStyled, MobileFilterDiv, SortByDiv } from "./style";
 import { Backdrop } from "@mui/material";
 import FilterContent from "./components/FilterContent";
 import DropDown from "../../../../components/DropDown/DropDown";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../../store";
+import { useAppSelector } from "../../../../store";
 const FilterOnSmallDevices = () => {
   const [clicked, setClicked] = useState<boolean>();
-  const filterState = useSelector((state: RootState) => state.filters);
+  const filterState = useAppSelector((state) => state.filters);
   const {
     endpoint,
     category,

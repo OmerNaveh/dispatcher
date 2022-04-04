@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../store";
 import {
   filterActions,
   filterActionsStringTypes,
@@ -29,7 +29,7 @@ const DropDown = ({
       </StyledOption>
     ));
   };
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const onChangeFC = (newValue: string | undefined | null) => {
     if (reduxActionType && newValue) {
       dispatch(filterActions[reduxActionType](newValue));

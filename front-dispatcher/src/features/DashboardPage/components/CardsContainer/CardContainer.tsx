@@ -1,16 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { Container } from "../../../../components/Container/Container";
 
-import mockData from "../../../../mock/mockData.json";
-import { RootState } from "../../../../store";
+import { Container } from "../../../../components/Container/Container";
+import { useAppSelector } from "../../../../store";
 import { cardString } from "../../../../strings/strings";
 import Card from "../../../Card/Card";
 import NotFound from "../NotFound/NotFound";
 const CardContainer = () => {
-  const { articles, totalResults } = useSelector(
-    (state: RootState) => state.apiData
-  );
+  const { articles, totalResults } = useAppSelector((state) => state.apiData);
   const allCards = () => {
     if (totalResults === 0) return <NotFound />;
     return articles.map((article) => {

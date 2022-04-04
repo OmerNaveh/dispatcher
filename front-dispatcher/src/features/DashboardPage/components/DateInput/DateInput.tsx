@@ -5,11 +5,11 @@ import { apiStrings, dateStrings } from "../../../../strings/strings";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { ReactComponent as DateIcon } from "../../../../assets/date.svg";
 import { StyledDateDiv } from "./style";
-import { useDispatch } from "react-redux";
 import { filterActions } from "../../../../store/slicers/filtersSlice";
+import { useAppDispatch } from "../../../../store";
 const DateInput = () => {
   const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <StyledDateDiv>

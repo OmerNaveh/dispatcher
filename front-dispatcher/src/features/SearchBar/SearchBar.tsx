@@ -10,8 +10,7 @@ import {
   StyledSearchBarDiv,
 } from "./style";
 import DropDown from "../../components/DropDown/DropDown";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store";
+import { useAppSelector } from "../../store";
 
 interface searchbarProps {
   fullScreen?: boolean;
@@ -19,7 +18,7 @@ interface searchbarProps {
 }
 const SearchBar = ({ fullScreen, mobileBackFC }: searchbarProps) => {
   const [focused, setFocused] = useState<boolean>(false);
-  const filterState = useSelector((state: RootState) => state.filters);
+  const filterState = useAppSelector((state) => state.filters);
   const { endpoint } = filterState;
   if (fullScreen)
     return (

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as ArrowIcon } from "../../../../../assets/back.svg";
 import PrimaryButton from "../../../../../components/PrimaryButton/style";
 import { chooseCorrectActionType } from "../../../../../helpers/actionTypeSelector";
-import { RootState } from "../../../../../store";
+import { useAppDispatch, useAppSelector } from "../../../../../store";
 import { filterActions } from "../../../../../store/slicers/filtersSlice";
 import {
   apiStrings,
@@ -19,9 +18,9 @@ import {
   FilterItemTitle,
 } from "../style";
 const FilterContent = () => {
-  const filterState = useSelector((state: RootState) => state.filters);
+  const filterState = useAppSelector((state) => state.filters);
   type T = keyof typeof filterState;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { endpoint } = filterState;
   const [filterTitle, setFilterTitle] = useState<string>(
     searchBarStrings.filter
