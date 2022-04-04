@@ -6,6 +6,7 @@ interface styledDateDivProps {
 export const StyledDateDiv = styled.div<styledDateDivProps>`
   width: 100%;
   margin: ${(props) => (props.sideBar ? "0" : "0 0.5em")};
+  max-height: ${(props) => !props.sideBar && "44.5px"};
   background: ${colors.White};
   color: ${colors.DarkBlue};
   border-radius: 10px;
