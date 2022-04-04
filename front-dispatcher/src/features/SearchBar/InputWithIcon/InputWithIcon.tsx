@@ -14,11 +14,15 @@ import { filterActions } from "../../../store/slicers/filtersSlice";
 import { apiCallthunk, getApiUrl } from "../../../helpers/apiCall";
 import { usefulNumbers } from "../../../strings/numbers";
 interface props {
-  onFocusFC?: () => void;
+  handleOnFocus?: () => void;
   mobile?: boolean;
   focused?: boolean;
 }
-export default function InputWithIcon({ onFocusFC, mobile, focused }: props) {
+export default function InputWithIcon({
+  handleOnFocus,
+  mobile,
+  focused,
+}: props) {
   const [inputValue, setInputValue] = useState<string>("");
   const dispatch = useAppDispatch();
   const filterState = useAppSelector((state) => state.filters);
@@ -38,8 +42,8 @@ export default function InputWithIcon({ onFocusFC, mobile, focused }: props) {
     <>
       <StyledInputWithIcon
         mobile={mobile}
-        onFocus={onFocusFC}
-        onBlur={onFocusFC}
+        onFocus={handleOnFocus}
+        onBlur={handleOnFocus}
         value={inputValue}
         onChange={(event) => {
           setInputValue(event.target.value);

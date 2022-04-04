@@ -48,7 +48,8 @@ const DashboardPage = () => {
       <StyledMainContentDiv>
         {!isNotDesktop && <DropDowns searchMainQuery={endpoint} />}
         {!isNotDesktop && <CustomDivider />}
-        {(apiData.status || apiData.totalResults === 0) && (
+        {((apiData.status && apiData.status !== ReduxString.Loading) ||
+          apiData.totalResults === 0) && (
           <CustomDashboardText firstVisit={isFirstVisit}>
             {isFirstVisit
               ? cardResultsStrings.topHeadlinesIn

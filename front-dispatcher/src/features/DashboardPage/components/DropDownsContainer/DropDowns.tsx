@@ -16,32 +16,38 @@ const DropDowns = ({ searchMainQuery }: props) => {
   const filterState = useAppSelector((state) => state.filters);
   const createDropDowns = () => {
     if (searchMainQuery === searchBarStrings.searchDropDownOptions[0]) {
-      return apiStrings[searchMainQuery].map((cat) => {
-        if (cat && apiStrings[cat]) {
+      return apiStrings[searchMainQuery].map((category) => {
+        if (category && apiStrings[category]) {
           return (
             <DropDown
-              key={cat + filterState.endpoint}
-              shouldBeDisabled={shouldBeDisabledFunc(cat, filterState)}
-              options={apiStrings[cat]}
-              placeHolder={cat}
-              reduxActionType={chooseCorrectActionType(cat, searchMainQuery)}
+              key={category + filterState.endpoint}
+              shouldBeDisabled={shouldBeDisabledFunc(category, filterState)}
+              options={apiStrings[category]}
+              placeHolder={category}
+              reduxActionType={chooseCorrectActionType(
+                category,
+                searchMainQuery
+              )}
             />
           );
         }
       });
     } else {
-      return apiStrings.Everything.map((cat) => {
-        //date catagory case
-        if (cat === apiStrings.Everything[1]) {
+      return apiStrings.Everything.map((category) => {
+        //date category case
+        if (category === apiStrings.Everything[1]) {
           return <DateInput />;
         }
-        if (cat && apiStrings[cat]) {
+        if (category && apiStrings[category]) {
           return (
             <DropDown
-              key={cat}
-              options={apiStrings[cat]}
-              placeHolder={cat}
-              reduxActionType={chooseCorrectActionType(cat, searchMainQuery)}
+              key={category}
+              options={apiStrings[category]}
+              placeHolder={category}
+              reduxActionType={chooseCorrectActionType(
+                category,
+                searchMainQuery
+              )}
             />
           );
         }

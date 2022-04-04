@@ -26,14 +26,17 @@ const SearchBar = ({ fullScreen, mobileBackFC }: searchbarProps) => {
         <StyledBackIcon onClick={mobileBackFC} />
         <InputWithIcon
           mobile={true}
-          onFocusFC={() => setFocused(!focused)}
+          handleOnFocus={() => setFocused(!focused)}
           focused={focused}
         />
       </StyledMobileSearchDiv>
     );
   return (
     <StyledSearchBarDiv focused={focused}>
-      <InputWithIcon onFocusFC={() => setFocused(!focused)} focused={focused} />
+      <InputWithIcon
+        handleOnFocus={() => setFocused(!focused)}
+        focused={focused}
+      />
       <Divider orientation="vertical" flexItem />
       <DropDown
         reduxActionType={filterActionsStrings[0]}
