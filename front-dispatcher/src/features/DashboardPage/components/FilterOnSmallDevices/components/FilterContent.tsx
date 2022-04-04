@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { ReactComponent as ArrowIcon } from "../../../../../assets/back.svg";
 import PrimaryButton from "../../../../../components/PrimaryButton/style";
 import { chooseCorrectActionType } from "../../../../../helpers/actionTypeSelector";
+import { apiCallthunk, getApiUrl } from "../../../../../helpers/apiCall";
+import { convertStringToLocaleDate } from "../../../../../helpers/dateConverter";
 import { useAppDispatch, useAppSelector } from "../../../../../store";
 import { filterActions } from "../../../../../store/slicers/filtersSlice";
 import {
@@ -9,6 +11,7 @@ import {
   ReduxString,
   searchBarStrings,
 } from "../../../../../strings/strings";
+import DateInput from "../../DateInput/DateInput";
 import {
   FilterBtnDiv,
   FilterDiv,
@@ -26,7 +29,8 @@ const FilterContent = () => {
     searchBarStrings.filter
   );
   const currentStateDesc = (filterOption: string) => {
-    if (filterOption === ReduxString.Dates) return filterState.date;
+    if (filterOption === ReduxString.Dates)
+      return filterState.date.slice(0, 10);
     if (filterOption === ReduxString.Sources)
       return endpoint === ReduxString.Everything
         ? filterState.sourceEverything
@@ -41,8 +45,10 @@ const FilterContent = () => {
     dispatch(filterActions[correctFilterAction](newValue));
     setFilterTitle(searchBarStrings.filter);
   };
-  const cardContainers = () =>
-    apiStrings[filterTitle] ? (
+  const cardContainers = () => {
+    if (filterTitle === ReduxString.Dates)
+      return <DateInput openDirectly={true} />;
+    return apiStrings[filterTitle] ? (
       apiStrings[filterTitle].map((title) => (
         <FilterItemCardContainer
           key={title}
@@ -78,6 +84,11 @@ const FilterContent = () => {
         )}
       </>
     );
+  };
+  const ButtonApiSearchOnClick = () => {
+    const url = getApiUrl(filterState);
+    dispatch(apiCallthunk(url));
+  };
   return (
     <FilterDiv>
       <FilterItemsContainer>
@@ -99,7 +110,9 @@ const FilterContent = () => {
         {cardContainers()}
       </FilterItemsContainer>
       <FilterBtnDiv>
-        <PrimaryButton>{searchBarStrings.viewResults}</PrimaryButton>
+        <PrimaryButton onClick={ButtonApiSearchOnClick}>
+          {searchBarStrings.viewResults}
+        </PrimaryButton>
       </FilterBtnDiv>
     </FilterDiv>
   );

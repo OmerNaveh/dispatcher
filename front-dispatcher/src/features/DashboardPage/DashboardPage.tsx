@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import CustomDivider from "../../components/Divider/style";
-import { cardResultsStrings } from "../../strings/strings";
+import {
+  cardResultsStrings,
+  ReduxString,
+  usefulStrings,
+} from "../../strings/strings";
 import Header from "../Header/Header";
 import DashboardContenContainer from "./components/DashboardContentContainer/DashboardContenContainer";
 import DropDowns from "./components/DropDownsContainer/DropDowns";
@@ -19,6 +23,9 @@ const DashboardPage = () => {
     window.innerWidth < 900
   );
   const filterState = useAppSelector((state) => state.filters);
+  const { country, category, sourceTopheadlines, searchInput, endpoint } =
+    filterState;
+  const apiData = useAppSelector((state) => state.apiData);
   const dispatch = useAppDispatch();
   useEffect(() => {
     resizeListener(setIsNotDesktop, 900);
@@ -26,17 +33,31 @@ const DashboardPage = () => {
     const apiUrl = getApiUrl({ ...filterState, country: "il" });
     dispatch(apiCallthunk(apiUrl));
   }, []);
+  const isFirstVisit =
+    country ||
+    category ||
+    sourceTopheadlines ||
+    searchInput ||
+    endpoint === ReduxString.Everything
+      ? false
+      : true;
   return (
     <StyledDashboardDiv>
       <Header />
       {isNotDesktop && <FilterOnSmallDevices />}
       <StyledMainContentDiv>
-        {!isNotDesktop && <DropDowns searchMainQuery={filterState.endpoint} />}
+        {!isNotDesktop && <DropDowns searchMainQuery={endpoint} />}
         {!isNotDesktop && <CustomDivider />}
-        {/* TODO: Make Text change based on state */}
-        <CustomDashboardText firstVisit={true}>
-          {cardResultsStrings.topHeadlinesIn}
-        </CustomDashboardText>
+        {((apiData.status && apiData.status !== ReduxString.Loading) ||
+          apiData.totalResults === 0) && (
+          <CustomDashboardText firstVisit={isFirstVisit}>
+            {isFirstVisit
+              ? cardResultsStrings.topHeadlinesIn
+              : apiData.totalResults +
+                usefulStrings.whiteSpace +
+                cardResultsStrings.totalResults}
+          </CustomDashboardText>
+        )}
         <DashboardContenContainer />
       </StyledMainContentDiv>
     </StyledDashboardDiv>

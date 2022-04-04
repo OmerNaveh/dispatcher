@@ -206,3 +206,6 @@ export const apiUrlsStrings = {
   topHeadlines: "top-headlines",
   apikey: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
 };
+export const usefulStrings = {
+  whiteSpace: "\xa0",
+};
