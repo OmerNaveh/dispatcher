@@ -11,6 +11,7 @@ interface dropDownProps {
   options: string[];
   placeHolder?: string;
   searchbar?: boolean;
+  shouldBeDisabled?: boolean;
   reduxActionType?: filterActionsStringTypes;
 }
 
@@ -19,6 +20,7 @@ const DropDown = ({
   placeHolder,
   searchbar,
   reduxActionType,
+  shouldBeDisabled,
 }: dropDownProps) => {
   const [selectFilterValue, setSelectFilterValue] =
     React.useState<string | undefined | null>(placeHolder);
@@ -37,8 +39,9 @@ const DropDown = ({
     setSelectFilterValue(newValue);
   };
   return (
-    <StyledDropDownDiv searchbar={searchbar}>
+    <StyledDropDownDiv searchbar={searchbar} isDisabled={shouldBeDisabled}>
       <CustomSelect
+        disabled={shouldBeDisabled}
         value={selectFilterValue}
         onChange={onChangeFC}
         defaultValue={placeHolder}

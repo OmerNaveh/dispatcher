@@ -1,6 +1,7 @@
 import React from "react";
 import DropDown from "../../../../components/DropDown/DropDown";
 import { chooseCorrectActionType } from "../../../../helpers/actionTypeSelector";
+import { useAppSelector } from "../../../../store";
 import { filterActionsStringTypes } from "../../../../store/slicers/filtersSlice";
 
 import {
@@ -12,12 +13,14 @@ import {
 import DateInput from "../DateInput/DateInput";
 
 import { DropDownsContainer } from "./style";
+import { shouldBeDisabledFunc } from "./utils/shouldBeDiabledFunc";
 
 interface props {
   searchMainQuery: string;
 }
 
 const DropDowns = ({ searchMainQuery }: props) => {
+  const filterState = useAppSelector((state) => state.filters);
   const createDropDowns = () => {
     if (searchMainQuery === searchBarStrings.searchDropDownOptions[0]) {
       return apiStrings[searchMainQuery].map((cat) => {
@@ -25,6 +28,7 @@ const DropDowns = ({ searchMainQuery }: props) => {
           return (
             <DropDown
               key={cat}
+              shouldBeDisabled={shouldBeDisabledFunc(cat, filterState)}
               options={apiStrings[cat]}
               placeHolder={cat}
               reduxActionType={chooseCorrectActionType(cat, searchMainQuery)}

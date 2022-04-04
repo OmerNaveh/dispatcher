@@ -26,17 +26,29 @@ const filterSlice = createSlice({
   name: ReduxString.Filters,
   initialState,
   reducers: {
-    setEndpoint(state, action) {
+    setEndpoint(state, action: PayloadAction<string>) {
       state.endpoint = action.payload;
+      if (action.payload === ReduxString.TopHeadlines) {
+        state.language = "";
+        state.sourceEverything = "";
+        state.sortBy = "";
+        state.date = "";
+      } else {
+        state.country = "";
+        state.sourceTopHeadlines = "";
+        state.category = "";
+      }
     },
     setSearchInput(state, action: PayloadAction<string>) {
       state.searchInput = action.payload;
     },
     setCategory(state, action: PayloadAction<string>) {
       state.category = action.payload;
+      state.sourceTopHeadlines = "";
     },
     setCountry(state, action: PayloadAction<string>) {
       state.country = action.payload;
+      state.sourceTopHeadlines = "";
     },
     setLanguage(state, action: PayloadAction<string>) {
       state.language = action.payload;
@@ -52,6 +64,8 @@ const filterSlice = createSlice({
     },
     setSourceTopheadlines(state, action: PayloadAction<string>) {
       state.sourceTopHeadlines = action.payload;
+      state.category = "";
+      state.country = "";
     },
   },
 });

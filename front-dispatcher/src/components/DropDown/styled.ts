@@ -3,6 +3,7 @@ import { colors } from "../../strings/colors";
 import { StyledOption } from "./Style";
 interface styledDiv {
   searchbar?: boolean;
+  isDisabled?: boolean;
 }
 export const StyledDropDownDiv = styled.div<styledDiv>`
   position: relative;
@@ -14,6 +15,7 @@ export const StyledDropDownDiv = styled.div<styledDiv>`
   border-radius: 10px;
   padding: 0;
   z-index: 1;
+  opacity: ${(props) => props.isDisabled && 0.5};
 `;
 interface personalOptionsProps {
   isPlaceHolder?: boolean;
