@@ -25,8 +25,8 @@ const FilterOnSmallDevices = () => {
   const SortByString = apiStrings.Everything[0];
   return (
     <>
-      <MobileFilterDiv>
-        {endpoint === ReduxString.Everything ? (
+      <MobileFilterDiv flexJustifyContent={endpoint === ReduxString.Everything}>
+        {endpoint === ReduxString.Everything && (
           <SortByDiv>
             <DropDown
               options={apiStrings[SortByString]}
@@ -34,8 +34,6 @@ const FilterOnSmallDevices = () => {
               reduxActionType={filterActionsStrings[1]}
             />
           </SortByDiv>
-        ) : (
-          <div></div>
         )}
 
         <FilterIconStyled
