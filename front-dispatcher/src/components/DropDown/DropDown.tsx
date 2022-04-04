@@ -1,9 +1,12 @@
 import React from "react";
-import { useAppDispatch } from "../../store";
+import { convertActionStringToCatString } from "../../helpers/actionTypeSelector";
+import { apiCallthunk, getApiUrl } from "../../helpers/apiCall";
+import { useAppDispatch, useAppSelector } from "../../store";
 import {
   filterActions,
   filterActionsStringTypes,
 } from "../../store/slicers/filtersSlice";
+import { filterActionsStrings } from "../../strings/strings";
 import { CustomSelect, StyledOption } from "./Style";
 import { PersonalStyledOption, StyledDropDownDiv } from "./styled";
 
@@ -32,9 +35,15 @@ const DropDown = ({
     ));
   };
   const dispatch = useAppDispatch();
+  const filterState = useAppSelector((state) => state.filters);
   const onChangeFC = (newValue: string | undefined | null) => {
     if (reduxActionType && newValue) {
       dispatch(filterActions[reduxActionType](newValue));
+      if (reduxActionType !== filterActionsStrings[0]) {
+        const filterString = convertActionStringToCatString(reduxActionType);
+        const apiUrl = getApiUrl({ ...filterState, [filterString]: newValue });
+        dispatch(apiCallthunk(apiUrl));
+      }
     }
     setSelectFilterValue(newValue);
   };

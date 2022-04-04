@@ -19,7 +19,7 @@ const FilterOnSmallDevices = () => {
     country,
     sortBy,
     sourceEverything,
-    sourceTopHeadlines,
+    sourceTopheadlines,
   } = filterState;
   const backDropElem = useRef(null);
   const SortByString = apiStrings.Everything[0];
@@ -43,7 +43,7 @@ const FilterOnSmallDevices = () => {
             country ||
             sortBy ||
             sourceEverything ||
-            sourceTopHeadlines
+            sourceTopheadlines
               ? true
               : false
           }

@@ -4,7 +4,7 @@ export interface reduxState {
   endpoint: string;
   searchInput: string;
   sourceEverything: string;
-  sourceTopHeadlines: string;
+  sourceTopheadlines: string;
   date: string;
   language: string;
   sortBy: string;
@@ -15,7 +15,7 @@ const initialState: reduxState = {
   endpoint: ReduxString.TopHeadlines,
   searchInput: "",
   sourceEverything: "",
-  sourceTopHeadlines: "",
+  sourceTopheadlines: "",
   date: "",
   language: "",
   sortBy: "",
@@ -35,7 +35,7 @@ const filterSlice = createSlice({
         state.date = "";
       } else {
         state.country = "";
-        state.sourceTopHeadlines = "";
+        state.sourceTopheadlines = "";
         state.category = "";
       }
     },
@@ -44,11 +44,11 @@ const filterSlice = createSlice({
     },
     setCategory(state, action: PayloadAction<string>) {
       state.category = action.payload;
-      state.sourceTopHeadlines = "";
+      state.sourceTopheadlines = "";
     },
     setCountry(state, action: PayloadAction<string>) {
       state.country = action.payload;
-      state.sourceTopHeadlines = "";
+      state.sourceTopheadlines = "";
     },
     setLanguage(state, action: PayloadAction<string>) {
       state.language = action.payload;
@@ -63,7 +63,7 @@ const filterSlice = createSlice({
       state.sourceEverything = action.payload;
     },
     setSourceTopheadlines(state, action: PayloadAction<string>) {
-      state.sourceTopHeadlines = action.payload;
+      state.sourceTopheadlines = action.payload;
       state.category = "";
       state.country = "";
     },
@@ -81,4 +81,14 @@ export type filterActionsStringTypes =
   | "setDate"
   | "setSourceEverything"
   | "setSourceTopheadlines";
+export type filterStringOptions =
+  | "endpoint"
+  | "searchInput"
+  | "sourceEverything"
+  | "sourceTopheadlines"
+  | "date"
+  | "language"
+  | "sortBy"
+  | "country"
+  | "category";
 export default filterSlice;

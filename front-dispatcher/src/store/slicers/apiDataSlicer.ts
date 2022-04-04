@@ -24,7 +24,7 @@ const apiDataSlice = createSlice({
       state.status = action.payload.status;
     },
     [apiCallthunk.rejected.type]: (state, action) => {
-      state = initialState;
+      state.status = ReduxString.Failed;
     },
   },
 });

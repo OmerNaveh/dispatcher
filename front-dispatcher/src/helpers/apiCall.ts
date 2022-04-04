@@ -16,7 +16,7 @@ export const getApiUrl = (currentFilterState: reduxState) => {
     searchInput,
     category,
     sourceEverything,
-    sourceTopHeadlines,
+    sourceTopheadlines,
     sortBy,
     date,
     language,
@@ -33,7 +33,7 @@ export const getApiUrl = (currentFilterState: reduxState) => {
         apiUrlsStrings.category +
         category +
         apiUrlsStrings.sources +
-        sourceTopHeadlines
+        sourceTopheadlines
       : endpoint +
         apiUrlsStrings.questionMark +
         apiUrlsStrings.query +

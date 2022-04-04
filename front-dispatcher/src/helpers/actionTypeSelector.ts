@@ -1,5 +1,9 @@
-import { filterActionsStringTypes } from "../store/slicers/filtersSlice";
+import {
+  filterActionsStringTypes,
+  filterStringOptions,
+} from "../store/slicers/filtersSlice";
 import { filterActionsStrings, ReduxString } from "../strings/strings";
+import { lowerCaseFirstLetter } from "./stringFunctions";
 
 export const chooseCorrectActionType = (
   cat: string,
@@ -13,4 +17,11 @@ export const chooseCorrectActionType = (
     : searchMainQuery !== ReduxString.TopHeadlines
     ? filterActionsStrings[8]
     : filterActionsStrings[9];
+};
+
+export const convertActionStringToCatString = (
+  actionString: filterActionsStringTypes
+): filterStringOptions => {
+  const sliceActionString = actionString.slice(3);
+  return lowerCaseFirstLetter(sliceActionString) as filterStringOptions;
 };

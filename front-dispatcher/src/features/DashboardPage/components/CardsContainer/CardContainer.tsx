@@ -9,9 +9,10 @@ const CardContainer = () => {
   const { articles, totalResults, status } = useAppSelector(
     (state) => state.apiData
   );
+
   const allCards = () => {
     if (status === ReduxString.Loading) return <LoadingIcon />;
-    if (totalResults === 0) return <NotFound />;
+    if (!status || totalResults === 0) return <NotFound />;
     return articles.map((article) => {
       return (
         <Card

@@ -5,10 +5,10 @@ export const shouldBeDisabledFunc = (
   dropDownCat: string,
   currentFilterState: reduxState
 ): boolean => {
-  const { sourceTopHeadlines, category, country } = currentFilterState;
+  const { sourceTopheadlines, category, country } = currentFilterState;
   return dropDownCat === ReduxString.Sources && (country || category)
     ? true
-    : dropDownCat !== ReduxString.Sources && sourceTopHeadlines
+    : dropDownCat !== ReduxString.Sources && sourceTopheadlines
     ? true
     : false;
 };

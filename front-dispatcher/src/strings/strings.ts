@@ -110,6 +110,7 @@ export const ReduxString = {
   SearchIn: "Search in",
   Dates: "Dates",
   Loading: "loading",
+  Failed: "failed",
 };
 export const filterActionsStrings: filterActionsStringTypes[] = [
   "setEndpoint",
@@ -117,7 +118,6 @@ export const filterActionsStrings: filterActionsStringTypes[] = [
   "setSearchInput",
   "setCategory",
   "setCountry",
-  "setLanguage",
   "setLanguage",
   "setDate",
   "setSourceEverything",

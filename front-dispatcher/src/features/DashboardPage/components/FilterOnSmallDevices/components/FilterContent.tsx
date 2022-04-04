@@ -30,7 +30,7 @@ const FilterContent = () => {
     if (filterOption === ReduxString.Sources)
       return endpoint === ReduxString.Everything
         ? filterState.sourceEverything
-        : filterState.sourceTopHeadlines;
+        : filterState.sourceTopheadlines;
     return filterState[filterOption.toLowerCase() as T];
   };
   const filterItemOnClickFC = (newValue: string) => {
