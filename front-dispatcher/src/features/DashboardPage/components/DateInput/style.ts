@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { colors } from "../../../../strings/colors";
-export const StyledDateDiv = styled.div`
+interface styledDateDivProps {
+  sideBar?: boolean;
+}
+export const StyledDateDiv = styled.div<styledDateDivProps>`
   width: 100%;
-  margin: 0 0.5em;
+  margin: ${(props) => (props.sideBar ? "0" : "0 0.5em")};
   background: ${colors.White};
   color: ${colors.DarkBlue};
   border-radius: 10px;
