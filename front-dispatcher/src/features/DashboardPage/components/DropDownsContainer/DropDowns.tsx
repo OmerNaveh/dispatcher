@@ -2,14 +2,7 @@ import React from "react";
 import DropDown from "../../../../components/DropDown/DropDown";
 import { chooseCorrectActionType } from "../../../../helpers/actionTypeSelector";
 import { useAppSelector } from "../../../../store";
-import { filterActionsStringTypes } from "../../../../store/slicers/filtersSlice";
-
-import {
-  apiStrings,
-  filterActionsStrings,
-  ReduxString,
-  searchBarStrings,
-} from "../../../../strings/strings";
+import { apiStrings, searchBarStrings } from "../../../../strings/strings";
 import DateInput from "../DateInput/DateInput";
 
 import { DropDownsContainer } from "./style";
@@ -27,7 +20,7 @@ const DropDowns = ({ searchMainQuery }: props) => {
         if (cat && apiStrings[cat]) {
           return (
             <DropDown
-              key={cat}
+              key={cat + filterState.endpoint}
               shouldBeDisabled={shouldBeDisabledFunc(cat, filterState)}
               options={apiStrings[cat]}
               placeHolder={cat}
