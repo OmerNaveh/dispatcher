@@ -9,14 +9,16 @@ export const chooseCorrectActionType = (
   cat: string,
   searchMainQuery: string
 ) => {
+  if (cat === ReduxString.Sources) {
+    return searchMainQuery !== ReduxString.TopHeadlines
+      ? filterActionsStrings[7]
+      : filterActionsStrings[8];
+  }
+
   if (cat === ReduxString.SearchIn) return filterActionsStrings[0];
   return cat !== ReduxString.SortBy && cat !== ReduxString.Sources
     ? (`${ReduxString.Set}${cat}` as filterActionsStringTypes)
-    : cat === ReduxString.SortBy
-    ? filterActionsStrings[1]
-    : searchMainQuery !== ReduxString.TopHeadlines
-    ? filterActionsStrings[8]
-    : filterActionsStrings[9];
+    : filterActionsStrings[1];
 };
 
 export const convertActionStringToCatString = (
