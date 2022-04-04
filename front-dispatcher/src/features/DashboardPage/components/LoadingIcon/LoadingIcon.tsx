@@ -5,7 +5,7 @@ import { LoadingIconContainer } from "./style";
 const LoadingIcon = () => {
   return (
     <LoadingIconContainer>
-      <CircularProgress color={"primary"} />;
+      <CircularProgress color={"primary"} />
     </LoadingIconContainer>
   );
 };

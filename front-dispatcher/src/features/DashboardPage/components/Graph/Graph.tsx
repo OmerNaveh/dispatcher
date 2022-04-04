@@ -1,10 +1,11 @@
 import React from "react";
+import { useAppSelector } from "../../../../store";
 import { graphString } from "../../../../strings/strings";
 import { CardText } from "../../../Card/style";
 import DoughnutGraph from "./components/DoughnutGraph/DoughnutGraph";
 import LineGraph from "./components/LineGraph/LineGraph";
 import { doughnutMockdata, lineGraphMockData } from "./mock/graphsMockData";
-
+import mockdata from "../../../../mock/mockData.json";
 import {
   GraphContentDiv,
   GraphLayout,
@@ -20,6 +21,8 @@ interface graphProps {
 }
 
 const Graph = ({ title, graphType }: graphProps) => {
+  const { articles } = useAppSelector((state) => state.apiData);
+
   const showGraphByType = () => {
     return graphType === graphString.graphTypeArray[0] ? (
       <GraphContentDiv>
@@ -47,13 +50,14 @@ const Graph = ({ title, graphType }: graphProps) => {
         <GraphTitle>{title}</GraphTitle>
         <TitleDivider />
       </div>
-      {!graphType && (
+      {!graphType || !articles || articles.length === 0 ? (
         <NoContentDiv>
           <NoGraphIcon />
           <CardText>{graphString.noDataToDisplay}</CardText>
         </NoContentDiv>
+      ) : (
+        graphType && showGraphByType()
       )}
-      {graphType && showGraphByType()}
     </GraphLayout>
   );
 };
