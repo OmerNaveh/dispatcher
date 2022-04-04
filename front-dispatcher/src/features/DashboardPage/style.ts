@@ -13,7 +13,7 @@ export const CustomDashboardText = styled.p<customDashboardTextProps>`
 export const StyledDashboardDiv = styled.div`
   margin: 0;
   width: 100vw;
-
+  min-height: 100vh;
   overflow: hidden;
   @media only screen and (max-width: 900px) {
     flex-direction: column;
@@ -22,7 +22,7 @@ export const StyledDashboardDiv = styled.div`
   background-color: ${colors.LightestGray};
 `;
 export const StyledMainContentDiv = styled.div`
-  padding: 1em 5% 0 5%;
+  padding: 1em 10% 0 10%;
   overflow: hidden;
 
   @media only screen and (max-width: 900px) {

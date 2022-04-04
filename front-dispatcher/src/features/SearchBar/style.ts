@@ -12,9 +12,10 @@ export const StyledSearchBarDiv = styled.div<props>`
   transition: width 200ms ease;
   font-size: 87.5%;
   display: grid;
+  align-items: center;
   min-width: 351px;
   grid-template-columns: 60% 5% 35%;
-  padding: 0.5% 1%;
+  padding: 0.35% 1%;
   width: ${(props) => (props.focused ? "34%" : "21%")};
   max-width: 625px;
   position: absolute;

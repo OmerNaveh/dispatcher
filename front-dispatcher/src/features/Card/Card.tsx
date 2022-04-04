@@ -22,7 +22,14 @@ const Card = (props: APITypes.Article) => {
   };
   return (
     <CardLayout>
-      <CardImage src={props.urlToImage} alt="image"></CardImage>
+      <CardImage
+        src={props.urlToImage}
+        alt="image"
+        onError={(event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+          event.currentTarget.onerror = null;
+          event.currentTarget.src = cardString.defaultImageUrl;
+        }}
+      ></CardImage>
       <CardContent>
         <CardText className="gray">{dateString}</CardText>
         <CardTitle>{props.title}</CardTitle>

@@ -1,17 +1,15 @@
 import React from "react";
-import { Container } from "../../../../components/Container/Container";
-
 import { searchBarStrings } from "../../../../strings/strings";
 import { CardText } from "../../../Card/style";
 
-import NotFoundIcon from "./style";
+import { NotFoundContainer, NotFoundIcon } from "./style";
 
 const NotFound = () => {
   return (
-    <Container className={searchBarStrings.noMatchesContainerClasses}>
+    <NotFoundContainer>
       <NotFoundIcon />
       <CardText>{searchBarStrings.noMatches}</CardText>
-    </Container>
+    </NotFoundContainer>
   );
 };
 

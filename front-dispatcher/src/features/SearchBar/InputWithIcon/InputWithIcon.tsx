@@ -47,7 +47,7 @@ export default function InputWithIcon({ onFocusFC, mobile, focused }: props) {
         }
       />
 
-      {focused && <HistoryDiv data={apiStrings.Catagory} />}
+      {focused && <HistoryDiv data={apiStrings.Category} />}
     </>
   );
 }

@@ -1,6 +1,8 @@
+import { filterActionsStringTypes } from "../store/slicers/filtersSlice";
+
 export const apiStrings: { [key: string]: string[] } = {
   ["Search in"]: ["Top Headlines", "Everything"],
-  ["Top Headlines"]: ["Country", "Catagory", "Sources"],
+  ["Top Headlines"]: ["Country", "Category", "Sources"],
   Country: [
     "AE",
     "AR",
@@ -57,7 +59,7 @@ export const apiStrings: { [key: string]: string[] } = {
     "VE",
     "ZA",
   ],
-  Catagory: [
+  Category: [
     "Business",
     "Enetertainment",
     "General",
@@ -97,6 +99,30 @@ export const apiStrings: { [key: string]: string[] } = {
     "Ynet",
   ],
 };
+export const ReduxString = {
+  TopHeadlines: "Top Headlines",
+  Everything: "Everything",
+  Filters: "filters",
+  ApiSlicer: "apiSlicer",
+  Set: "set",
+  SortBy: "Sort by",
+  Sources: "Sources",
+  SearchIn: "Search in",
+  Dates: "Dates",
+  Loading: "loading",
+  Failed: "failed",
+};
+export const filterActionsStrings: filterActionsStringTypes[] = [
+  "setEndpoint",
+  "setSortBy",
+  "setSearchInput",
+  "setCategory",
+  "setCountry",
+  "setLanguage",
+  "setDate",
+  "setSourceEverything",
+  "setSourceTopheadlines",
+];
 export const ipUrls = {
   getClientIpUrl: "https://api.ipify.org/?format=json",
   getInfoFromIpUrl: "http://ip-api.com/json/",
@@ -104,6 +130,8 @@ export const ipUrls = {
 export const cardString = {
   NavigateToDispatch: "NAVIGATE TO DISPATCH",
   Continue: "CONTINUE",
+  defaultImageUrl:
+    "https://media.istockphoto.com/photos/breaking-news-world-news-with-map-backgorund-picture-id1182477852?k=20&m=1182477852&s=612x612&w=0&h=I3wdSzT_5h1y9dHq_YpZ9AqdIKg8epthr8Guva8FkPA=",
 };
 export const graphString = {
   noDataToDisplay: "No data to display",
@@ -163,4 +191,18 @@ export const dateStrings: {
   Year: "year",
   Month: "month",
   Day: "day",
+};
+export const apiUrlsStrings = {
+  apiBaseUrl: "https://newsapi.org/v2/",
+  questionMark: "?",
+  query: "q=",
+  dateFrom: "&from=",
+  dateTo: "&to=",
+  sortBy: "&sortBy=",
+  sources: "&sources=",
+  language: "&language=",
+  category: "&category=",
+  country: "&country=",
+  topHeadlines: "top-headlines",
+  apikey: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
 };

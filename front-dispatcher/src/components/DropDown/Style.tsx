@@ -58,12 +58,14 @@ const StyledButton = styled("button")(
     &::after {
       content: url(${drowDownSvg});
       transform: rotate(180deg);
+      font-size:0;
     }
   }
 
   &::after {
     content: url(${drowDownSvg});
     float: right;
+    font-size:0;
   }
   `
 );

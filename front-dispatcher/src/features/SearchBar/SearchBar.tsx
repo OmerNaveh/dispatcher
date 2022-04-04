@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import InputWithIcon from "./InputWithIcon/InputWithIcon";
 
 import { Divider } from "@mui/material";
-import { searchBarStrings } from "../../strings/strings";
+import { filterActionsStrings, searchBarStrings } from "../../strings/strings";
 import {
   StyledBackIcon,
   StyledMobileSearchDiv,
   StyledSearchBarDiv,
 } from "./style";
 import DropDown from "../../components/DropDown/DropDown";
+import { useAppSelector } from "../../store";
 
 interface searchbarProps {
   fullScreen?: boolean;
@@ -17,7 +18,8 @@ interface searchbarProps {
 }
 const SearchBar = ({ fullScreen, mobileBackFC }: searchbarProps) => {
   const [focused, setFocused] = useState<boolean>(false);
-
+  const filterState = useAppSelector((state) => state.filters);
+  const { endpoint } = filterState;
   if (fullScreen)
     return (
       <StyledMobileSearchDiv>
@@ -34,9 +36,10 @@ const SearchBar = ({ fullScreen, mobileBackFC }: searchbarProps) => {
       <InputWithIcon onFocusFC={() => setFocused(!focused)} focused={focused} />
       <Divider orientation="vertical" flexItem />
       <DropDown
+        reduxActionType={filterActionsStrings[0]}
         searchbar={true}
         options={searchBarStrings.searchDropDownOptions}
-        placeHolder={searchBarStrings.searchDropDownOptions[0]}
+        placeHolder={endpoint}
       />
     </StyledSearchBarDiv>
   );

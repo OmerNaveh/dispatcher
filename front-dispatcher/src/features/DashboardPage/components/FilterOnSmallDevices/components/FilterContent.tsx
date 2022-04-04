@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { ReactComponent as ArrowIcon } from "../../../../../assets/back.svg";
 import PrimaryButton from "../../../../../components/PrimaryButton/style";
-import { apiStrings, searchBarStrings } from "../../../../../strings/strings";
+import { chooseCorrectActionType } from "../../../../../helpers/actionTypeSelector";
+import { useAppDispatch, useAppSelector } from "../../../../../store";
+import { filterActions } from "../../../../../store/slicers/filtersSlice";
+import {
+  apiStrings,
+  ReduxString,
+  searchBarStrings,
+} from "../../../../../strings/strings";
 import {
   FilterBtnDiv,
   FilterDiv,
@@ -10,18 +17,37 @@ import {
   FilterItemText,
   FilterItemTitle,
 } from "../style";
-
 const FilterContent = () => {
-  // will have state that contains all filter types for api usage
-  const mainFilterState = searchBarStrings.searchDropDownOptions[0];
+  const filterState = useAppSelector((state) => state.filters);
+  type T = keyof typeof filterState;
+  const dispatch = useAppDispatch();
+  const { endpoint } = filterState;
   const [filterTitle, setFilterTitle] = useState<string>(
     searchBarStrings.filter
   );
+  const currentStateDesc = (filterOption: string) => {
+    if (filterOption === ReduxString.Dates) return filterState.date;
+    if (filterOption === ReduxString.Sources)
+      return endpoint === ReduxString.Everything
+        ? filterState.sourceEverything
+        : filterState.sourceTopheadlines;
+    return filterState[filterOption.toLowerCase() as T];
+  };
+  const filterItemOnClickFC = (newValue: string) => {
+    const correctFilterAction = chooseCorrectActionType(
+      filterTitle,
+      filterState.endpoint
+    );
+    dispatch(filterActions[correctFilterAction](newValue));
+    setFilterTitle(searchBarStrings.filter);
+  };
   const cardContainers = () =>
     apiStrings[filterTitle] ? (
       apiStrings[filterTitle].map((title) => (
-        // TODO: on click on container will change api state settings for selected filter title
-        <FilterItemCardContainer key={title}>
+        <FilterItemCardContainer
+          key={title}
+          onClick={() => filterItemOnClickFC(title)}
+        >
           <FilterItemText>{title}</FilterItemText>
         </FilterItemCardContainer>
       ))
@@ -31,22 +57,25 @@ const FilterContent = () => {
           onClick={() => setFilterTitle(searchBarStrings.searchIn)}
         >
           <FilterItemText>{searchBarStrings.searchIn}</FilterItemText>
-          <FilterItemText>
-            {/* TODO:  will be replaced with state of search */}
-            {mainFilterState}
-          </FilterItemText>
+          <FilterItemText>{endpoint}</FilterItemText>
         </FilterItemCardContainer>
-        {apiStrings[mainFilterState].map((filterOption) => (
-          <FilterItemCardContainer
-            key={filterOption}
-            onClick={() => setFilterTitle(filterOption)}
-          >
-            <FilterItemText>{filterOption}</FilterItemText>
-            <FilterItemText notSelected={true}>
-              {searchBarStrings.all}
-            </FilterItemText>
-          </FilterItemCardContainer>
-        ))}
+        {apiStrings[endpoint].map((filterOption) =>
+          filterOption === ReduxString.SortBy ? (
+            <></>
+          ) : (
+            <FilterItemCardContainer
+              key={filterOption}
+              onClick={() => setFilterTitle(filterOption)}
+            >
+              <FilterItemText>{filterOption}</FilterItemText>
+              <FilterItemText
+                notSelected={currentStateDesc(filterOption) ? false : true}
+              >
+                {currentStateDesc(filterOption) || searchBarStrings.all}
+              </FilterItemText>
+            </FilterItemCardContainer>
+          )
+        )}
       </>
     );
   return (
