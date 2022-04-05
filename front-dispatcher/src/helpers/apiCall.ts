@@ -9,7 +9,17 @@ export const apiCallthunk = createAsyncThunk("fetchApi", (url: string) =>
     .then((response) => response.data as APITypes.ApiResponseData)
     .catch((error) => error)
 );
-export const getApiUrl = (currentFilterState: reduxState) => {
+export const apiCallScroll = createAsyncThunk("scrollApi", (url: string) =>
+  axios
+    .get(url)
+    .then((response) => response.data as APITypes.ApiResponseData)
+    .catch((error) => error)
+);
+export const getApiUrl = (
+  currentFilterState: reduxState,
+  pageSize: number = 20,
+  pageNumber: number = 1
+) => {
   const {
     endpoint,
     country,
@@ -50,6 +60,8 @@ export const getApiUrl = (currentFilterState: reduxState) => {
         apiUrlsStrings.language +
         language
   }`;
+  url +=
+    apiUrlsStrings.pageSize + pageSize + apiUrlsStrings.pageNumber + pageNumber;
   url += apiUrlsStrings.apikey;
   return url;
 };

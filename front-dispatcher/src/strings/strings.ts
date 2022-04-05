@@ -206,9 +206,12 @@ export const apiUrlsStrings = {
   language: "&language=",
   category: "&category=",
   country: "&country=",
+  pageSize: "&pageSize=",
+  pageNumber: "&page=",
   topHeadlines: "top-headlines",
-  apikey2: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
-  apikey: "&apiKey=217a73c41e4c4534ae8599769d7d2079",
+  apikey3: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
+  apikey2: "&apiKey=217a73c41e4c4534ae8599769d7d2079",
+  apikey: "&apiKey=64f26ab4bbfb47749fc47f162876a00b",
 };
 export const usefulStrings = {
   whiteSpace: "\xa0",
