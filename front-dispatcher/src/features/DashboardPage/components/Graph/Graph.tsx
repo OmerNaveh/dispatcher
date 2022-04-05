@@ -4,8 +4,7 @@ import { graphString } from "../../../../strings/strings";
 import { CardText } from "../../../Card/style";
 import DoughnutGraph from "./components/DoughnutGraph/DoughnutGraph";
 import LineGraph from "./components/LineGraph/LineGraph";
-import { doughnutMockdata, lineGraphMockData } from "./mock/graphsMockData";
-import mockdata from "../../../../mock/mockData.json";
+import { lineGraphMockData } from "./mock/graphsMockData";
 import {
   GraphContentDiv,
   GraphLayout,
@@ -14,6 +13,12 @@ import {
   NoGraphIcon,
   TitleDivider,
 } from "./style";
+import {
+  getDougnutData,
+  getLineData,
+  outputDoughnutObjectType,
+  outputLineObjectType,
+} from "./utils/graphData";
 
 interface graphProps {
   title: string;
@@ -24,13 +29,18 @@ const Graph = ({ title, graphType }: graphProps) => {
   const { articles } = useAppSelector((state) => state.apiData);
 
   const showGraphByType = () => {
+    const graphData =
+      graphType === graphString.graphTypeArray[0]
+        ? getDougnutData(articles)
+        : getLineData(articles);
+
     return graphType === graphString.graphTypeArray[0] ? (
       <GraphContentDiv>
-        <DoughnutGraph data={doughnutMockdata} />
+        <DoughnutGraph data={graphData as outputDoughnutObjectType[]} />
       </GraphContentDiv>
     ) : graphType === graphString.graphTypeArray[1] ? (
       <GraphContentDiv>
-        <LineGraph data={lineGraphMockData} />
+        <LineGraph data={graphData as outputLineObjectType[]} />
       </GraphContentDiv>
     ) : (
       showNoGraphType()

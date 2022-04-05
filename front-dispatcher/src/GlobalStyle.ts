@@ -50,6 +50,8 @@ const GlobalStyle = createGlobalStyle`
 &.recharts-cartesian-axis-tick-value{
   font-family: 'Roboto' !important;
   font-weight: 700;
+  fill: ${colors.DarkBlue};
+  font-size: 13px;
 }
 body {
   margin: 0;
