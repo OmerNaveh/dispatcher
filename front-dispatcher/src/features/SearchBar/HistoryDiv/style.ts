@@ -13,7 +13,7 @@ export const StyledHistoryDiv = styled.div<styledHistoryDivProps>`
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
   padding: 4%;
-  overflow-y: scroll;
+  overflow-y: ${(props) => !props.mobile && "scroll"};
   max-height: ${(props) => !props.mobile && "300px"};
   color: ${colors.DarkBlue};
   display: flex;
