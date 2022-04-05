@@ -27,6 +27,9 @@ export const LegendText = styled.p`
   &.gray {
     color: ${colors.Gray};
   }
+  @media only screen and (max-width: 1020px) {
+    margin: 0.25em;
+  }
 `;
 export const ListTextsFlexContainer = styled.div`
   display: flex;
