@@ -177,6 +177,7 @@ export const routeStrings = {
 export const historyStrings = {
   RecentSearches: "RECENT SEARCHES",
   Clear: "CLEAR",
+  History: "history",
 };
 export const positionString: { [key: string]: "start" | "end" } = {
   Start: "start",
