@@ -1,5 +1,10 @@
 import React from "react";
-import { historyStrings } from "../../../strings/strings";
+import {
+  clearSearchFromHistory,
+  ClearSearchHistory,
+  getHistory,
+} from "../../../helpers/localStorageUsage";
+import { historyStrings, usefulStrings } from "../../../strings/strings";
 
 import {
   StyledHistoryContentDiv,
@@ -10,30 +15,53 @@ import {
   StyledHistoryTitleTexts,
 } from "./style";
 interface historyProps {
-  data: string[];
+  historyData: string[];
+  setHistoryData: React.Dispatch<React.SetStateAction<string[]>>;
+  handleHistoryClick: (historyStr: string) => void;
+  mobile?: boolean;
 }
-// TODO: implement utils fucntion to fetch data from local storage and clear on click on clear text
-const HistoryDiv = ({ data }: historyProps) => {
+const HistoryDiv = ({
+  historyData,
+  setHistoryData,
+  handleHistoryClick,
+  mobile,
+}: historyProps) => {
+  const clearOneFromHistory = (historyStr: string) => {
+    clearSearchFromHistory(historyStr);
+    setHistoryData(getHistory());
+  };
+  const clearAllHistory = () => {
+    ClearSearchHistory();
+    setHistoryData(getHistory());
+  };
   const genrateStorageHistoryOptions = () => {
-    return data.map((historyStr, index) => (
-      <StyledHistoryTextDiv key={index}>
+    return historyData.map((historyStr, index) => (
+      <StyledHistoryTextDiv
+        key={index}
+        onClick={(e) => {
+          (e.target as Node).nodeName === usefulStrings.Div &&
+            handleHistoryClick(historyStr);
+        }}
+      >
         <StyledHistoryTexts>{historyStr}</StyledHistoryTexts>
-        <StyledHistoryExitIcon />
+        <StyledHistoryExitIcon
+          onClick={() => clearOneFromHistory(historyStr)}
+        />
       </StyledHistoryTextDiv>
     ));
   };
   return (
-    <StyledHistoryDiv>
+    <StyledHistoryDiv mobile={mobile}>
       <StyledHistoryTextDiv isTitle={true}>
         <StyledHistoryTitleTexts>
           {historyStrings.RecentSearches}
         </StyledHistoryTitleTexts>
-        <StyledHistoryTitleTexts clickable={true}>
+        <StyledHistoryTitleTexts clickable={true} onClick={clearAllHistory}>
           {historyStrings.Clear}
         </StyledHistoryTitleTexts>
       </StyledHistoryTextDiv>
       <StyledHistoryContentDiv>
-        {genrateStorageHistoryOptions()}
+        {historyData.length ? genrateStorageHistoryOptions() : <></>}
       </StyledHistoryContentDiv>
     </StyledHistoryDiv>
   );

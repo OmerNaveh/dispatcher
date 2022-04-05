@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { colors } from "../../../strings/colors";
 import { ReactComponent as ExitIcon } from "../../../assets/exit.svg";
-export const StyledHistoryDiv = styled.div`
+interface styledHistoryDivProps {
+  mobile?: boolean;
+}
+export const StyledHistoryDiv = styled.div<styledHistoryDivProps>`
   position: absolute;
   left: 0%;
   top: 110%;
@@ -11,6 +14,7 @@ export const StyledHistoryDiv = styled.div`
   border-radius: 10px;
   padding: 4%;
   overflow-y: scroll;
+  max-height: ${(props) => !props.mobile && "300px"};
   color: ${colors.DarkBlue};
   display: flex;
   flex-direction: column;

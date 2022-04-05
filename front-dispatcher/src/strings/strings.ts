@@ -213,4 +213,5 @@ export const apiUrlsStrings = {
 };
 export const usefulStrings = {
   whiteSpace: "\xa0",
+  Div: "DIV",
 };

@@ -15,7 +15,6 @@ export default {
 } as ComponentMeta<typeof StyledSearchBarDiv>;
 const Template: ComponentStory<typeof StyledSearchBarDiv> = (args) => (
   <StyledSearchBarDiv {...args} className={"grid"}>
-    <InputWithIcon />
     <Divider orientation="vertical" variant="middle" flexItem />
     <DropDown options={options} placeHolder={headerStrings.Search} />
   </StyledSearchBarDiv>
