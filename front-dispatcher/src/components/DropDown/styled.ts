@@ -9,6 +9,7 @@ export const StyledDropDownDiv = styled.div<styledDiv>`
   position: relative;
   width: 100%;
   margin: 0 0.5em;
+  max-height: ${(props) => !props.searchbar && "44.5px"};
   display: ${(props) => !props.searchbar && "flex"};
   justify-content: ${(props) => !props.searchbar && "center"};
   background: ${colors.White};

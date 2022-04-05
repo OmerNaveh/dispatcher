@@ -21,6 +21,7 @@ export const getApiUrl = (currentFilterState: reduxState) => {
     date,
     language,
   } = currentFilterState;
+
   let url: string = apiUrlsStrings.apiBaseUrl;
   url += `${
     endpoint === ReduxString.TopHeadlines

@@ -13,31 +13,31 @@ const Template: ComponentStory<typeof LineGraph> = (args) => (
 );
 const data = [
   {
-    identifier: "April",
+    name: "April",
     value: 2400,
   },
   {
-    identifier: "March",
+    name: "March",
     value: 2210,
   },
   {
-    identifier: "July",
+    name: "July",
     value: 2290,
   },
   {
-    identifier: "June",
+    name: "June",
     value: 2000,
   },
   {
-    identifier: "August",
+    name: "August",
     value: 2181,
   },
   {
-    identifier: "January",
+    name: "January",
     value: 2500,
   },
   {
-    identifier: "May",
+    name: "May",
     value: 2100,
   },
 ];

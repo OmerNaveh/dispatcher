@@ -1,10 +1,9 @@
 import React from "react";
+import { useAppSelector } from "../../../../store";
 import { graphString } from "../../../../strings/strings";
 import { CardText } from "../../../Card/style";
 import DoughnutGraph from "./components/DoughnutGraph/DoughnutGraph";
 import LineGraph from "./components/LineGraph/LineGraph";
-import { doughnutMockdata, lineGraphMockData } from "./mock/graphsMockData";
-
 import {
   GraphContentDiv,
   GraphLayout,
@@ -13,6 +12,7 @@ import {
   NoGraphIcon,
   TitleDivider,
 } from "./style";
+import { getDougnutData, getLineData } from "./utils/graphData";
 
 interface graphProps {
   title: string;
@@ -20,14 +20,21 @@ interface graphProps {
 }
 
 const Graph = ({ title, graphType }: graphProps) => {
+  const { articles } = useAppSelector((state) => state.apiData);
+
   const showGraphByType = () => {
-    return graphType === graphString.graphTypeArray[0] ? (
+    const graphData =
+      graphType === graphString.Sources
+        ? getDougnutData(articles)
+        : getLineData(articles);
+
+    return graphType === graphString.Sources ? (
       <GraphContentDiv>
-        <DoughnutGraph data={doughnutMockdata} />
+        <DoughnutGraph data={graphData} />
       </GraphContentDiv>
-    ) : graphType === graphString.graphTypeArray[1] ? (
+    ) : graphType === graphString.Dates ? (
       <GraphContentDiv>
-        <LineGraph data={lineGraphMockData} />
+        <LineGraph data={graphData} />
       </GraphContentDiv>
     ) : (
       showNoGraphType()
@@ -47,13 +54,14 @@ const Graph = ({ title, graphType }: graphProps) => {
         <GraphTitle>{title}</GraphTitle>
         <TitleDivider />
       </div>
-      {!graphType && (
+      {!graphType || !articles || articles.length === 0 ? (
         <NoContentDiv>
           <NoGraphIcon />
           <CardText>{graphString.noDataToDisplay}</CardText>
         </NoContentDiv>
+      ) : (
+        graphType && showGraphByType()
       )}
-      {graphType && showGraphByType()}
     </GraphLayout>
   );
 };
