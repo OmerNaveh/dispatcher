@@ -1,12 +1,11 @@
 import moment from "moment";
-import { graphString } from "../../../../../strings/strings";
+import { graphString, usefulStrings } from "../../../../../strings/strings";
 
-type objStringKeyNumberValue = { [key: string]: number };
-export type outputDoughnutObjectType = { name: string; value: number };
-export type outputLineObjectType = { identifier: string; value: number };
+type dictionaryType = { [key: string]: number };
+export type graphObjType = { name: string; value: number };
 
 export const getDougnutData = (currentArticles: APITypes.Article[]) => {
-  const dictionary: objStringKeyNumberValue = {};
+  const dictionary: dictionaryType = {};
   currentArticles.forEach((article) => {
     dictionary[article.source.name]
       ? dictionary[article.source.name]++
@@ -24,8 +23,8 @@ export const getDougnutData = (currentArticles: APITypes.Article[]) => {
   return resData;
 };
 
-const separateObjecttoArrayOfObjects = (obj: objStringKeyNumberValue) => {
-  const res: outputDoughnutObjectType[] = [];
+const separateObjecttoArrayOfObjects = (obj: dictionaryType) => {
+  const res: graphObjType[] = [];
   const keys = Object.keys(obj);
   keys.forEach((key) => {
     res.push({
@@ -37,31 +36,26 @@ const separateObjecttoArrayOfObjects = (obj: objStringKeyNumberValue) => {
 };
 
 export const getLineData = (currentArticles: APITypes.Article[]) => {
-  const dictionary: objStringKeyNumberValue = {};
-  const sortedArticlesArray = [...currentArticles].sort(
+  const dictionary: dictionaryType = {};
+  const sortedArticles = [...currentArticles].sort(
     (a, b) =>
       new Date(a.publishedAt).valueOf() - new Date(b.publishedAt).valueOf()
   );
-  sortedArticlesArray.forEach((article) => {
-    const articleIdentifierDate = moment
-      .utc(article.publishedAt)
-      .format("DD/MM");
-    dictionary[articleIdentifierDate]
-      ? dictionary[articleIdentifierDate]++
-      : (dictionary[articleIdentifierDate] = 1);
+  sortedArticles.forEach((article) => {
+    const articleDate = moment.utc(article.publishedAt).format("DD/MM");
+    dictionary[articleDate]
+      ? dictionary[articleDate]++
+      : (dictionary[articleDate] = 1);
   });
 
-  return separateLineObjecttoArrayOfObjects(dictionary);
-};
-
-const separateLineObjecttoArrayOfObjects = (obj: objStringKeyNumberValue) => {
-  const res: outputLineObjectType[] = [];
-  const keys = Object.keys(obj);
-  keys.forEach((key) => {
-    res.push({
-      identifier: key,
-      value: obj[key],
+  const lineGraphData = separateObjecttoArrayOfObjects(dictionary);
+  if (lineGraphData.length === 1) {
+    lineGraphData.push({
+      name: "",
+      value: 0,
     });
-  });
-  return res;
+    lineGraphData.unshift({ name: `${usefulStrings.whiteSpace}`, value: 0 });
+  }
+
+  return lineGraphData;
 };

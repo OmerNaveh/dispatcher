@@ -12,12 +12,7 @@ import {
   NoGraphIcon,
   TitleDivider,
 } from "./style";
-import {
-  getDougnutData,
-  getLineData,
-  outputDoughnutObjectType,
-  outputLineObjectType,
-} from "./utils/graphData";
+import { getDougnutData, getLineData } from "./utils/graphData";
 
 interface graphProps {
   title: string;
@@ -29,17 +24,17 @@ const Graph = ({ title, graphType }: graphProps) => {
 
   const showGraphByType = () => {
     const graphData =
-      graphType === graphString.graphTypeArray[0]
+      graphType === graphString.Sources
         ? getDougnutData(articles)
         : getLineData(articles);
 
-    return graphType === graphString.graphTypeArray[0] ? (
+    return graphType === graphString.Sources ? (
       <GraphContentDiv>
-        <DoughnutGraph data={graphData as outputDoughnutObjectType[]} />
+        <DoughnutGraph data={graphData} />
       </GraphContentDiv>
-    ) : graphType === graphString.graphTypeArray[1] ? (
+    ) : graphType === graphString.Dates ? (
       <GraphContentDiv>
-        <LineGraph data={graphData as outputLineObjectType[]} />
+        <LineGraph data={graphData} />
       </GraphContentDiv>
     ) : (
       showNoGraphType()

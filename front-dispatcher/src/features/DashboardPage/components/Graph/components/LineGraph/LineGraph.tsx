@@ -3,7 +3,7 @@ import { AreaChart, Area, XAxis, ResponsiveContainer } from "recharts";
 import { colors } from "../../../../../../strings/colors";
 
 interface lineProps {
-  data: { identifier: string; value: number }[];
+  data: { name: string; value: number }[];
 }
 const LineGraph = ({ data }: lineProps) => {
   return (
@@ -23,12 +23,7 @@ const LineGraph = ({ data }: lineProps) => {
             <stop offset="1.035" stop-color="#00b9ff" stop-opacity="0" />
           </linearGradient>
         </defs>
-        <XAxis
-          dataKey="identifier"
-          axisLine={false}
-          tickLine={false}
-          scale="point"
-        />
+        <XAxis dataKey="name" axisLine={false} tickLine={false} scale="point" />
         <Area
           type="monotone"
           dataKey="value"

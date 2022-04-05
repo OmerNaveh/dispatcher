@@ -61,7 +61,7 @@ export const apiStrings: { [key: string]: string[] } = {
   ],
   Category: [
     "Business",
-    "Enetertainment",
+    "Entertainment",
     "General",
     "Health",
     "Science",
@@ -138,6 +138,8 @@ export const graphString = {
   containerClass: "flex column graph",
   cardLayoutClass: "graph",
   graphTypeArray: ["Sources", "Dates", "Tags"],
+  Sources: "Sources",
+  Dates: "Dates",
   Sum: "Sum",
   Other: "Other",
 };
@@ -205,7 +207,8 @@ export const apiUrlsStrings = {
   category: "&category=",
   country: "&country=",
   topHeadlines: "top-headlines",
-  apikey: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
+  apikey2: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
+  apikey: "&apiKey=217a73c41e4c4534ae8599769d7d2079",
 };
 export const usefulStrings = {
   whiteSpace: "\xa0",
