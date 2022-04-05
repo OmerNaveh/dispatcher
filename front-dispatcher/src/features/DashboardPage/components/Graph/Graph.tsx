@@ -4,7 +4,6 @@ import { graphString } from "../../../../strings/strings";
 import { CardText } from "../../../Card/style";
 import DoughnutGraph from "./components/DoughnutGraph/DoughnutGraph";
 import LineGraph from "./components/LineGraph/LineGraph";
-import { lineGraphMockData } from "./mock/graphsMockData";
 import {
   GraphContentDiv,
   GraphLayout,
