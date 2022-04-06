@@ -3,6 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import { ReactComponent as SettingsIcon } from "../../../../assets/settings.svg";
 import { ReactComponent as SearchIcon } from "../../../../assets/search.svg";
 import { StyledNotificationIcon } from "./style";
+import { Tooltip } from "@mui/material";
 
 interface svgBtnProps {
   settings?: boolean;
@@ -16,9 +17,13 @@ const SvgBtns = ({ settings, search, onClickFunc }: svgBtnProps) => {
       {search ? (
         <SearchIcon onClick={onClickFunc} />
       ) : settings ? (
-        <SettingsIcon />
+        <Tooltip title="Coming soon">
+          <SettingsIcon />
+        </Tooltip>
       ) : (
-        <StyledNotificationIcon />
+        <Tooltip title="Coming soon">
+          <StyledNotificationIcon />
+        </Tooltip>
       )}
     </IconButton>
   );
