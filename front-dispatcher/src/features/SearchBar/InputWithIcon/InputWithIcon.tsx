@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import InputAdornment from "@mui/material/InputAdornment";
 import { ReactComponent as SearchIcon } from "../../../assets/search.svg";
 import {
@@ -31,22 +31,26 @@ const InputWithIcon = ({ setFocused, mobile, focused }: props) => {
   const clearValue = () => {
     inputValue && setInputValue("");
   };
-
-  const debounceSearchFunc = (enteredValue: string) => {
-    _.debounce(() => {
-      dispatch(filterActions.setSearchInput(enteredValue));
-      if (enteredValue) {
-        const url = getApiUrl({ ...filterState, searchInput: enteredValue });
-        dispatch(apiCallthunk(url));
-        if (!isAlreadyInStorage(enteredValue)) {
-          addToHistory(enteredValue);
-          setHistoryData((prev) => [...prev, enteredValue]);
-        }
+  const changeFunc = (enteredValue: string) => {
+    dispatch(filterActions.setSearchInput(enteredValue));
+    if (enteredValue) {
+      const url = getApiUrl({ ...filterState, searchInput: enteredValue });
+      dispatch(apiCallthunk(url));
+      if (!isAlreadyInStorage(enteredValue)) {
+        addToHistory(enteredValue);
+        setHistoryData((prev) => [...prev, enteredValue]);
       }
-    }, usefulNumbers.debounceTime)();
+    }
   };
+  const changeFuncDebounced = useMemo(
+    () => _.debounce(changeFunc, usefulNumbers.debounceTime),
+    []
+  );
+  const debounceSearchFunc = useCallback((enteredValue: string) => {
+    changeFuncDebounced(enteredValue);
+  }, []);
   const handleHistoryClick = (historyStr: string) => {
-    debounceSearchFunc(historyStr);
+    changeFunc(historyStr);
     setInputValue(historyStr);
   };
   return (

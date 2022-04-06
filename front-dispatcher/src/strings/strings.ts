@@ -208,8 +208,8 @@ export const apiUrlsStrings = {
   category: "&category=",
   country: "&country=",
   topHeadlines: "top-headlines",
-  apikey2: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
-  apikey: "&apiKey=217a73c41e4c4534ae8599769d7d2079",
+  apikey: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
+  apikey2: "&apiKey=217a73c41e4c4534ae8599769d7d2079",
 };
 export const usefulStrings = {
   whiteSpace: "\xa0",
