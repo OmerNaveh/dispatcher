@@ -66,6 +66,6 @@ export const getApiUrl = (
   }`;
   url +=
     apiUrlsStrings.pageSize + pageSize + apiUrlsStrings.pageNumber + pageNumber;
-  url += apiUrlsStrings.apikey;
+  url += process.env.REACT_APP_APIKEY;
   return url;
 };
