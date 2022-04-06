@@ -209,8 +209,8 @@ export const apiUrlsStrings = {
   pageSize: "&pageSize=",
   pageNumber: "&page=",
   topHeadlines: "top-headlines",
-  apikey3: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
-  apikey: "&apiKey=217a73c41e4c4534ae8599769d7d2079",
+  apikey: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
+  apikey3: "&apiKey=217a73c41e4c4534ae8599769d7d2079",
   apikey2: "&apiKey=64f26ab4bbfb47749fc47f162876a00b",
 };
 export const usefulStrings = {
