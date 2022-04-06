@@ -184,7 +184,7 @@ export const positionString: { [key: string]: "start" | "end" } = {
 };
 export const cardResultsStrings = {
   totalResults: "Total results",
-  topHeadlinesIn: "Top Headlines in Israel",
+  topHeadlinesIn: "Top Headlines in",
 };
 export const dateStrings: {
   Year: "year";
@@ -207,9 +207,123 @@ export const apiUrlsStrings = {
   category: "&category=",
   country: "&country=",
   topHeadlines: "top-headlines",
-  apikey2: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
-  apikey: "&apiKey=217a73c41e4c4534ae8599769d7d2079",
+  apikey3: "&apiKey=28c58c4eb54b45acbd6f61390ccfa776",
+  apikey2: "&apiKey=217a73c41e4c4534ae8599769d7d2079",
+  apikey: "&apiKey=64f26ab4bbfb47749fc47f162876a00b",
 };
 export const usefulStrings = {
   whiteSpace: "\xa0",
+};
+export const IPApiStrings = {
+  url: "https://ipinfo.io/?token=36d528d443f525",
+  defaultCountry: "il",
+};
+export const countryNames: { [key: string]: string } = {
+  AE: "United Arab Emirates",
+
+  AR: "Argentina",
+
+  AT: "Austria",
+
+  AU: "Australia",
+
+  BE: "Belgium",
+
+  BG: "Bulgaria",
+
+  BR: "Brazil",
+
+  CA: "Canada",
+
+  CH: "Switzerland",
+
+  CN: "China",
+
+  CO: "Colombia",
+
+  CU: "Cuba",
+
+  CZ: "Czech Republic",
+
+  DE: "Germany",
+
+  EG: "Egypt",
+
+  FR: "France",
+
+  GB: "United Kingdom",
+
+  GR: "Greece",
+
+  HK: "Hong Kong",
+
+  HU: "Hungary",
+
+  ID: "Indonesia",
+
+  IE: "Ireland",
+
+  IL: "Israel",
+
+  IN: "India",
+
+  IT: "Italy",
+
+  JP: "Japan",
+
+  KR: "Korea",
+
+  LT: "Lithuania",
+
+  LV: "Latvia",
+
+  MA: "Morocco",
+
+  MX: "Mexico",
+
+  MY: "Malaysia",
+
+  NG: "Nigeria",
+
+  NL: "Netherlands",
+
+  NO: "Norway",
+
+  NZ: "New Zealand",
+
+  PH: "Philippines",
+
+  PL: "Poland",
+
+  PT: "Portugal",
+
+  RO: "Romania",
+
+  RS: "Serbia",
+
+  RU: "Russian Federation",
+
+  SA: "Saudi Arabia",
+
+  SE: "Sweden",
+
+  SG: "Singapore",
+
+  SI: "Slovenia",
+
+  SK: "Slovakia",
+
+  TH: "Thailand",
+
+  TR: "Turkey",
+
+  TW: "Taiwan",
+
+  UA: "Ukraine",
+
+  US: "United States",
+
+  VE: "Venezuela",
+
+  ZA: "South Africa",
 };
