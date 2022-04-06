@@ -3,7 +3,6 @@ import { ReactComponent as ArrowIcon } from "../../../../../assets/back.svg";
 import PrimaryButton from "../../../../../components/PrimaryButton/style";
 import { chooseCorrectActionType } from "../../../../../helpers/actionTypeSelector";
 import { apiCallthunk, getApiUrl } from "../../../../../helpers/apiCall";
-import { convertStringToLocaleDate } from "../../../../../helpers/dateConverter";
 import { useAppDispatch, useAppSelector } from "../../../../../store";
 import { filterActions } from "../../../../../store/slicers/filtersSlice";
 import {
@@ -12,6 +11,7 @@ import {
   searchBarStrings,
 } from "../../../../../strings/strings";
 import DateInput from "../../DateInput/DateInput";
+import MobileDateInput from "../../DateInput/MobileDateInput";
 import {
   FilterBtnDiv,
   FilterDiv,
@@ -47,7 +47,7 @@ const FilterContent = () => {
   };
   const cardContainers = () => {
     if (filterTitle === ReduxString.Dates)
-      return <DateInput openDirectly={true} />;
+      return <MobileDateInput openDirectly={true} />;
     return apiStrings[filterTitle] ? (
       apiStrings[filterTitle].map((title) => (
         <FilterItemCardContainer
