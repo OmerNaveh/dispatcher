@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { apiCallthunk } from "../../helpers/apiCall";
+import { apiCallScroll, apiCallthunk } from "../../helpers/apiCall";
 import { ReduxString } from "../../strings/strings";
 
 const initialState: APITypes.ApiResponseData = {
@@ -24,6 +24,20 @@ const apiDataSlice = createSlice({
       state.status = action.payload.status;
     },
     [apiCallthunk.rejected.type]: (state, action) => {
+      state.status = ReduxString.Failed;
+    },
+    [apiCallScroll.pending.type]: (state, action) => {},
+    [apiCallScroll.fulfilled.type]: (
+      state,
+      action: PayloadAction<APITypes.ApiResponseData>
+    ) => {
+      state.articles = action.payload.articles
+        ? [...state.articles, ...action.payload.articles]
+        : [...state.articles];
+      state.totalResults = action.payload.totalResults;
+      state.status = action.payload.status;
+    },
+    [apiCallScroll.rejected.type]: (state, action) => {
       state.status = ReduxString.Failed;
     },
   },

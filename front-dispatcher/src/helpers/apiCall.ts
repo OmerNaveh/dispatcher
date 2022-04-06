@@ -2,14 +2,28 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { reduxState } from "../store/slicers/filtersSlice";
 import { apiUrlsStrings, ReduxString } from "../strings/strings";
-
+const defaultErrorResponse: APITypes.ApiResponseData = {
+  status: "",
+  articles: [],
+  totalResults: 0,
+};
 export const apiCallthunk = createAsyncThunk("fetchApi", (url: string) =>
   axios
     .get(url)
     .then((response) => response.data as APITypes.ApiResponseData)
-    .catch((error) => error)
+    .catch((error) => defaultErrorResponse)
 );
-export const getApiUrl = (currentFilterState: reduxState) => {
+export const apiCallScroll = createAsyncThunk("scrollApi", (url: string) =>
+  axios
+    .get(url)
+    .then((response) => response.data as APITypes.ApiResponseData)
+    .catch((error) => defaultErrorResponse)
+);
+export const getApiUrl = (
+  currentFilterState: reduxState,
+  pageSize: number = 20,
+  pageNumber: number = 1
+) => {
   const {
     endpoint,
     country,
@@ -50,6 +64,8 @@ export const getApiUrl = (currentFilterState: reduxState) => {
         apiUrlsStrings.language +
         language
   }`;
-  url += apiUrlsStrings.apikey;
+  url +=
+    apiUrlsStrings.pageSize + pageSize + apiUrlsStrings.pageNumber + pageNumber;
+  url += process.env.REACT_APP_APIKEY;
   return url;
 };
