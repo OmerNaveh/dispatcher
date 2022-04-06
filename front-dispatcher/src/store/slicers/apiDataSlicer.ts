@@ -26,9 +26,7 @@ const apiDataSlice = createSlice({
     [apiCallthunk.rejected.type]: (state, action) => {
       state.status = ReduxString.Failed;
     },
-    [apiCallScroll.pending.type]: (state, action) => {
-      state.status = ReduxString.Loading;
-    },
+    [apiCallScroll.pending.type]: (state, action) => {},
     [apiCallScroll.fulfilled.type]: (
       state,
       action: PayloadAction<APITypes.ApiResponseData>
