@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "../../../../components/Container/Container";
 import { useAppDispatch, useAppSelector } from "../../../../store";
-import { cardString, ReduxString } from "../../../../strings/strings";
+import {
+  cardString,
+  IPApiStrings,
+  ReduxString,
+} from "../../../../strings/strings";
 import Card from "../../../Card/Card";
 import LoadingIcon from "../LoadingIcon/LoadingIcon";
 import NotFound from "../NotFound/NotFound";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { apiCallScroll, getApiUrl } from "../../../../helpers/apiCall";
+import { getClientRegion } from "../../../../helpers/ipHandlers";
 const CardContainer = () => {
   const dispatch = useAppDispatch();
   const [pageNumber, setPageNumber] = useState<number>(1);
+  const [clientLocation, setClientLocation] = useState<string>(
+    IPApiStrings.defaultCountry
+  );
   const { articles, totalResults, status } = useAppSelector(
     (state) => state.apiData
   );
@@ -17,14 +25,15 @@ const CardContainer = () => {
 
   const nextScroll = () => {
     setPageNumber((prevNumber) => prevNumber + 1);
-    let country = filterState.country;
-    if (!filterState.country) {
-      country = "il";
-      // TODO: Replace with get country by ip
-    }
+    let country = filterState.country || clientLocation;
     const url = getApiUrl({ ...filterState, country }, 20, pageNumber + 1);
     dispatch(apiCallScroll(url));
   };
+  useEffect(() => {
+    try {
+      getClientRegion().then((res) => setClientLocation(res));
+    } catch (error) {}
+  }, [clientLocation]);
   useEffect(() => {
     setPageNumber(1);
   }, [articles.length === totalResults, totalResults]);
