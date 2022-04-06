@@ -328,3 +328,6 @@ export const countryNames: { [key: string]: string } = {
 
   ZA: "South Africa",
 };
+export const sideBarString = {
+  ClickToSelect: "Click Me To Select Date",
+};

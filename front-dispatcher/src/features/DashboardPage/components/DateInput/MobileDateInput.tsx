@@ -1,22 +1,28 @@
 import React from "react";
-import { DatePicker, LocalizationProvider } from "@mui/lab";
+import { LocalizationProvider, MobileDatePicker } from "@mui/lab";
 import { TextField } from "@mui/material";
-import { apiStrings, dateStrings } from "../../../../strings/strings";
+import {
+  apiStrings,
+  dateStrings,
+  sideBarString,
+} from "../../../../strings/strings";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import { ReactComponent as DateIcon } from "../../../../assets/date.svg";
 import { StyledDateDiv } from "./style";
 import { filterActions } from "../../../../store/slicers/filtersSlice";
 import { useAppDispatch, useAppSelector } from "../../../../store";
-import { apiCallthunk, getApiUrl } from "../../../../helpers/apiCall";
-
-const DateInput = () => {
+import { colors } from "../../../../strings/colors";
+interface dateinputProps {
+  isSideBar?: boolean;
+}
+const MobileDateInput = ({ isSideBar }: dateinputProps) => {
   const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
   const dispatch = useAppDispatch();
   const filterState = useAppSelector((state) => state.filters);
   return (
-    <StyledDateDiv>
+    <StyledDateDiv sideBar={isSideBar}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <DatePicker
+        <MobileDatePicker
           disableFuture
           minDate={new Date("2022-03-05")}
           maxDate={new Date()}
@@ -28,11 +34,6 @@ const DateInput = () => {
               dispatch(
                 filterActions.setDate(newValue.toISOString().slice(0, 10))
               );
-              const apiUrl = getApiUrl({
-                ...filterState,
-                date: newValue.toISOString().slice(0, 10),
-              });
-              dispatch(apiCallthunk(apiUrl));
             }
             setSelectedDate(newValue);
           }}
@@ -42,7 +43,8 @@ const DateInput = () => {
               inputProps={{
                 ...params.inputProps,
                 readOnly: true,
-                placeholder: apiStrings.Everything[1],
+                placeholder: sideBarString.ClickToSelect,
+                style: { cursor: "pointer", color: colors.DarkBlue },
               }}
             />
           )}
@@ -55,4 +57,4 @@ const DateInput = () => {
   );
 };
 
-export default DateInput;
+export default MobileDateInput;
