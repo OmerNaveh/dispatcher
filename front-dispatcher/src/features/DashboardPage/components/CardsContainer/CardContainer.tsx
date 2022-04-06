@@ -27,7 +27,7 @@ const CardContainer = () => {
   };
   useEffect(() => {
     setPageNumber(1);
-  }, [articles.length === totalResults]);
+  }, [articles.length === totalResults, totalResults]);
   const allCards = () => {
     if (status === ReduxString.Loading) return <LoadingIcon />;
     if (!status || totalResults === 0) return <NotFound />;
