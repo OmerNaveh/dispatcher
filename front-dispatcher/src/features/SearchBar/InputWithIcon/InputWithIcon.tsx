@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import InputAdornment from "@mui/material/InputAdornment";
 import { ReactComponent as SearchIcon } from "../../../assets/search.svg";
 import {
@@ -13,37 +13,51 @@ import { useAppDispatch, useAppSelector } from "../../../store";
 import { filterActions } from "../../../store/slicers/filtersSlice";
 import { apiCallthunk, getApiUrl } from "../../../helpers/apiCall";
 import { usefulNumbers } from "../../../strings/numbers";
+import {
+  addToHistory,
+  getHistory,
+  isAlreadyInStorage,
+} from "../../../helpers/localStorageUsage";
 interface props {
-  handleOnFocus?: () => void;
   mobile?: boolean;
   focused?: boolean;
+  setFocused: (value: React.SetStateAction<boolean>) => void;
 }
-export default function InputWithIcon({
-  handleOnFocus,
-  mobile,
-  focused,
-}: props) {
+const InputWithIcon = ({ setFocused, mobile, focused }: props) => {
   const [inputValue, setInputValue] = useState<string>("");
+  const [historyData, setHistoryData] = useState<string[]>(getHistory());
   const dispatch = useAppDispatch();
   const filterState = useAppSelector((state) => state.filters);
   const clearValue = () => {
     inputValue && setInputValue("");
   };
-  const debounceSearchFunc = (enteredValue: string) => {
-    _.debounce(() => {
-      dispatch(filterActions.setSearchInput(enteredValue));
-      if (enteredValue) {
-        const url = getApiUrl({ ...filterState, searchInput: enteredValue });
-        dispatch(apiCallthunk(url));
+  const changeFunc = (enteredValue: string) => {
+    dispatch(filterActions.setSearchInput(enteredValue));
+    if (enteredValue) {
+      const url = getApiUrl({ ...filterState, searchInput: enteredValue });
+      dispatch(apiCallthunk(url));
+      if (!isAlreadyInStorage(enteredValue)) {
+        addToHistory(enteredValue);
+        setHistoryData((prev) => [...prev, enteredValue]);
       }
-    }, usefulNumbers.debounceTime)();
+    }
+  };
+  const changeFuncDebounced = useMemo(
+    () => _.debounce(changeFunc, usefulNumbers.debounceTime),
+    []
+  );
+  const debounceSearchFunc = useCallback((enteredValue: string) => {
+    changeFuncDebounced(enteredValue);
+  }, []);
+  const handleHistoryClick = (historyStr: string) => {
+    changeFunc(historyStr);
+    setInputValue(historyStr);
   };
   return (
     <>
       <StyledInputWithIcon
         mobile={mobile}
-        onFocus={handleOnFocus}
-        onBlur={handleOnFocus}
+        onFocus={() => setFocused(true)}
         value={inputValue}
         onChange={(event) => {
           setInputValue(event.target.value);
@@ -67,7 +81,15 @@ export default function InputWithIcon({
         }
       />
 
-      {focused && <HistoryDiv data={apiStrings.Category} />}
+      {focused && (
+        <HistoryDiv
+          historyData={historyData}
+          setHistoryData={setHistoryData}
+          handleHistoryClick={handleHistoryClick}
+          mobile={mobile}
+        />
+      )}
     </>
   );
-}
+};
+export default InputWithIcon;
