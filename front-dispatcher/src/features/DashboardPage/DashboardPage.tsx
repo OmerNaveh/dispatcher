@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import CustomDivider from "../../components/Divider/style";
 import {
   cardResultsStrings,
+  countryNames,
+  IPApiStrings,
   ReduxString,
   usefulStrings,
 } from "../../strings/strings";
@@ -17,10 +19,14 @@ import {
 } from "./style";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { apiCallthunk, getApiUrl } from "../../helpers/apiCall";
+import { getClientRegion } from "../../helpers/ipHandlers";
 
 const DashboardPage = () => {
   const [isNotDesktop, setIsNotDesktop] = useState<boolean>(
     window.innerWidth < 900
+  );
+  const [clientLocation, setClientLocation] = useState<string>(
+    IPApiStrings.defaultCountry
   );
   const filterState = useAppSelector((state) => state.filters);
   const { country, category, sourceTopheadlines, searchInput, endpoint } =
@@ -28,11 +34,15 @@ const DashboardPage = () => {
   const apiData = useAppSelector((state) => state.apiData);
   const dispatch = useAppDispatch();
   useEffect(() => {
+    try {
+      getClientRegion().then((res) => setClientLocation(res));
+    } catch (error) {}
+  }, [clientLocation]);
+  useEffect(() => {
     resizeListener(setIsNotDesktop, 900);
-    // TODO: change starting default country based on users ip
-    const apiUrl = getApiUrl({ ...filterState, country: "il" });
+    const apiUrl = getApiUrl({ ...filterState, country: clientLocation });
     dispatch(apiCallthunk(apiUrl));
-  }, []);
+  }, [clientLocation]);
   const isFirstVisit =
     country ||
     category ||
@@ -52,7 +62,9 @@ const DashboardPage = () => {
           apiData.totalResults === 0) && (
           <CustomDashboardText firstVisit={isFirstVisit}>
             {isFirstVisit
-              ? cardResultsStrings.topHeadlinesIn
+              ? cardResultsStrings.topHeadlinesIn +
+                usefulStrings.whiteSpace +
+                countryNames[clientLocation.toUpperCase()]
               : apiData.totalResults +
                 usefulStrings.whiteSpace +
                 cardResultsStrings.totalResults}

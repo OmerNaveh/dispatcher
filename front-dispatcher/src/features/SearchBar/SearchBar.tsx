@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import InputWithIcon from "./InputWithIcon/InputWithIcon";
 
@@ -18,25 +18,37 @@ interface searchbarProps {
 }
 const SearchBar = ({ fullScreen, mobileBackFC }: searchbarProps) => {
   const [focused, setFocused] = useState<boolean>(false);
+  const searchDivRef = useRef<HTMLDivElement>(null);
   const filterState = useAppSelector((state) => state.filters);
   const { endpoint } = filterState;
+  useEffect(() => {
+    const handleClickOutside = (event: Event) => {
+      if (
+        searchDivRef.current &&
+        !searchDivRef.current.contains(event.target as Node)
+      ) {
+        setFocused(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
   if (fullScreen)
     return (
       <StyledMobileSearchDiv>
         <StyledBackIcon onClick={mobileBackFC} />
         <InputWithIcon
           mobile={true}
-          handleOnFocus={() => setFocused(!focused)}
+          setFocused={setFocused}
           focused={focused}
         />
       </StyledMobileSearchDiv>
     );
   return (
-    <StyledSearchBarDiv focused={focused}>
-      <InputWithIcon
-        handleOnFocus={() => setFocused(!focused)}
-        focused={focused}
-      />
+    <StyledSearchBarDiv focused={focused} ref={searchDivRef}>
+      <InputWithIcon setFocused={setFocused} focused={focused} />
       <Divider orientation="vertical" flexItem />
       <DropDown
         reduxActionType={filterActionsStrings[0]}
