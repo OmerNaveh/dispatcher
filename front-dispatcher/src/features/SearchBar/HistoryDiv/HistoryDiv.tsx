@@ -52,11 +52,11 @@ const HistoryDiv = ({
   };
   return (
     <StyledHistoryDiv mobile={mobile}>
-      <StyledHistoryTextDiv isTitle={true}>
+      <StyledHistoryTextDiv isTitle>
         <StyledHistoryTitleTexts>
           {historyStrings.RecentSearches}
         </StyledHistoryTitleTexts>
-        <StyledHistoryTitleTexts clickable={true} onClick={clearAllHistory}>
+        <StyledHistoryTitleTexts clickable onClick={clearAllHistory}>
           {historyStrings.Clear}
         </StyledHistoryTitleTexts>
       </StyledHistoryTextDiv>

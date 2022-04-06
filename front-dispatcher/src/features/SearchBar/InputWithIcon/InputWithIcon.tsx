@@ -23,7 +23,7 @@ interface props {
   focused?: boolean;
   setFocused: (value: React.SetStateAction<boolean>) => void;
 }
-export default function InputWithIcon({ setFocused, mobile, focused }: props) {
+const InputWithIcon = ({ setFocused, mobile, focused }: props) => {
   const [inputValue, setInputValue] = useState<string>("");
   const [historyData, setHistoryData] = useState<string[]>(getHistory());
   const dispatch = useAppDispatch();
@@ -87,4 +87,5 @@ export default function InputWithIcon({ setFocused, mobile, focused }: props) {
       )}
     </>
   );
-}
+};
+export default InputWithIcon;
