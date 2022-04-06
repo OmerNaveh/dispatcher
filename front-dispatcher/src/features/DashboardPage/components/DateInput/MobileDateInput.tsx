@@ -13,14 +13,14 @@ import { filterActions } from "../../../../store/slicers/filtersSlice";
 import { useAppDispatch, useAppSelector } from "../../../../store";
 import { colors } from "../../../../strings/colors";
 interface dateinputProps {
-  openDirectly?: boolean;
+  isSideBar?: boolean;
 }
-const MobileDateInput = ({ openDirectly }: dateinputProps) => {
+const MobileDateInput = ({ isSideBar }: dateinputProps) => {
   const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
   const dispatch = useAppDispatch();
   const filterState = useAppSelector((state) => state.filters);
   return (
-    <StyledDateDiv sideBar={openDirectly}>
+    <StyledDateDiv sideBar={isSideBar}>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <MobileDatePicker
           disableFuture

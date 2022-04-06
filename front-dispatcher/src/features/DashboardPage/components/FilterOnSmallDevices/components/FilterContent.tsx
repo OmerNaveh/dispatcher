@@ -10,7 +10,6 @@ import {
   ReduxString,
   searchBarStrings,
 } from "../../../../../strings/strings";
-import DateInput from "../../DateInput/DateInput";
 import MobileDateInput from "../../DateInput/MobileDateInput";
 import {
   FilterBtnDiv,
@@ -46,8 +45,7 @@ const FilterContent = () => {
     setFilterTitle(searchBarStrings.filter);
   };
   const cardContainers = () => {
-    if (filterTitle === ReduxString.Dates)
-      return <MobileDateInput openDirectly={true} />;
+    if (filterTitle === ReduxString.Dates) return <MobileDateInput isSideBar />;
     return apiStrings[filterTitle] ? (
       apiStrings[filterTitle].map((title) => (
         <FilterItemCardContainer
