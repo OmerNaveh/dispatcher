@@ -19,8 +19,6 @@ const apiDataSlice = createSlice({
       state,
       action: PayloadAction<APITypes.ApiResponseData>
     ) => {
-      console.log(action.payload);
-
       state.articles = action.payload.articles;
       state.totalResults = action.payload.totalResults;
       state.status = action.payload.status;
