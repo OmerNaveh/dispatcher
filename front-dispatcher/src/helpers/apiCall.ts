@@ -2,18 +2,22 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { reduxState } from "../store/slicers/filtersSlice";
 import { apiUrlsStrings, ReduxString } from "../strings/strings";
-
+const defaultErrorResponse: APITypes.ApiResponseData = {
+  status: "",
+  articles: [],
+  totalResults: 0,
+};
 export const apiCallthunk = createAsyncThunk("fetchApi", (url: string) =>
   axios
     .get(url)
     .then((response) => response.data as APITypes.ApiResponseData)
-    .catch((error) => error)
+    .catch((error) => defaultErrorResponse)
 );
 export const apiCallScroll = createAsyncThunk("scrollApi", (url: string) =>
   axios
     .get(url)
     .then((response) => response.data as APITypes.ApiResponseData)
-    .catch((error) => error)
+    .catch((error) => defaultErrorResponse)
 );
 export const getApiUrl = (
   currentFilterState: reduxState,
