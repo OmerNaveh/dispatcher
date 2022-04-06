@@ -33,7 +33,9 @@ const apiDataSlice = createSlice({
       state,
       action: PayloadAction<APITypes.ApiResponseData>
     ) => {
-      state.articles = [...state.articles, ...action.payload.articles];
+      state.articles = action.payload.articles
+        ? [...state.articles, ...action.payload.articles]
+        : [...state.articles];
       state.totalResults = action.payload.totalResults;
       state.status = action.payload.status;
     },

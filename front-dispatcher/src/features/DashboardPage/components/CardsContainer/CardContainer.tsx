@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "../../../../components/Container/Container";
 import { useAppDispatch, useAppSelector } from "../../../../store";
 import { cardString, ReduxString } from "../../../../strings/strings";
@@ -14,12 +14,20 @@ const CardContainer = () => {
     (state) => state.apiData
   );
   const filterState = useAppSelector((state) => state.filters);
+
   const nextScroll = () => {
     setPageNumber((prevNumber) => prevNumber + 1);
-    const url = getApiUrl(filterState, 20, pageNumber + 1);
+    let country = filterState.country;
+    if (!filterState.country) {
+      country = "il";
+      // TODO: Replace with get country by ip
+    }
+    const url = getApiUrl({ ...filterState, country }, 20, pageNumber + 1);
     dispatch(apiCallScroll(url));
   };
-
+  useEffect(() => {
+    setPageNumber(1);
+  }, [articles.length === totalResults]);
   const allCards = () => {
     if (status === ReduxString.Loading) return <LoadingIcon />;
     if (!status || totalResults === 0) return <NotFound />;
@@ -49,7 +57,6 @@ const CardContainer = () => {
         dataLength={articles.length}
         next={nextScroll}
         loader={<LoadingIcon />}
-        height="99%"
         hasMore={articles.length < totalResults}
         scrollableTarget={"scrollableDiv"}
       >
