@@ -7,7 +7,7 @@ export const NotFoundIcon = styled(Icon)`
   margin-bottom: 1em;
 `;
 export const NotFoundContainer = styled.div`
-  margin: 25% 5%;
+  margin: 25% 0%;
   display: flex;
   align-items: center;
   flex-direction: column;
