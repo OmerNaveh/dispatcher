@@ -93,7 +93,6 @@ export const apiStrings: { [key: string]: string[] } = {
     "The Verge",
     "CNET",
     "ESPN",
-    "New York Times",
     "NBC",
     "CNN",
     "Ynet",

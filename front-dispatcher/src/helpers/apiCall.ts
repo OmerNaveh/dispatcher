@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { reduxState } from "../store/slicers/filtersSlice";
 import { apiUrlsStrings, ReduxString } from "../strings/strings";
+import { toKebabCase } from "./stringFunctions";
 const defaultErrorResponse: APITypes.ApiResponseData = {
   status: "",
   articles: [],
@@ -48,7 +49,7 @@ export const getApiUrl = (
         apiUrlsStrings.category +
         category +
         apiUrlsStrings.sources +
-        sourceTopheadlines
+        toKebabCase(sourceTopheadlines)
       : endpoint +
         apiUrlsStrings.questionMark +
         apiUrlsStrings.query +
@@ -60,7 +61,7 @@ export const getApiUrl = (
         apiUrlsStrings.dateTo +
         date +
         apiUrlsStrings.sources +
-        sourceEverything +
+        toKebabCase(sourceEverything) +
         apiUrlsStrings.language +
         language
   }`;
