@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import { colors } from "../../strings/colors";
-
-export const CardContent = styled.div`
+interface rtlProps {
+  isRTL?: boolean;
+}
+export const CardContent = styled.div<rtlProps>`
   margin: auto 2%;
   padding: 1em 0;
   overflow-wrap: break-word;
+  direction: ${(props) => props.isRTL && "rtl"};
   width: 100%;
   @media only screen and (max-width: 900px) {
     padding: 0.5em 0;
@@ -18,9 +21,10 @@ export const CardContent = styled.div`
   }
 `;
 
-export const CardImage = styled.img`
+export const CardImage = styled.img<rtlProps>`
   width: 24.5%;
-  border-radius: 20px 0px 0px 20px;
+  border-radius: ${(props) =>
+    props.isRTL ? "0px 20px 20px 0px" : " 20px 0px 0px 20px"};
   object-fit: cover;
   @media only screen and (max-width: 900px) {
     width: 33.5%;
@@ -32,10 +36,11 @@ export const CardImage = styled.img`
   }
 `;
 
-export const CardLayout = styled.div`
+export const CardLayout = styled.div<rtlProps>`
   background: #ffffff;
   border: 1px solid #d9dbe9;
   display: flex;
+  flex-direction: ${(props) => props.isRTL && "row-reverse"};
   border-radius: 20px;
   margin: 0.8em;
   @media only screen and (max-width: 580px) {
@@ -91,10 +96,11 @@ export const CardTitle = styled.p`
   }
 `;
 
-export const CardButtonContainer = styled.div`
+export const CardButtonContainer = styled.div<rtlProps>`
   display: flex;
-  justify-content: right;
+  justify-content: ${(props) => (props.isRTL ? "left" : "right")};
   margin: 0;
+  direction: ltr;
   @media only screen and (max-width: 580px) {
     justify-content: center;
 
