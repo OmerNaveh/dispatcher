@@ -30,6 +30,7 @@ export const FilterDiv = styled.div`
   background-color: ${colors.White};
   position: absolute;
   right: 0;
+  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
