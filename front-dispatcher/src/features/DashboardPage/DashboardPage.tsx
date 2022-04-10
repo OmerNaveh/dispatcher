@@ -67,7 +67,8 @@ const DashboardPage = () => {
                 countryNames[clientLocation.toUpperCase()]
               : apiData.totalResults +
                 usefulStrings.whiteSpace +
-                cardResultsStrings.totalResults}
+                cardResultsStrings.totalResults +
+                (filterState.searchInput && `in "${filterState.searchInput}"`)}
           </CustomDashboardText>
         )}
         <DashboardContenContainer />
