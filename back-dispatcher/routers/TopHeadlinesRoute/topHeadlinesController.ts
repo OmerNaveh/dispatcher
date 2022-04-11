@@ -16,7 +16,7 @@ export const getTopHeadlines = async (
   next: NextFunction
 ) => {
   try {
-    const filters = req.body as INewsApiTopHeadlinesParams;
+    const filters: INewsApiTopHeadlinesParams = req.body;
     if (!filters.q && !filters.sources && !filters.category && !filters.country)
       throw mustIncludeAtLeastOneTopHeadlines;
     if (isOverOneHundred(filters.pageSize, filters.page))
