@@ -1,4 +1,4 @@
-import express, { Express, Request, Response, NextFunction } from "express";
+import express, { Express } from "express";
 import dotenv from "dotenv";
 import topHeadlinesRouter from "./routers/TopHeadlinesRoute/topHeadlinesRoute";
 import everythingRouter from "./routers/EverythingRoute/evertythingRoute";

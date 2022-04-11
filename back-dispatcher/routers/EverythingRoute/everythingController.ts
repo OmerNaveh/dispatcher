@@ -1,12 +1,13 @@
 import { Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 import {
+  exceededFreeTierLimit,
   mustIncludeAtLeastOneEverything,
   unknownError,
 } from "../../constants/strings/strings";
-import { everythingParams } from "../../types/requstParams";
-import { defaultPage, defaultPageSize } from "../../constants/numbers/numbers";
-const NewsAPI = require("newsapi"); // unable to import
+import NewsAPI from "ts-newsapi";
+import { INewsApiEverythingParams } from "ts-newsapi/lib/types";
+import { isOverOneHundred } from "../../utils/limitRequeststoHundred";
 dotenv.config();
 
 export const getEverything = async (
@@ -15,35 +16,13 @@ export const getEverything = async (
   next: NextFunction
 ) => {
   try {
-    const {
-      q,
-      sources,
-      sortBy,
-      from,
-      to,
-      language,
-      page,
-      domains,
-      searchIn,
-      excludeDomains,
-      pageSize,
-    } = req.headers as everythingParams;
-
-    if (!q && !sources && !domains) throw mustIncludeAtLeastOneEverything;
-    const newsapiCall = new NewsAPI(process.env.APIKEY);
-    const apiResponse = await newsapiCall.v2.everything({
-      q,
-      sources,
-      domains,
-      language,
-      sortBy,
-      page: page || defaultPage,
-      from,
-      to,
-      searchIn,
-      excludeDomains,
-      pageSize: pageSize || defaultPageSize,
-    });
+    const filters = req.body as INewsApiEverythingParams;
+    if (!filters.q && !filters.sources && !filters.domains)
+      throw mustIncludeAtLeastOneEverything;
+    if (isOverOneHundred(filters.pageSize, filters.page))
+      throw exceededFreeTierLimit;
+    const newsapiCall = new NewsAPI(process.env.APIKEY as string);
+    const apiResponse = await newsapiCall.getEverything(filters);
     res.send(apiResponse);
   } catch (error) {
     let message = unknownError;

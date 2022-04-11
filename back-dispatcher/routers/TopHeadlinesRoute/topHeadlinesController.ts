@@ -1,13 +1,13 @@
 import { Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
-import { topHeadlinesParams } from "../../types/requstParams";
-import { defaultPage, defaultPageSize } from "../../constants/numbers/numbers";
+import { INewsApiTopHeadlinesParams } from "ts-newsapi/lib/types";
 import {
+  exceededFreeTierLimit,
   mustIncludeAtLeastOneTopHeadlines,
   unknownError,
 } from "../../constants/strings/strings";
-
-const NewsAPI = require("newsapi"); // unable to import
+import NewsAPI from "ts-newsapi";
+import { isOverOneHundred } from "../../utils/limitRequeststoHundred";
 dotenv.config();
 
 export const getTopHeadlines = async (
@@ -16,19 +16,13 @@ export const getTopHeadlines = async (
   next: NextFunction
 ) => {
   try {
-    const { q, category, country, sources, page, pageSize } =
-      req.headers as topHeadlinesParams;
-    if (!q && !sources && !category && !country)
+    const filters = req.body as INewsApiTopHeadlinesParams;
+    if (!filters.q && !filters.sources && !filters.category && !filters.country)
       throw mustIncludeAtLeastOneTopHeadlines;
-    const newsapiCall = new NewsAPI(process.env.APIKEY);
-    const apiResponse = await newsapiCall.v2.topHeadlines({
-      sources,
-      q,
-      category,
-      country,
-      page: page || defaultPage,
-      pageSize: pageSize || defaultPageSize,
-    });
+    if (isOverOneHundred(filters.pageSize, filters.page))
+      throw exceededFreeTierLimit;
+    const newsapiCall = new NewsAPI(process.env.APIKEY as string);
+    const apiResponse = await newsapiCall.getTopHeadlines(filters);
     res.send(apiResponse);
   } catch (error) {
     let message = unknownError;
