@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import topHeadlinesRouter from "./routers/TopHeadlinesRoute/topHeadlinesRoute";
 import everythingRouter from "./routers/EverythingRoute/evertythingRoute";
 import { errorHandler } from "./middlewares/errorHandler";
+import graphsRouter from "./routers/GraphsDataRoute/graphsRoute";
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ const port = process.env.PORT || 3003;
 app.use(express.json());
 app.use("/top", topHeadlinesRouter);
 app.use("/everything", everythingRouter);
+app.use("/graph", graphsRouter);
 app.use(errorHandler);
 
 app.listen(port, () => {
