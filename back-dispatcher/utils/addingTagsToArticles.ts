@@ -1,13 +1,14 @@
 import { INewsApiArticle, INewsApiResponse } from "ts-newsapi/lib/types";
 import {
+  crimeTag,
   disasterTag,
   healthTag,
   moneyTag,
   politicsTag,
+  showbizTag,
   sportTag,
   tagsKeywords,
   techTag,
-  ViolenceTag,
 } from "../constants/strings/strings";
 import { ArticleWithTags, Tags } from "../types/newsTypes";
 
@@ -50,8 +51,10 @@ const getTagsByString = (articleString: string) => {
     tags.push(sportTag);
   if (tagsKeywords.Tech.some((tag) => lowerCaseArticleString.includes(tag)))
     tags.push(techTag);
-  if (tagsKeywords.Violence.some((tag) => lowerCaseArticleString.includes(tag)))
-    tags.push(ViolenceTag);
+  if (tagsKeywords.Crime.some((tag) => lowerCaseArticleString.includes(tag)))
+    tags.push(crimeTag);
+  if (tagsKeywords.Showbiz.some((tag) => lowerCaseArticleString.includes(tag)))
+    tags.push(showbizTag);
   return tags;
 };
 
