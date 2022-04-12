@@ -11,6 +11,7 @@ export const internalServerErrors = "Internal server errors";
 export const tagsKeywords = {
   Money: [
     "crypto",
+    "budget",
     "money",
     "$",
     "stock",
@@ -23,6 +24,8 @@ export const tagsKeywords = {
   Violence: ["gun", "kill", "blood", "threat", "אלימות", "דם", "הרג", "נשק"],
   Tech: [
     "tech",
+    "device",
+    "data",
     "phone",
     "computer",
     "gaming",

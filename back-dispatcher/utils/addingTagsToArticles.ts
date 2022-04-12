@@ -9,19 +9,33 @@ import {
   techTag,
   ViolenceTag,
 } from "../constants/strings/strings";
+import { ArticleWithTags, Tags } from "../types/newsTypes";
 
 export const addingTagsToArticles = (apiResponse: INewsApiResponse) => {
-  if (!apiResponse.articles.length) return apiResponse;
+  if (!apiResponse.totalResults && !apiResponse.articles.length)
+    return apiResponse;
+  const updatedArticles = apiResponse.articles.map((article) =>
+    addTagsToArticle(article)
+  );
+  const { totalResults, status } = apiResponse;
+  return { status, totalResults, articles: updatedArticles };
 };
 
-const addTagsToArticle = (article: INewsApiArticle) => {
-  const { description } = article;
-  const tags = description ? getTagsByString(description) : [];
+const addTagsToArticle = (article: INewsApiArticle): ArticleWithTags => {
+  const { description, content, title } = article;
+
+  const descriptionTags = description ? getTagsByString(description) : [];
+  const contentTags = content ? getTagsByString(content) : [];
+  const titleTags = title ? getTagsByString(title) : [];
+  const combinedTags = descriptionTags.concat(contentTags).concat(titleTags);
+  const tags = combinedTags.length
+    ? uniqueValuesInTags(combinedTags)
+    : combinedTags;
   return { ...article, tags };
 };
 
 const getTagsByString = (articleString: string) => {
-  const tags: string[] = [];
+  const tags: Tags = [];
   const lowerCaseArticleString = articleString.toLowerCase();
   if (!articleString) return tags;
   if (tagsKeywords.Money.some((tag) => lowerCaseArticleString.includes(tag)))
@@ -39,4 +53,8 @@ const getTagsByString = (articleString: string) => {
   if (tagsKeywords.Violence.some((tag) => lowerCaseArticleString.includes(tag)))
     tags.push(ViolenceTag);
   return tags;
+};
+
+const uniqueValuesInTags = (tags: Tags) => {
+  return [...new Set(tags)];
 };
