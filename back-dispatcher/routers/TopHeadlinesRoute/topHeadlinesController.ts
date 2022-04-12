@@ -8,6 +8,7 @@ import {
 } from "../../constants/strings/strings";
 import NewsAPI from "ts-newsapi";
 import { isOverOneHundred } from "../../utils/limitRequeststoHundred";
+import { addingTagsToArticles } from "../../utils/addingTagsToArticles";
 dotenv.config();
 
 export const getTopHeadlines = async (
@@ -23,7 +24,8 @@ export const getTopHeadlines = async (
       throw exceededFreeTierLimit;
     const newsapiCall = new NewsAPI(process.env.APIKEY as string);
     const apiResponse = await newsapiCall.getTopHeadlines(filters);
-    res.send(apiResponse);
+    const finalResponse = addingTagsToArticles(apiResponse);
+    res.send(finalResponse);
   } catch (error) {
     let message = unknownError;
     if (error instanceof Error) message = error.message;
