@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import {
   API,
+  badData,
   exceededFreeTierLimit,
   internalServerErrors,
   Must,
@@ -13,7 +14,7 @@ export const errorHandler = (
   next: NextFunction
 ) => {
   if (err.includes(API)) res.status(401).send(err);
-  if (err.includes(Must)) res.status(400).send(err);
-  if (err === exceededFreeTierLimit) res.status(429).send(err);
+  else if (err.includes(Must) || err === badData) res.status(400).send(err);
+  else if (err === exceededFreeTierLimit) res.status(429).send(err);
   else res.status(500).send(internalServerErrors);
 };

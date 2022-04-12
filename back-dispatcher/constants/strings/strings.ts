@@ -8,6 +8,7 @@ export const tooManyRequests = "Too many requests";
 export const unknownError = "Unknown error";
 export const exceededFreeTierLimit = "Excceded free tier limit of 100 results";
 export const internalServerErrors = "Internal server errors";
+
 export const tagsKeywords = {
   Money: [
     "crypto",
@@ -85,3 +86,6 @@ export const politicsTag = "Politics";
 export const sportTag = "Sport";
 export const healthTag = "Health";
 export const disasterTag = "Disaster";
+
+export const badData = "Invalid Data Received";
+
