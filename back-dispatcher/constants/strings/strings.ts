@@ -8,3 +8,10 @@ export const tooManyRequests = "Too many requests";
 export const unknownError = "Unknown error";
 export const exceededFreeTierLimit = "Excceded free tier limit of 100 results";
 export const internalServerErrors = "Internal server errors";
+export const tagsKeywords = {
+  Money: ["crypto", "money", "$", "stock", "bitcoin"],
+  Violence: ["gun", "kill", "blood", "threat"],
+  Tech: [],
+  Politics: [],
+  Sport: ["ufc", "nba", "athlete", "sport", "gym", "medal"],
+};
