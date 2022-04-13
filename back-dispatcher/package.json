@@ -7,7 +7,8 @@
     "build": "npx tsc",
     "start": "node dist/index.js",
     "dev": "nodemon index.ts",
-    "populateTopHeadlines": "ts-node ./routers/TopHeadlinesRoute/populatingDBScript.ts"
+    "populateTopHeadlines": "ts-node ./routers/TopHeadlinesRoute/populatingDBScript.ts",
+    "populateEverything": "ts-node ./routers/EverythingRoute/populateDBScript.ts"
   },
   "keywords": [],
   "author": "",

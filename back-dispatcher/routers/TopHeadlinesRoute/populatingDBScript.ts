@@ -23,6 +23,8 @@ const populateTopHeadlines = async (
       country,
       category,
     });
+    if (!apiResponse || !apiResponse.articles || !apiResponse.articles.length)
+      return;
     const completeLoop = new Promise((resolve, reject) => {
       apiResponse.articles.forEach(async (article, index) => {
         const entry = convertArticleToEntry(article, country, category);
