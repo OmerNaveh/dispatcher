@@ -45,8 +45,6 @@ const saveToDB = async (article: topHeadlineEntry) => {
       upsert: true,
     });
   } catch (error) {
-    console.log(error);
-
     console.log("error communicating with DB");
     return;
   }
