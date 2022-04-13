@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
+import { everythingEntry } from "../../types/schemaTypes";
 
 const { Schema } = mongoose;
 
-const everythingSchema = new Schema({
+export const everythingSchema = new Schema<everythingEntry>({
   source: {
     id: String,
     name: String,
@@ -14,4 +15,5 @@ const everythingSchema = new Schema({
   urlToImage: String,
   publishedAt: String,
   content: String,
+  popularity: Number,
 });
