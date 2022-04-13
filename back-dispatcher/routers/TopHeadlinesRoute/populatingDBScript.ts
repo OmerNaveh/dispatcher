@@ -62,20 +62,19 @@ const convertArticleToEntry = (
 
 const scrapingTopHeadlines = async () => {
   await mongoose.connect(process.env.MONGOURI as string);
-  const countriesLoop = new Promise((resolve, reject) => {
-    countries.forEach(async (country, index) => {
-      await populateTopHeadlines(country);
-      if (index === countries.length - 1) resolve("");
-    });
-  });
-  await countriesLoop;
-  const categoriesLoop = new Promise((resolve, reject) => {
+  const combinedLoop = new Promise((resolve, reject) => {
     categories.forEach(async (category, index) => {
-      await populateTopHeadlines(undefined, category);
-      if (index === countries.length - 1) resolve("");
+      const countriesLoop = new Promise((resolve, reject) => {
+        countries.forEach(async (country, index) => {
+          await populateTopHeadlines(country, category);
+          if (index === countries.length - 1) resolve("");
+        });
+      });
+      await countriesLoop;
+      if (index === categories.length - 1) resolve("");
     });
   });
-  await categoriesLoop;
+  await combinedLoop;
   await mongoose.disconnect();
 };
 
