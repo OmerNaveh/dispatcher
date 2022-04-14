@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { reduxState } from "../store/slicers/filtersSlice";
 import { apiUrlsStrings, ReduxString } from "../strings/strings";
+import { lowerCaseFirstLetter } from "./stringFunctions";
 const defaultErrorResponse: APITypes.ApiResponseData = {
   status: "",
   articles: [],
@@ -62,13 +63,13 @@ const createRequestFilter = (
   } = currentFilterState;
   const requestFilter: any = {};
   if (endpoint === ReduxString.TopHeadlines) {
-    if (category) requestFilter.category = category;
-    if (country) requestFilter.country = country;
+    if (category) requestFilter.category = category.toLowerCase();
+    if (country) requestFilter.country = country.toLowerCase();
     if (sourceTopheadlines) requestFilter.sources = sourceTopheadlines;
   } else {
     if (sourceEverything) requestFilter.sources = sourceEverything;
-    if (language) requestFilter.language = language;
-    if (sortBy) requestFilter.sortBy = sortBy;
+    if (language) requestFilter.language = language.toLowerCase();
+    if (sortBy) requestFilter.sortBy = lowerCaseFirstLetter(sortBy);
     if (date) requestFilter.date = date;
   }
   if (searchInput) requestFilter.q = searchInput;

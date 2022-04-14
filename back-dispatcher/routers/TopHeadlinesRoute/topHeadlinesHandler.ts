@@ -15,8 +15,12 @@ export const handleTopHeadlinesData = async (
   }: INewsApiTopHeadlinesParams & sourcesAsString = requestFilters;
   const skipNum = page * pageSize > pageSize ? page * pageSize : 0;
   const filters = createFiltersObject({ q, category, country, sources });
-  const dbData = await findTopHeadlinesFromDB(filters, skipNum, pageSize);
-  return dbData;
+  const { dbData, totalResults } = await findTopHeadlinesFromDB(
+    filters,
+    skipNum,
+    pageSize
+  );
+  return { dbData, totalResults };
 };
 
 const createFiltersObject = ({

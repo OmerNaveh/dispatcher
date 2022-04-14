@@ -42,11 +42,11 @@ export const getTopHeadlinesFromDB = async (
   next: NextFunction
 ) => {
   try {
-    const filters: INewsApiTopHeadlinesParams & sourcesAsString = req.body;
-    const dbData = await handleTopHeadlinesData(filters);
+    const filters: INewsApiTopHeadlinesParams & sourcesAsString = req.body.data;
+    const { dbData, totalResults } = await handleTopHeadlinesData(filters);
     res.send({
       status: "ok",
-      totalResults: dbData.length,
+      totalResults,
       articles: dbData,
     });
   } catch (error) {

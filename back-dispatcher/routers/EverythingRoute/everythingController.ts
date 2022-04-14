@@ -42,12 +42,12 @@ export const getEverythingFromDB = async (
   next: NextFunction
 ) => {
   try {
-    const filters: INewsApiEverythingParams & sourcesAsString = req.body;
-    const handledData = await handleEverythingRequest(filters);
+    const filters: INewsApiEverythingParams & sourcesAsString = req.body.data;
+    const { sortedData, totalResults } = await handleEverythingRequest(filters);
     res.send({
       status: "ok",
-      totalResults: handledData.length,
-      articles: handledData,
+      totalResults: totalResults,
+      articles: sortedData,
     });
   } catch (error) {
     let message = unknownError;
