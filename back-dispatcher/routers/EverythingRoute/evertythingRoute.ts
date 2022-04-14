@@ -1,9 +1,10 @@
 import express from "express";
 import graphsRouter from "../GraphsDataRoute/graphsRoute";
-import { getEverything } from "./everythingController";
+import { getEverything, getEverythingFromDB } from "./everythingController";
 const everythingRouter = express.Router();
 
-everythingRouter.post("/", getEverything);
-everythingRouter.use("/graph", graphsRouter);
 
+everythingRouter.post("/", getEverythingFromDB);
+everythingRouter.post("/gateway", getEverything);
+everythingRouter.use("/graph", graphsRouter);
 export default everythingRouter;

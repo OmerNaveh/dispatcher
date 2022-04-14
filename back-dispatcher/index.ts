@@ -4,6 +4,7 @@ import cors from "cors";
 import topHeadlinesRouter from "./routers/TopHeadlinesRoute/topHeadlinesRoute";
 import everythingRouter from "./routers/EverythingRoute/evertythingRoute";
 import { errorHandler } from "./middlewares/errorHandler";
+import mongoose from "mongoose";
 
 dotenv.config();
 
@@ -20,4 +21,7 @@ app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`running on ${port}`);
+  mongoose
+    .connect(process.env.MONGOURI as string)
+    .then(() => console.log("connected to mongoDB"));
 });

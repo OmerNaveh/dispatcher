@@ -5,3 +5,7 @@ interface tagsInterface {
   tags: Tags;
 }
 export type ArticleWithTags = INewsApiArticle & tagsInterface;
+
+export interface sourcesAsString {
+  sources: string;
+}
