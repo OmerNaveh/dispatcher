@@ -17,3 +17,8 @@ export const everythingSchema = new Schema<everythingEntry>({
   content: String,
   popularity: Number,
 });
+
+export const everythingModel = mongoose.model(
+  "everythingArticle",
+  everythingSchema
+);

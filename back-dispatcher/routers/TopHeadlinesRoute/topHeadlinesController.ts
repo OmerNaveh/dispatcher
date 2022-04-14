@@ -9,8 +9,8 @@ import {
 import NewsAPI from "ts-newsapi";
 import { isOverOneHundred } from "../../utils/limitRequeststoHundred";
 import { addingTagsToArticles } from "../../utils/addingTagsToArticles";
-import { topHeadlineModel } from "./topHeadlinesModel";
 import { sourcesAsString } from "../../types/newsTypes";
+import { handleTopHeadlinesData } from "./topHeadlinesHandler";
 dotenv.config();
 
 export const getTopHeadlines = async (
@@ -42,20 +42,8 @@ export const getTopHeadlinesFromDB = async (
   next: NextFunction
 ) => {
   try {
-    const {
-      q,
-      page = 1,
-      pageSize = 20,
-      category,
-      country,
-      sources,
-    }: INewsApiTopHeadlinesParams & sourcesAsString = req.body;
-    const skipNum = page * pageSize > pageSize ? page * pageSize : 0;
-    const filters = createFiltersObject({ q, category, country, sources });
-    const dbData = await topHeadlineModel
-      .find(filters)
-      .skip(skipNum)
-      .limit(pageSize);
+    const filters: INewsApiTopHeadlinesParams & sourcesAsString = req.body;
+    const dbData = await handleTopHeadlinesData(filters);
     res.send({
       status: "ok",
       totalResults: dbData.length,
@@ -67,24 +55,4 @@ export const getTopHeadlinesFromDB = async (
     if (typeof error == "string") message = error;
     next(message);
   }
-};
-
-const createFiltersObject = ({
-  q,
-  category,
-  country,
-  sources,
-}: INewsApiTopHeadlinesParams & sourcesAsString) => {
-  const filters: any = {};
-  if (q) {
-    const regexFilter = new RegExp(q || "");
-    filters.description = { $regex: regexFilter, $options: "i" };
-  }
-  if (category) filters.category = category;
-  if (country) filters.country = country;
-  if (sources) {
-    const sourcesRegexFilter = new RegExp(sources || "");
-    filters["source.name"] = { $regex: sourcesRegexFilter, $options: "i" };
-  }
-  return filters;
 };

@@ -18,3 +18,7 @@ export const topheadlinesSchema = new Schema<topHeadlineEntry>({
   country: String,
   category: String,
 });
+export const topHeadlineModel = mongoose.model(
+  "topHeadlineArticle",
+  topheadlinesSchema
+);

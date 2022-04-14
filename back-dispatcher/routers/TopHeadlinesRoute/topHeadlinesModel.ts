@@ -1,7 +1,14 @@
 import mongoose from "mongoose";
-import { topheadlinesSchema } from "./topHeadlinesSchema";
+import { topHeadlineModel } from "./topHeadlinesSchema";
 
-export const topHeadlineModel = mongoose.model(
-  "topHeadlineArticle",
-  topheadlinesSchema
-);
+export const findTopHeadlinesFromDB = async (
+  filterQuery: any,
+  skipNum: number,
+  pageSize: number
+) => {
+  const dbData = await topHeadlineModel
+    .find(filterQuery)
+    .skip(skipNum)
+    .limit(pageSize);
+  return dbData;
+};

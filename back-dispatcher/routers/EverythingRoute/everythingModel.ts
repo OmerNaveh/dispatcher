@@ -1,7 +1,13 @@
 import mongoose from "mongoose";
-import { everythingSchema } from "./everythingSchema";
-
-export const everythingModel = mongoose.model(
-  "everythingArticle",
-  everythingSchema
-);
+import { everythingModel } from "./everythingSchema";
+export const findEverythingFromDB = async (
+  filterQuery: any,
+  skipNum: number,
+  pageSize: number
+) => {
+  const dbData = await everythingModel
+    .find(filterQuery)
+    .skip(skipNum)
+    .limit(pageSize);
+  return dbData;
+};
