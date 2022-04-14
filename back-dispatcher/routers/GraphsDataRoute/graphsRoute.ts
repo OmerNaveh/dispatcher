@@ -4,7 +4,7 @@ import { getLineData } from "./lineGraphController";
 import { getTagsData } from "./tagsGraphController";
 
 const graphsRouter = express.Router();
-graphsRouter.get("/line", getLineData);
-graphsRouter.get("/doughnut", getDoughnutData);
-graphsRouter.get("/tags", getTagsData);
+graphsRouter.post("/line", getLineData);
+graphsRouter.post("/doughnut", getDoughnutData);
+graphsRouter.post("/tags", getTagsData);
 export default graphsRouter;
