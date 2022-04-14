@@ -4,15 +4,17 @@ import mongoose from "mongoose";
 import schedule from "node-schedule";
 import { everythingEntry } from "../../types/schemaTypes";
 import { everythingModel } from "./everythingModel";
-import { INewsApiArticle } from "ts-newsapi/lib/types";
-import { alphabet } from "../../constants/strings/strings";
+import { INewsApiArticle, INewsApiSourcesResponse } from "ts-newsapi/lib/types";
+
 dotenv.config();
 
-const populateEverything = async (q: string, page: number = 1) => {
+const populateEverything = async (page: number = 1) => {
   try {
     const newsapiCall = new NewsAPI(process.env.APIKEY as string);
+    const sourcesResponse = await newsapiCall.getSources();
+    const sources = pullSources(sourcesResponse);
     const apiResponse = await newsapiCall.getEverything({
-      q,
+      sources,
       page,
       sortBy: "publishedAt",
     });
@@ -31,15 +33,15 @@ const populateEverything = async (q: string, page: number = 1) => {
     console.log("an error occured");
   }
 };
-
+const pullSources = (sourcesResponse: INewsApiSourcesResponse) => {
+  return sourcesResponse.sources.map((source) => source.name);
+};
 const saveToDB = async (article: everythingEntry) => {
   try {
     await everythingModel.findOneAndUpdate({ title: article.title }, article, {
       upsert: true,
     });
   } catch (error) {
-    console.log(error);
-
     console.log("error communicating with DB");
     return;
   }
@@ -53,13 +55,7 @@ const scrapingEverything = async () => {
   await mongoose.connect(process.env.MONGOURI as string);
   let page = 0;
   while (page < 10) {
-    const lettersLoop = new Promise((resolve, reject) => {
-      alphabet.forEach(async (letter, index) => {
-        await populateEverything(letter, page);
-        if (index === alphabet.length - 1) resolve("");
-      });
-    });
-    await lettersLoop;
+    await populateEverything(page);
     page++;
   }
   await mongoose.disconnect();
