@@ -4,7 +4,7 @@ import { getTopHeadlines } from "./topHeadlinesController";
 
 const TopHeadlinesRouter = express.Router();
 
-TopHeadlinesRouter.get("/", getTopHeadlines);
+TopHeadlinesRouter.post("/", getTopHeadlines);
 TopHeadlinesRouter.use("/graph", graphsRouter);
 
 export default TopHeadlinesRouter;

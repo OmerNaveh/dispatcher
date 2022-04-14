@@ -2,71 +2,77 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { reduxState } from "../store/slicers/filtersSlice";
 import { apiUrlsStrings, ReduxString } from "../strings/strings";
-import { toKebabCase } from "./stringFunctions";
 const defaultErrorResponse: APITypes.ApiResponseData = {
   status: "",
   articles: [],
   totalResults: 0,
 };
-export const apiCallthunk = createAsyncThunk("fetchApi", (url: string) =>
-  axios
-    .get(url)
-    .then((response) => response.data as APITypes.ApiResponseData)
-    .catch((error) => defaultErrorResponse)
+interface axiosProps {
+  url: string;
+  requestFilter: any;
+}
+export const apiCallthunk = createAsyncThunk(
+  "fetchApi",
+  ({ url, requestFilter }: axiosProps) =>
+    axios
+      .post(url, { data: requestFilter })
+      .then((response) => response.data as APITypes.ApiResponseData)
+      .catch((error) => defaultErrorResponse)
 );
-export const apiCallScroll = createAsyncThunk("scrollApi", (url: string) =>
-  axios
-    .get(url)
-    .then((response) => response.data as APITypes.ApiResponseData)
-    .catch((error) => defaultErrorResponse)
+export const apiCallScroll = createAsyncThunk(
+  "scrollApi",
+  ({ url, requestFilter }: axiosProps) =>
+    axios
+      .post(url, { data: requestFilter })
+      .then((response) => response.data as APITypes.ApiResponseData)
+      .catch((error) => defaultErrorResponse)
 );
 export const getApiUrl = (
   currentFilterState: reduxState,
   pageSize: number = 20,
   pageNumber: number = 1
 ) => {
+  const filters = currentFilterState;
+
+  let url: string = apiUrlsStrings.localServerUrl;
+  url += `${
+    filters.endpoint === ReduxString.TopHeadlines
+      ? apiUrlsStrings.top
+      : apiUrlsStrings.everything
+  }`;
+  const requestFilter = createRequestFilter(filters, pageNumber, pageSize);
+  return { url, requestFilter };
+};
+
+const createRequestFilter = (
+  currentFilterState: reduxState,
+  pageNumber: number,
+  pageSize: number
+) => {
   const {
     endpoint,
-    country,
-    searchInput,
     category,
-    sourceEverything,
+    country,
     sourceTopheadlines,
+    sourceEverything,
+    searchInput,
+    language,
     sortBy,
     date,
-    language,
   } = currentFilterState;
-
-  let url: string = apiUrlsStrings.apiBaseUrl;
-  url += `${
-    endpoint === ReduxString.TopHeadlines
-      ? apiUrlsStrings.topHeadlines +
-        apiUrlsStrings.questionMark +
-        apiUrlsStrings.query +
-        searchInput +
-        apiUrlsStrings.country +
-        country +
-        apiUrlsStrings.category +
-        category +
-        apiUrlsStrings.sources +
-        toKebabCase(sourceTopheadlines)
-      : endpoint +
-        apiUrlsStrings.questionMark +
-        apiUrlsStrings.query +
-        searchInput +
-        apiUrlsStrings.sortBy +
-        sortBy +
-        apiUrlsStrings.dateFrom +
-        date +
-        apiUrlsStrings.dateTo +
-        date +
-        apiUrlsStrings.sources +
-        toKebabCase(sourceEverything) +
-        apiUrlsStrings.language +
-        language
-  }`;
-  url +=
-    apiUrlsStrings.pageSize + pageSize + apiUrlsStrings.pageNumber + pageNumber;
-  url += process.env.REACT_APP_APIKEY;
-  return url;
+  const requestFilter: any = {};
+  if (endpoint === ReduxString.TopHeadlines) {
+    if (category) requestFilter.category = category;
+    if (country) requestFilter.country = country;
+    if (sourceTopheadlines) requestFilter.sources = sourceTopheadlines;
+  } else {
+    if (sourceEverything) requestFilter.sources = sourceEverything;
+    if (language) requestFilter.language = language;
+    if (sortBy) requestFilter.sortBy = sortBy;
+    if (date) requestFilter.date = date;
+  }
+  if (searchInput) requestFilter.q = searchInput;
+  requestFilter.page = pageNumber;
+  requestFilter.pageSize = pageSize;
+  return requestFilter;
 };

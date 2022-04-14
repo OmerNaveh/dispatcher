@@ -3,7 +3,7 @@ import graphsRouter from "../GraphsDataRoute/graphsRoute";
 import { getEverything } from "./everythingController";
 const everythingRouter = express.Router();
 
-everythingRouter.get("/", getEverything);
+everythingRouter.post("/", getEverything);
 everythingRouter.use("/graph", graphsRouter);
 
 export default everythingRouter;

@@ -17,7 +17,7 @@ export const getEverything = async (
   next: NextFunction
 ) => {
   try {
-    const filters: INewsApiEverythingParams = req.body;
+    const filters: INewsApiEverythingParams = req.body.data;
     if (!filters.q && !filters.sources && !filters.domains)
       throw mustIncludeAtLeastOneEverything;
     if (isOverOneHundred(filters.pageSize, filters.page))

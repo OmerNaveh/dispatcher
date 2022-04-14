@@ -210,6 +210,9 @@ export const apiUrlsStrings = {
   pageSize: "&pageSize=",
   pageNumber: "&page=",
   topHeadlines: "top-headlines",
+  top: "top",
+  everything: "everything",
+  localServerUrl: "http://localhost:3001/",
 };
 export const usefulStrings = {
   whiteSpace: "\xa0",
