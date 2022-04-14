@@ -9,6 +9,8 @@ import NewsAPI from "ts-newsapi";
 import { INewsApiEverythingParams } from "ts-newsapi/lib/types";
 import { isOverOneHundred } from "../../utils/limitRequeststoHundred";
 import { addingTagsToArticles } from "../../utils/addingTagsToArticles";
+import { sourcesAsString } from "../../types/newsTypes";
+import { handleEverythingRequest } from "./everythingHandler";
 dotenv.config();
 
 export const getEverything = async (
@@ -26,6 +28,27 @@ export const getEverything = async (
     const apiResponse = await newsapiCall.getEverything(filters);
     const finalResponse = addingTagsToArticles(apiResponse);
     res.send(finalResponse);
+  } catch (error) {
+    let message = unknownError;
+    if (error instanceof Error) message = error.message;
+    if (typeof error == "string") message = error;
+    next(message);
+  }
+};
+
+export const getEverythingFromDB = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const filters: INewsApiEverythingParams & sourcesAsString = req.body;
+    const handledData = await handleEverythingRequest(filters);
+    res.send({
+      status: "ok",
+      totalResults: handledData.length,
+      articles: handledData,
+    });
   } catch (error) {
     let message = unknownError;
     if (error instanceof Error) message = error.message;
