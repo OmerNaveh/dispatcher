@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import schedule from "node-schedule";
 import { everythingEntry } from "../../types/schemaTypes";
-import { everythingModel } from "./everythingModel";
+import { everythingModel } from "./everythingSchema";
 import { INewsApiArticle, INewsApiSourcesResponse } from "ts-newsapi/lib/types";
 
 dotenv.config();

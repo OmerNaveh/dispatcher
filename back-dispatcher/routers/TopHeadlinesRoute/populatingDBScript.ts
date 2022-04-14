@@ -5,11 +5,11 @@ import {
   ApiNewsCategory,
 } from "ts-newsapi/lib/types";
 import dotenv from "dotenv";
-import { topHeadlineModel } from "./topHeadlinesModel";
 import { topHeadlineEntry } from "../../types/schemaTypes";
 import mongoose from "mongoose";
 import schedule from "node-schedule";
 import { categories, countries } from "../../constants/strings/strings";
+import { topHeadlineModel } from "./topHeadlinesSchema";
 dotenv.config();
 
 const populateTopHeadlines = async (
