@@ -26,6 +26,7 @@ export const getTagsData = (
 const handleTagsData = (currentArticles: ArticleWithTags[]) => {
   const dictionary: dictionaryType = {};
   currentArticles.forEach((article) => {
+    if (!article.tags) return;
     if (article.tags.length) {
       article.tags.forEach((tag) => {
         dictionary[tag] ? dictionary[tag]++ : (dictionary[tag] = 1);

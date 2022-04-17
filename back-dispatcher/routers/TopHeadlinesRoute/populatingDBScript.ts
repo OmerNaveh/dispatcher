@@ -10,6 +10,7 @@ import mongoose from "mongoose";
 import schedule from "node-schedule";
 import { categories, countries } from "../../constants/strings/strings";
 import { topHeadlineModel } from "./topHeadlinesSchema";
+import { addingTagsToArticles } from "../../utils/addingTagsToArticles";
 dotenv.config();
 
 const populateTopHeadlines = async (
@@ -25,8 +26,9 @@ const populateTopHeadlines = async (
     });
     if (!apiResponse || !apiResponse.articles || !apiResponse.articles.length)
       return;
+    const responseWithTagsAdded = addingTagsToArticles(apiResponse);
     const completeLoop = new Promise((resolve, reject) => {
-      apiResponse.articles.forEach(async (article, index) => {
+      responseWithTagsAdded.articles.forEach(async (article, index) => {
         const entry = convertArticleToEntry(article, country, category);
         await saveToDB(entry);
         if (index === apiResponse.articles.length - 1) resolve("");

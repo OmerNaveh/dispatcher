@@ -10,9 +10,11 @@ import {
   tagsKeywords,
   techTag,
 } from "../constants/strings/strings";
-import { ArticleWithTags, Tags } from "../types/newsTypes";
+import { ApiResonseWithTags, ArticleWithTags, Tags } from "../types/newsTypes";
 
-export const addingTagsToArticles = (apiResponse: INewsApiResponse) => {
+export const addingTagsToArticles = (
+  apiResponse: INewsApiResponse
+): ApiResonseWithTags => {
   if (!apiResponse.totalResults && !apiResponse.articles.length)
     return apiResponse;
   const updatedArticles = apiResponse.articles.map((article) =>

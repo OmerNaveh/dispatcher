@@ -5,6 +5,8 @@ import schedule from "node-schedule";
 import { everythingEntry } from "../../types/schemaTypes";
 import { everythingModel } from "./everythingSchema";
 import { INewsApiArticle, INewsApiSourcesResponse } from "ts-newsapi/lib/types";
+import { addingTagsToArticles } from "../../utils/addingTagsToArticles";
+import { ArticleWithTags } from "../../types/newsTypes";
 
 dotenv.config();
 
@@ -20,8 +22,9 @@ const populateEverything = async (page: number = 1) => {
     });
     if (!apiResponse || !apiResponse.articles || !apiResponse.articles.length)
       return;
+    const responseWithTagsAdded = addingTagsToArticles(apiResponse);
     const completeLoop = new Promise((resolve, reject) => {
-      apiResponse.articles.forEach(async (article, index) => {
+      responseWithTagsAdded.articles.forEach(async (article, index) => {
         const entry = convertArticleToEntry(article);
         await saveToDB(entry);
         if (index === apiResponse.articles.length - 1) resolve("");
@@ -47,7 +50,7 @@ const saveToDB = async (article: everythingEntry) => {
   }
 };
 
-const convertArticleToEntry = (article: INewsApiArticle): everythingEntry => {
+const convertArticleToEntry = (article: ArticleWithTags): everythingEntry => {
   return { ...article, popularity: 0 };
 };
 
