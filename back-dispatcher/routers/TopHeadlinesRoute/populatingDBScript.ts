@@ -61,21 +61,25 @@ const convertArticleToEntry = (
 };
 
 const scrapingTopHeadlines = async () => {
-  await mongoose.connect(process.env.MONGOURI as string);
-  const combinedLoop = new Promise((resolve, reject) => {
-    categories.forEach(async (category, index) => {
-      const countriesLoop = new Promise((resolve, reject) => {
-        countries.forEach(async (country, index) => {
-          await populateTopHeadlines(country, category);
-          if (index === countries.length - 1) resolve("");
+  try {
+    await mongoose.connect(process.env.MONGOURI as string);
+    const combinedLoop = new Promise((resolve, reject) => {
+      categories.forEach(async (category, index) => {
+        const countriesLoop = new Promise((resolve, reject) => {
+          countries.forEach(async (country, index) => {
+            await populateTopHeadlines(country, category);
+            if (index === countries.length - 1) resolve("");
+          });
         });
+        await countriesLoop;
+        if (index === categories.length - 1) resolve("");
       });
-      await countriesLoop;
-      if (index === categories.length - 1) resolve("");
     });
-  });
-  await combinedLoop;
-  await mongoose.disconnect();
+    await combinedLoop;
+    await mongoose.disconnect();
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // The scraping function will run twice every day in 10PM and 10AM

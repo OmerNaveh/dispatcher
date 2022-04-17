@@ -55,13 +55,17 @@ const convertArticleToEntry = (article: ArticleWithTags): everythingEntry => {
 };
 
 const scrapingEverything = async () => {
-  await mongoose.connect(process.env.MONGOURI as string);
-  let page = 0;
-  while (page < 10) {
-    await populateEverything(page);
-    page++;
+  try {
+    await mongoose.connect(process.env.MONGOURI as string);
+    let page = 0;
+    while (page < 10) {
+      await populateEverything(page);
+      page++;
+    }
+    await mongoose.disconnect();
+  } catch (error) {
+    console.log(error);
   }
-  await mongoose.disconnect();
 };
 
 // The scraping function will run twice every day in 10PM and 10AM
