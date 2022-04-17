@@ -10,14 +10,12 @@ import { ArticleWithTags } from "../../types/newsTypes";
 
 dotenv.config();
 
-const populateEverything = async (page: number = 1) => {
+const populateEverything = async (sources: string[]) => {
   try {
     const newsapiCall = new NewsAPI(process.env.APIKEY as string);
-    const sourcesResponse = await newsapiCall.getSources();
-    const sources = pullSources(sourcesResponse);
     const apiResponse = await newsapiCall.getEverything({
       sources,
-      page,
+      pageSize: 99,
       sortBy: "publishedAt",
     });
     if (!apiResponse || !apiResponse.articles || !apiResponse.articles.length)
@@ -57,10 +55,14 @@ const convertArticleToEntry = (article: ArticleWithTags): everythingEntry => {
 const scrapingEverything = async () => {
   try {
     await mongoose.connect(process.env.MONGOURI as string);
-    let page = 0;
-    while (page < 10) {
-      await populateEverything(page);
-      page++;
+    const newsapiCall = new NewsAPI(process.env.APIKEY as string);
+    const sourcesResponse = await newsapiCall.getSources();
+    const sources = pullSources(sourcesResponse);
+    let sourcesCounter = 0;
+    while (sourcesCounter < sources.length) {
+      const slicedSources = sources.slice(sourcesCounter, sourcesCounter + 4);
+      await populateEverything(slicedSources);
+      sourcesCounter += 4;
     }
     await mongoose.disconnect();
   } catch (error) {
