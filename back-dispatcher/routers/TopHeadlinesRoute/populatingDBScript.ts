@@ -17,27 +17,39 @@ const populateTopHeadlines = async (
   country: ApiNewsCountry | undefined = undefined,
   category: ApiNewsCategory | undefined = undefined
 ) => {
-  try {
-    if (!country && !category) return;
-    const newsapiCall = new NewsAPI(process.env.APIKEY as string);
-    const apiResponse = await newsapiCall.getTopHeadlines({
-      country,
-      category,
-    });
-    if (!apiResponse || !apiResponse.articles || !apiResponse.articles.length)
+  let succeded = false;
+  let apiCount = 1;
+  while (!succeded) {
+    const apiKeyCounter = `APIKEY${apiCount == 1 ? "" : apiCount}`;
+    const apiKey = process.env[apiKeyCounter] as string;
+    if (!apiKey) {
+      succeded = true;
       return;
-    const responseWithTagsAdded = addingTagsToArticles(apiResponse);
-    const completeLoop = new Promise((resolve, reject) => {
-      responseWithTagsAdded.articles.forEach(async (article, index) => {
-        const entry = convertArticleToEntry(article, country, category);
-        await saveToDB(entry);
-        if (index === apiResponse.articles.length - 1) resolve("");
+    }
+    try {
+      if (!country && !category) return;
+      const newsapiCall = new NewsAPI(apiKey);
+      const apiResponse = await newsapiCall.getTopHeadlines({
+        country,
+        category,
       });
-    });
-    await completeLoop;
-    console.log("populated");
-  } catch (error) {
-    console.log("an error occured");
+      succeded = true;
+      if (!apiResponse || !apiResponse.articles || !apiResponse.articles.length)
+        return;
+      const responseWithTagsAdded = addingTagsToArticles(apiResponse);
+      const completeLoop = new Promise((resolve, reject) => {
+        responseWithTagsAdded.articles.forEach(async (article, index) => {
+          const entry = convertArticleToEntry(article, country, category);
+          await saveToDB(entry);
+          if (index === apiResponse.articles.length - 1) resolve("");
+        });
+      });
+      await completeLoop;
+      console.log("populated");
+    } catch (error) {
+      console.log("an error occured switching api key");
+      apiCount++;
+    }
   }
 };
 
@@ -63,19 +75,12 @@ const convertArticleToEntry = (
 const scrapingTopHeadlines = async () => {
   try {
     await mongoose.connect(process.env.MONGOURI as string);
-    const combinedLoop = new Promise((resolve, reject) => {
-      categories.forEach(async (category, index) => {
-        const countriesLoop = new Promise((resolve, reject) => {
-          countries.forEach(async (country, index) => {
-            await populateTopHeadlines(country, category);
-            if (index === countries.length - 1) resolve("");
-          });
-        });
-        await countriesLoop;
-        if (index === categories.length - 1) resolve("");
-      });
-    });
-    await combinedLoop;
+    for (let category of categories) {
+      for (let country of countries) {
+        console.log(country, category);
+        await populateTopHeadlines(country, category);
+      }
+    }
     await mongoose.disconnect();
   } catch (error) {
     console.log(error);
