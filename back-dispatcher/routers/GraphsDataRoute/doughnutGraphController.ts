@@ -10,8 +10,8 @@ export const getDoughnutData = (
   next: NextFunction
 ) => {
   try {
-    const articles: INewsApiArticle[] = req.body;
-    if (!articles.length) throw badData;
+    const articles: INewsApiArticle[] = req.body.data;
+    if (!articles || !articles.length) throw badData;
     res.send(handleDougnutData(articles));
   } catch (error) {
     let message = unknownError;
