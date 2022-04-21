@@ -20,7 +20,29 @@ export const CardContent = styled.div<rtlProps>`
     height: fit-content;
   }
 `;
+export const CardTagsNDateContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
+interface tagsProps {
+  last?: boolean;
+}
+export const Tag = styled.div<tagsProps>`
+  background-color: ${colors.LightGray};
+  color: ${colors.DarkBlue};
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  margin: ${(props) => (props.last ? 0 : "0 0.8em 0 0")};
+  border-radius: 10px;
+  padding: 0.2em 0.7em;
+`;
+export const TagsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 export const CardImage = styled.img<rtlProps>`
   width: 24.5%;
   border-radius: ${(props) =>
@@ -47,6 +69,16 @@ export const CardLayout = styled.div<rtlProps>`
     flex-direction: column;
     margin: 0.8em 0;
   }
+`;
+export const CardDate = styled.p`
+  letter-spacing: 0.25px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 0.875em;
+  word-wrap: break-word;
+  font-style: normal;
+  margin: 0;
+  color: ${colors.GrayCardText};
 `;
 
 export const CardText = styled.p`

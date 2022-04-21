@@ -13,5 +13,6 @@ declare namespace APITypes {
     title: string;
     url: string;
     urlToImage: string;
+    tags: string[];
   }
 }
