@@ -5,6 +5,7 @@ import { graphServerUrls, graphString } from "../../../../strings/strings";
 import { CardText } from "../../../Card/style";
 import DoughnutGraph from "./components/DoughnutGraph/DoughnutGraph";
 import LineGraph from "./components/LineGraph/LineGraph";
+import TagsGraph from "./components/TagsGraph/TagsGraph";
 import {
   GraphContentDiv,
   GraphLayout,
@@ -52,7 +53,9 @@ const Graph = ({ title, graphType }: graphProps) => {
         <LineGraph data={graphData} />
       </GraphContentDiv>
     ) : (
-      showNoGraphType()
+      <GraphContentDiv>
+        <TagsGraph data={graphData} total={articles.length} />
+      </GraphContentDiv>
     );
   };
   const showNoGraphType = () => {
