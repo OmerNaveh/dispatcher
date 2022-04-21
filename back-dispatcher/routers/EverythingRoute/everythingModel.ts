@@ -5,9 +5,11 @@ export const findEverythingFromDB = async (
   skipNum: number,
   pageSize: number
 ) => {
+  const totalResults = await everythingModel.find(filterQuery).count();
+  const skip = skipNum > totalResults ? skipNum - totalResults : skipNum;
   const dbData = await everythingModel
     .find(filterQuery)
-    .skip(skipNum)
+    .skip(skip)
     .limit(pageSize);
-  return dbData;
+  return { dbData, totalResults };
 };

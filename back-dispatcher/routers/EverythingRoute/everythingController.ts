@@ -19,7 +19,7 @@ export const getEverything = async (
   next: NextFunction
 ) => {
   try {
-    const filters: INewsApiEverythingParams = req.body;
+    const filters: INewsApiEverythingParams = req.body.data;
     if (!filters.q && !filters.sources && !filters.domains)
       throw mustIncludeAtLeastOneEverything;
     if (isOverOneHundred(filters.pageSize, filters.page))
@@ -42,12 +42,12 @@ export const getEverythingFromDB = async (
   next: NextFunction
 ) => {
   try {
-    const filters: INewsApiEverythingParams & sourcesAsString = req.body;
-    const handledData = await handleEverythingRequest(filters);
+    const filters: INewsApiEverythingParams & sourcesAsString = req.body.data;
+    const { sortedData, totalResults } = await handleEverythingRequest(filters);
     res.send({
       status: "ok",
-      totalResults: handledData.length,
-      articles: handledData,
+      totalResults: totalResults,
+      articles: sortedData,
     });
   } catch (error) {
     let message = unknownError;

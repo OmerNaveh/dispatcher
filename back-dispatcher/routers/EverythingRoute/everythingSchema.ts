@@ -16,6 +16,7 @@ export const everythingSchema = new Schema<everythingEntry>({
   publishedAt: String,
   content: String,
   popularity: Number,
+  tags: [String],
 });
 
 export const everythingModel = mongoose.model(

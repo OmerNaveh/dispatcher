@@ -6,9 +6,11 @@ export const findTopHeadlinesFromDB = async (
   skipNum: number,
   pageSize: number
 ) => {
+  const totalResults = await topHeadlineModel.find(filterQuery).count();
+  const skip = skipNum > totalResults ? skipNum - totalResults : skipNum;
   const dbData = await topHeadlineModel
     .find(filterQuery)
-    .skip(skipNum)
+    .skip(skip)
     .limit(pageSize);
-  return dbData;
+  return { dbData, totalResults };
 };

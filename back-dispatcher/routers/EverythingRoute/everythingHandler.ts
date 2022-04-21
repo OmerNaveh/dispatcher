@@ -33,7 +33,11 @@ export const handleEverythingRequest = async (
       $options: "i",
     };
   const skipNum = page * pageSize > pageSize ? page * pageSize : 0;
-  const dbData = await findEverythingFromDB(filterQuery, skipNum, pageSize);
-  const sortedData = sortData(sortBy, dbData, q);
-  return sortedData || [];
+  const { dbData, totalResults } = await findEverythingFromDB(
+    filterQuery,
+    skipNum,
+    pageSize
+  );
+  const sortedData = sortData(sortBy, dbData, q) || [];
+  return { sortedData, totalResults };
 };
