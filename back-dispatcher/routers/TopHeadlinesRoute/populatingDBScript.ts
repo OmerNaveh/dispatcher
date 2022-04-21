@@ -24,7 +24,7 @@ const populateTopHeadlines = async (
     const apiKey = process.env[apiKeyCounter] as string;
     if (!apiKey) {
       succeded = true;
-      return;
+      break;
     }
     try {
       if (!country && !category) return;
