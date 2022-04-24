@@ -1,7 +1,6 @@
 import NewsAPI from "ts-newsapi";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import schedule from "node-schedule";
 import { everythingEntry } from "../../types/schemaTypes";
 import { everythingModel } from "./everythingSchema";
 import { INewsApiArticle, INewsApiSourcesResponse } from "ts-newsapi/lib/types";
@@ -64,7 +63,7 @@ const convertArticleToEntry = (article: ArticleWithTags): everythingEntry => {
   return { ...article, popularity: 0 };
 };
 
-const scrapingEverything = async () => {
+export const scrapingEverything = async () => {
   let succeded = false;
   let apiCount = 1;
   while (!succeded) {
@@ -97,9 +96,3 @@ const scrapingEverything = async () => {
   }
   await mongoose.disconnect();
 };
-
-// The scraping function will run twice every day in 10PM and 10AM
-const rule = new schedule.RecurrenceRule();
-rule.hour = [10, 22];
-rule.dayOfWeek = new schedule.Range(0, 6);
-const scrappingJob = schedule.scheduleJob(rule, scrapingEverything);
