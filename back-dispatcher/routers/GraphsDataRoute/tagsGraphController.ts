@@ -13,8 +13,6 @@ export const getTagsData = (
     if (!articles || !articles.length) throw badData;
     res.send(handleTagsData(articles));
   } catch (error) {
-    console.log(error);
-
     let message = unknownError;
     if (error instanceof Error) message = error.message;
     if (error instanceof TypeError) message = badData;

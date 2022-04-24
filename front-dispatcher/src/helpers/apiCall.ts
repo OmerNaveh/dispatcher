@@ -70,7 +70,7 @@ const createRequestFilter = (
     if (sourceEverything) requestFilter.sources = sourceEverything;
     if (language) requestFilter.language = language.toLowerCase();
     if (sortBy) requestFilter.sortBy = lowerCaseFirstLetter(sortBy);
-    if (date) requestFilter.date = date;
+    if (date) requestFilter.from = date;
   }
   if (searchInput) requestFilter.q = searchInput;
   requestFilter.page = pageNumber;
