@@ -19,17 +19,28 @@ export const TagEntryContainer = styled.div`
 export const PercentageContainer = styled.div`
   display: flex;
   align-items: center;
+  max-width: 60%;
 `;
 interface textProps {
   bold?: boolean;
+  extraRightMarg?: boolean;
 }
 export const TagText = styled.p<textProps>`
   font-family: "Roboto";
   font-weight: ${(props) => (props.bold ? 500 : 400)};
-  margin-right: ${(props) => props.bold && "0.5em"};
+  margin-right: ${(props) => (props.extraRightMarg ? "1em" : "0.5em")};
 `;
 
 export const ProgressBar = styled.progress`
-  height: 1.5em;
-  box-shadow: 0px 32px 64px rgba(0, 0, 0, 0.05);
+  height: 1em;
+  accent-color: ${colors.Blue};
+  -webkit-appearance: none;
+  ::-webkit-progress-bar {
+    border-radius: 20px;
+    background-color: ${colors.LightGray};
+  }
+  ::-webkit-progress-value {
+    background-color: ${colors.Blue};
+    border-radius: 20px;
+  }
 `;

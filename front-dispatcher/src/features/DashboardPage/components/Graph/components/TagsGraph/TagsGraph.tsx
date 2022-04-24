@@ -19,7 +19,10 @@ const TagsGraph = ({ data, total }: tagsProps) => {
         <TagEntryContainer>
           <TagText>{entry.name}</TagText>
           <PercentageContainer>
-            <TagText bold>{`${percentageValue}%`}</TagText>
+            <TagText
+              bold
+              extraRightMarg={percentageValue < 10}
+            >{`${percentageValue}%`}</TagText>
             <ProgressBar value={percentageValue} max={100} />
           </PercentageContainer>
         </TagEntryContainer>
