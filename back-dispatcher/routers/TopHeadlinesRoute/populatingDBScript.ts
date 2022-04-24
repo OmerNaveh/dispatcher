@@ -81,10 +81,10 @@ const scrapingTopHeadlines = async () => {
         await populateTopHeadlines(country, category);
       }
     }
-    await mongoose.disconnect();
   } catch (error) {
     console.log(error);
   }
+  await mongoose.disconnect();
 };
 
 // The scraping function will run twice every day in 10PM and 10AM
