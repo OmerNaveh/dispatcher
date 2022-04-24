@@ -56,6 +56,7 @@ const CardContainer = () => {
           urlToImage={article.urlToImage || cardString.defaultImageUrl}
           description={article.description}
           title={article.title}
+          tags={article.tags}
         />
       );
     });

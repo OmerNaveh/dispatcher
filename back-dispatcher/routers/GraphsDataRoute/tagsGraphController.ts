@@ -9,12 +9,10 @@ export const getTagsData = (
   next: NextFunction
 ) => {
   try {
-    const articles: ArticleWithTags[] = req.body;
-    if (!articles.length) throw badData;
+    const articles: ArticleWithTags[] = req.body.data;
+    if (!articles || !articles.length) throw badData;
     res.send(handleTagsData(articles));
   } catch (error) {
-    console.log(error);
-
     let message = unknownError;
     if (error instanceof Error) message = error.message;
     if (error instanceof TypeError) message = badData;

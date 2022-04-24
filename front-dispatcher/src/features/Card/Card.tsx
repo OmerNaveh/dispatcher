@@ -10,10 +10,14 @@ import { cardString } from "../../strings/strings";
 import {
   CardButtonContainer,
   CardContent,
+  CardDate,
   CardImage,
   CardLayout,
+  CardTagsNDateContainer,
   CardText,
   CardTitle,
+  Tag,
+  TagsContainer,
 } from "./style";
 
 const Card = (props: APITypes.Article) => {
@@ -22,7 +26,23 @@ const Card = (props: APITypes.Article) => {
     window.open(props.url);
   };
   const isRTL = isRTLCheck(props.title);
-
+  const showTags = () => {
+    return !props.tags.length ? (
+      <></>
+    ) : (
+      <TagsContainer>
+        {props.tags.map(
+          (tag, index) =>
+            index < 2 && (
+              <Tag last={!isRTL && index === props.tags.length - 1}>{tag}</Tag>
+            )
+        )}
+        {props.tags.length > 2 && (
+          <Tag last={!isRTL}>{`+${props.tags.length - 2}`}</Tag>
+        )}
+      </TagsContainer>
+    );
+  };
   return (
     <CardLayout isRTL={isRTL}>
       <CardImage
@@ -35,7 +55,10 @@ const Card = (props: APITypes.Article) => {
         }}
       ></CardImage>
       <CardContent isRTL={isRTL}>
-        <CardText className="gray">{dateString}</CardText>
+        <CardTagsNDateContainer>
+          <CardDate>{dateString}</CardDate>
+          {showTags()}
+        </CardTagsNDateContainer>
         <CardTitle>{props.title}</CardTitle>
         <CardText className="gray">{props.source.name}</CardText>
         <CardText className="limit">{props.description}</CardText>

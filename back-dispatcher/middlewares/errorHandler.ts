@@ -13,6 +13,8 @@ export const errorHandler = (
   res: Response,
   next: NextFunction
 ) => {
+  if (typeof err !== "string")
+    return res.status(500).send(internalServerErrors);
   if (err.includes(API)) res.status(401).send(err);
   else if (err.includes(Must) || err === badData) res.status(400).send(err);
   else if (err === exceededFreeTierLimit) res.status(429).send(err);

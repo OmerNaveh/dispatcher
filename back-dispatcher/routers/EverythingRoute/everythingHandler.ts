@@ -21,7 +21,7 @@ export const handleEverythingRequest = async (
   const filterQuery: any = {
     description: { $regex: regexFilter, $options: "i" },
   };
-  if (from) filterQuery.publishedAt = from;
+  if (from) filterQuery.publishedAt = { $regex: from };
   if (sources)
     filterQuery["source.name"] = {
       $regex: sourcesRegexFilter,
@@ -32,6 +32,7 @@ export const handleEverythingRequest = async (
       $regex: languageRegexDetecor(language),
       $options: "i",
     };
+
   const skipNum = page * pageSize > pageSize ? page * pageSize : 0;
   const { dbData, totalResults } = await findEverythingFromDB(
     filterQuery,

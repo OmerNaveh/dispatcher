@@ -7,7 +7,6 @@ import {
 import dotenv from "dotenv";
 import { topHeadlineEntry } from "../../types/schemaTypes";
 import mongoose from "mongoose";
-import schedule from "node-schedule";
 import { categories, countries } from "../../constants/strings/strings";
 import { topHeadlineModel } from "./topHeadlinesSchema";
 import { addingTagsToArticles } from "../../utils/addingTagsToArticles";
@@ -72,7 +71,7 @@ const convertArticleToEntry = (
   return { ...article, category, country };
 };
 
-const scrapingTopHeadlines = async () => {
+export const scrapingTopHeadlines = async () => {
   try {
     await mongoose.connect(process.env.MONGOURI as string);
     for (let category of categories) {
@@ -81,14 +80,8 @@ const scrapingTopHeadlines = async () => {
         await populateTopHeadlines(country, category);
       }
     }
-    await mongoose.disconnect();
   } catch (error) {
     console.log(error);
   }
+  await mongoose.disconnect();
 };
-
-// The scraping function will run twice every day in 10PM and 10AM
-const rule = new schedule.RecurrenceRule();
-rule.hour = [10, 22];
-rule.dayOfWeek = new schedule.Range(0, 6);
-const scrappingJob = schedule.scheduleJob(rule, scrapingTopHeadlines);

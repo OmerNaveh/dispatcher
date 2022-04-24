@@ -143,6 +143,11 @@ export const graphString = {
   Sum: "Sum",
   Other: "Other",
 };
+export const graphServerUrls = {
+  Doughnut: "http://localhost:3001/top/graph/doughnut",
+  Line: "http://localhost:3001/top/graph/line",
+  Tags: "http://localhost:3001/top/graph/tags",
+};
 export const headerStrings = {
   SignOut: "Sign Out",
   UserInitials: "ON",

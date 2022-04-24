@@ -1,9 +1,11 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useAppSelector } from "../../../../store";
-import { graphString } from "../../../../strings/strings";
+import { graphServerUrls, graphString } from "../../../../strings/strings";
 import { CardText } from "../../../Card/style";
 import DoughnutGraph from "./components/DoughnutGraph/DoughnutGraph";
 import LineGraph from "./components/LineGraph/LineGraph";
+import TagsGraph from "./components/TagsGraph/TagsGraph";
 import {
   GraphContentDiv,
   GraphLayout,
@@ -12,7 +14,7 @@ import {
   NoGraphIcon,
   TitleDivider,
 } from "./style";
-import { getDougnutData, getLineData } from "./utils/graphData";
+import { graphObjType } from "./utils/graphData";
 
 interface graphProps {
   title: string;
@@ -21,13 +23,27 @@ interface graphProps {
 
 const Graph = ({ title, graphType }: graphProps) => {
   const { articles } = useAppSelector((state) => state.apiData);
-
+  const [graphData, setGraphData] = useState<graphObjType[]>([]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const requestUrl =
+          graphType === graphString.Sources
+            ? graphServerUrls.Doughnut
+            : graphType === graphString.Dates
+            ? graphServerUrls.Line
+            : graphServerUrls.Tags;
+        const serverResponse = await axios.post(requestUrl, {
+          data: articles,
+        });
+        const pulledData: graphObjType[] = serverResponse.data;
+        setGraphData(pulledData);
+      } catch (error) {
+        setGraphData([]);
+      }
+    })();
+  }, [articles]);
   const showGraphByType = () => {
-    const graphData =
-      graphType === graphString.Sources
-        ? getDougnutData(articles)
-        : getLineData(articles);
-
     return graphType === graphString.Sources ? (
       <GraphContentDiv>
         <DoughnutGraph data={graphData} />
@@ -37,7 +53,9 @@ const Graph = ({ title, graphType }: graphProps) => {
         <LineGraph data={graphData} />
       </GraphContentDiv>
     ) : (
-      showNoGraphType()
+      <GraphContentDiv>
+        <TagsGraph data={graphData} total={articles.length} />
+      </GraphContentDiv>
     );
   };
   const showNoGraphType = () => {
@@ -54,14 +72,13 @@ const Graph = ({ title, graphType }: graphProps) => {
         <GraphTitle>{title}</GraphTitle>
         <TitleDivider />
       </div>
-      {!graphType || !articles || articles.length === 0 ? (
-        <NoContentDiv>
-          <NoGraphIcon />
-          <CardText>{graphString.noDataToDisplay}</CardText>
-        </NoContentDiv>
-      ) : (
-        graphType && showGraphByType()
-      )}
+      {!graphType ||
+      !articles ||
+      articles.length === 0 ||
+      !graphData ||
+      !graphData.length
+        ? showNoGraphType()
+        : graphType && showGraphByType()}
     </GraphLayout>
   );
 };
