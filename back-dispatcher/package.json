@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "node dist/index.js",
+    "start": "ts-node index.ts",
     "dev": "nodemon index.ts",
     "populateTopHeadlines": "ts-node ./routers/TopHeadlinesRoute/populatingDBScript.ts",
     "populateEverything": "ts-node ./routers/EverythingRoute/populateDBScript.ts",
