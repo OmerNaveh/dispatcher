@@ -2,12 +2,12 @@ version: "1"
 services:
   script:
     build:
-      dockerfile: script.Dockerfile
+      dockerfile: Dockerfile.script
     env_file:
       - .env
   server:
     build:
-      dockerfile: server.Dockerfile
+      dockerfile: Dockerfile.web
     ports:
       - "3001:3001"
     env_file:
