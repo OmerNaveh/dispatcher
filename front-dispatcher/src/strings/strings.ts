@@ -144,9 +144,9 @@ export const graphString = {
   Other: "Other",
 };
 export const graphServerUrls = {
-  Doughnut: "http://localhost:3001/top/graph/doughnut",
-  Line: "http://localhost:3001/top/graph/line",
-  Tags: "http://localhost:3001/top/graph/tags",
+  Doughnut: "https://dispatcher-omer.herokuapp.com/top/graph/doughnut",
+  Line: "https://dispatcher-omer.herokuapp.com/top/graph/line",
+  Tags: "https://dispatcher-omer.herokuapp.com/top/graph/tags",
 };
 export const headerStrings = {
   SignOut: "Sign Out",
@@ -217,7 +217,8 @@ export const apiUrlsStrings = {
   topHeadlines: "top-headlines",
   top: "top",
   everything: "everything",
-  localServerUrl: "http://localhost:3001/",
+  localServerUrl2: "http://localhost:3001/",
+  localServerUrl: "https://dispatcher-omer.herokuapp.com/",
 };
 export const usefulStrings = {
   whiteSpace: "\xa0",
