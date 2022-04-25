@@ -37,7 +37,7 @@ const addTagsToArticle = (article: INewsApiArticle): ArticleWithTags => {
   return { ...article, tags };
 };
 
-const getTagsByString = (articleString: string) => {
+export const getTagsByString = (articleString: string) => {
   const tags: Tags = [];
   const lowerCaseArticleString = articleString.toLowerCase();
   if (!articleString) return tags;
@@ -60,6 +60,6 @@ const getTagsByString = (articleString: string) => {
   return tags;
 };
 
-const uniqueValuesInTags = (tags: Tags) => {
+export const uniqueValuesInTags = (tags: Tags) => {
   return [...new Set(tags)];
 };

@@ -19,10 +19,11 @@ app.use("/everything", everythingRouter);
 
 app.use(errorHandler);
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`running on ${port}`);
   mongoose
     .connect(process.env.MONGOURI as string)
     .then(() => console.log("connected to mongoDB"))
     .catch((error) => console.log(error));
 });
+export default server;
