@@ -7,7 +7,6 @@ import {
 
 const TopHeadlinesRouter = express.Router();
 
-
 TopHeadlinesRouter.post("/", getTopHeadlinesFromDB);
 TopHeadlinesRouter.post("/gateway", getTopHeadlines);
 TopHeadlinesRouter.use("/graph", graphsRouter);
