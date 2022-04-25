@@ -123,10 +123,6 @@ export const filterActionsStrings: filterActionsStringTypes[] = [
   "setSourceEverything",
   "setSourceTopheadlines",
 ];
-export const ipUrls = {
-  getClientIpUrl: "https://api.ipify.org/?format=json",
-  getInfoFromIpUrl: "http://ip-api.com/json/",
-};
 export const cardString = {
   NavigateToDispatch: "NAVIGATE TO DISPATCH",
   Continue: "CONTINUE",
@@ -144,9 +140,15 @@ export const graphString = {
   Other: "Other",
 };
 export const graphServerUrls = {
-  Doughnut: "https://dispatcher-omer.herokuapp.com/top/graph/doughnut",
-  Line: "https://dispatcher-omer.herokuapp.com/top/graph/line",
-  Tags: "https://dispatcher-omer.herokuapp.com/top/graph/tags",
+  Doughnut: `${
+    process.env.REACT_APP_HEROKU || "http://localhost:3001/"
+  }top/graph/doughnut`,
+  Line: `${
+    process.env.REACT_APP_HEROKU || "http://localhost:3001/"
+  }top/graph/line`,
+  Tags: `${
+    process.env.REACT_APP_HEROKU || "http://localhost:3001/"
+  }top/graph/tags`,
 };
 export const headerStrings = {
   SignOut: "Sign Out",
@@ -217,15 +219,14 @@ export const apiUrlsStrings = {
   topHeadlines: "top-headlines",
   top: "top",
   everything: "everything",
-  localServerUrl2: "http://localhost:3001/",
-  localServerUrl: "https://dispatcher-omer.herokuapp.com/",
+  localServerUrl: process.env.REACT_APP_HEROKU || "http://localhost:3001/",
 };
 export const usefulStrings = {
   whiteSpace: "\xa0",
   Div: "DIV",
 };
 export const IPApiStrings = {
-  url: "https://ipinfo.io/?token=36d528d443f525",
+  url: process.env.REACT_APP_IPAPI as string,
   defaultCountry: "il",
 };
 export const countryNames: { [key: string]: string } = {
