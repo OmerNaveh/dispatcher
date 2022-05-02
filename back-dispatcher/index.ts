@@ -12,17 +12,18 @@ const app: Express = express();
 
 const port = process.env.PORT || 3003;
 
-app.use(express.json());
+app.use(express.json({ limit: "50mb" }));
 app.use(cors());
 app.use("/top", topHeadlinesRouter);
 app.use("/everything", everythingRouter);
 
 app.use(errorHandler);
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`running on ${port}`);
   mongoose
     .connect(process.env.MONGOURI as string)
     .then(() => console.log("connected to mongoDB"))
     .catch((error) => console.log(error));
 });
+export default server;

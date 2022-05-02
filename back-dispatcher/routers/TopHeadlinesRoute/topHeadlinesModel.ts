@@ -10,6 +10,7 @@ export const findTopHeadlinesFromDB = async (
   const skip = skipNum > totalResults ? skipNum - totalResults : skipNum;
   const dbData = await topHeadlineModel
     .find(filterQuery)
+    .sort({ publishedAt: -1 })
     .skip(skip)
     .limit(pageSize);
   return { dbData, totalResults };
