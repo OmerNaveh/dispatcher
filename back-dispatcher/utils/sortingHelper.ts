@@ -24,13 +24,8 @@ export const sortData = (
 };
 
 const closestToQuery = (description: string, q: string): number => {
-  if (!description.length) return q.length;
-  if (!q.length) return description.length;
-
-  return Math.min(
-    closestToQuery(description.substring(1), q) + 1,
-    closestToQuery(q.substring(1), description) + 1,
-    closestToQuery(description.substring(1), q.substring(1)) +
-      (description[0] !== q[0] ? 1 : 0)
-  );
+  const regex = new RegExp(q, "ig");
+  const regexMatch = description.match(regex);
+  if (!regexMatch) return 0;
+  return regexMatch.length;
 };
