@@ -65,6 +65,7 @@ export const CardLayout = styled.div<rtlProps>`
   flex-direction: ${(props) => props.isRTL && "row-reverse"};
   border-radius: 20px;
   margin: 0.8em;
+  margin-left: 0;
   @media only screen and (max-width: 580px) {
     flex-direction: column;
     margin: 0.8em 0;

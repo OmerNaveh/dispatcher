@@ -66,7 +66,7 @@ const CardContainer = () => {
       <InfiniteScroll
         dataLength={articles.length}
         next={nextScroll}
-        loader={<LoadingIcon />}
+        loader={undefined}
         hasMore={articles.length < totalResults}
         scrollableTarget={"scrollableDiv"}
       >

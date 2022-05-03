@@ -1,7 +1,12 @@
+import { Skeleton } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useAppSelector } from "../../../../store";
-import { graphServerUrls, graphString } from "../../../../strings/strings";
+import {
+  graphServerUrls,
+  graphString,
+  ReduxString,
+} from "../../../../strings/strings";
 import { CardText } from "../../../Card/style";
 import DoughnutGraph from "./components/DoughnutGraph/DoughnutGraph";
 import LineGraph from "./components/LineGraph/LineGraph";
@@ -22,7 +27,7 @@ interface graphProps {
 }
 
 const Graph = ({ title, graphType }: graphProps) => {
-  const { articles } = useAppSelector((state) => state.apiData);
+  const { articles, status } = useAppSelector((state) => state.apiData);
   const [graphData, setGraphData] = useState<graphObjType[]>([]);
   useEffect(() => {
     (async () => {
@@ -42,7 +47,8 @@ const Graph = ({ title, graphType }: graphProps) => {
         setGraphData([]);
       }
     })();
-  }, [articles]);
+  }, [articles, status]);
+
   const showGraphByType = () => {
     return graphType === graphString.Sources ? (
       <GraphContentDiv>
@@ -72,13 +78,21 @@ const Graph = ({ title, graphType }: graphProps) => {
         <GraphTitle>{title}</GraphTitle>
         <TitleDivider />
       </div>
-      {!graphType ||
-      !articles ||
-      articles.length === 0 ||
-      !graphData ||
-      !graphData.length
-        ? showNoGraphType()
-        : graphType && showGraphByType()}
+      {status === ReduxString.Loading ? (
+        <div style={{ height: "100%" }}>
+          <Skeleton style={{ height: "80%" }} variant="rectangular" />
+          <Skeleton />
+          <Skeleton />
+        </div>
+      ) : !graphType ||
+        !articles ||
+        articles.length === 0 ||
+        !graphData ||
+        !graphData.length ? (
+        showNoGraphType()
+      ) : (
+        graphType && showGraphByType()
+      )}
     </GraphLayout>
   );
 };

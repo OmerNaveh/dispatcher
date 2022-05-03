@@ -6,7 +6,6 @@ import { apiStrings, searchBarStrings } from "../../../../strings/strings";
 import DateInput from "../DateInput/DateInput";
 
 import { DropDownsContainer } from "./style";
-import { shouldBeDisabledFunc } from "./utils/shouldBeDiabledFunc";
 
 interface props {
   searchMainQuery: string;
@@ -21,7 +20,6 @@ const DropDowns = ({ searchMainQuery }: props) => {
           return (
             <DropDown
               key={category + filterState.endpoint}
-              shouldBeDisabled={shouldBeDisabledFunc(category, filterState)}
               options={apiStrings[category]}
               placeHolder={category}
               reduxActionType={chooseCorrectActionType(
