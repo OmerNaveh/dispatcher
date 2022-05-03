@@ -44,11 +44,9 @@ const filterSlice = createSlice({
     },
     setCategory(state, action: PayloadAction<string>) {
       state.category = action.payload;
-      state.sourceTopheadlines = "";
     },
     setCountry(state, action: PayloadAction<string>) {
       state.country = action.payload;
-      state.sourceTopheadlines = "";
     },
     setLanguage(state, action: PayloadAction<string>) {
       state.language = action.payload;
@@ -64,8 +62,6 @@ const filterSlice = createSlice({
     },
     setSourceTopheadlines(state, action: PayloadAction<string>) {
       state.sourceTopheadlines = action.payload;
-      state.category = "";
-      state.country = "";
     },
   },
 });
