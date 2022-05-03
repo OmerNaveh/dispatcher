@@ -84,11 +84,7 @@ const Graph = ({ title, graphType }: graphProps) => {
           <Skeleton />
           <Skeleton />
         </div>
-      ) : !graphType ||
-        !articles ||
-        articles.length === 0 ||
-        !graphData ||
-        !graphData.length ? (
+      ) : !graphType || !articles || articles.length === 0 ? (
         showNoGraphType()
       ) : (
         graphType && showGraphByType()
