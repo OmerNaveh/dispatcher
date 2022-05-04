@@ -87,6 +87,7 @@ const InputWithIcon = ({ setFocused, mobile, focused }: props) => {
           setHistoryData={setHistoryData}
           handleHistoryClick={handleHistoryClick}
           mobile={mobile}
+          setFocused={setFocused}
         />
       )}
     </>

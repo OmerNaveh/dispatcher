@@ -19,12 +19,14 @@ interface historyProps {
   setHistoryData: React.Dispatch<React.SetStateAction<string[]>>;
   handleHistoryClick: (historyStr: string) => void;
   mobile?: boolean;
+  setFocused?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const HistoryDiv = ({
   historyData,
   setHistoryData,
   handleHistoryClick,
   mobile,
+  setFocused,
 }: historyProps) => {
   const clearOneFromHistory = (historyStr: string) => {
     clearSearchFromHistory(historyStr);
@@ -39,6 +41,9 @@ const HistoryDiv = ({
       <StyledHistoryTextDiv
         key={index}
         onClick={(e) => {
+          if (mobile && setFocused) {
+            setFocused(false);
+          }
           (e.target as Node).nodeName === usefulStrings.Div &&
             handleHistoryClick(historyStr);
         }}

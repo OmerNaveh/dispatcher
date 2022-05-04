@@ -60,7 +60,7 @@ const FilterOnSmallDevices = () => {
             if (backDropElem && e.target !== backDropElem.current) return;
             setClicked(!clicked);
           }}
-          children={<FilterContent />}
+          children={<FilterContent setClicked={setClicked} />}
         />
       )}
     </>
