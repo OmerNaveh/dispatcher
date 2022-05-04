@@ -68,7 +68,7 @@ const DashboardPage = () => {
               : apiData.totalResults +
                 usefulStrings.whiteSpace +
                 cardResultsStrings.totalResults +
-                (filterState.searchInput && `in "${filterState.searchInput}"`)}
+                (filterState.searchInput && ` in "${filterState.searchInput}"`)}
           </CustomDashboardText>
         )}
         <DashboardContenContainer />

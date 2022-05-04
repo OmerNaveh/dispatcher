@@ -19,7 +19,10 @@ import {
   FilterItemText,
   FilterItemTitle,
 } from "../style";
-const FilterContent = () => {
+interface filterprops {
+  setClicked?: React.Dispatch<React.SetStateAction<boolean | undefined>>;
+}
+const FilterContent = ({ setClicked }: filterprops) => {
   const filterState = useAppSelector((state) => state.filters);
   type T = keyof typeof filterState;
   const dispatch = useAppDispatch();
@@ -86,6 +89,7 @@ const FilterContent = () => {
   const ButtonApiSearchOnClick = () => {
     const url = getApiUrl(filterState);
     dispatch(apiCallthunk(url));
+    if (setClicked) setClicked(false);
   };
   return (
     <FilterDiv>
