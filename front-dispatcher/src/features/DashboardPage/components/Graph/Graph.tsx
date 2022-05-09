@@ -12,11 +12,13 @@ import DoughnutGraph from "./components/DoughnutGraph/DoughnutGraph";
 import LineGraph from "./components/LineGraph/LineGraph";
 import TagsGraph from "./components/TagsGraph/TagsGraph";
 import {
+  FlexDiv,
   GraphContentDiv,
   GraphLayout,
   GraphTitle,
   NoContentDiv,
   NoGraphIcon,
+  ResultsCounter,
   TitleDivider,
 } from "./style";
 import { graphObjType } from "./utils/graphData";
@@ -27,7 +29,9 @@ interface graphProps {
 }
 
 const Graph = ({ title, graphType }: graphProps) => {
-  const { articles, status } = useAppSelector((state) => state.apiData);
+  const { articles, status, totalResults } = useAppSelector(
+    (state) => state.apiData
+  );
   const [graphData, setGraphData] = useState<graphObjType[]>([]);
   useEffect(() => {
     (async () => {
@@ -75,7 +79,12 @@ const Graph = ({ title, graphType }: graphProps) => {
   return (
     <GraphLayout>
       <div>
-        <GraphTitle>{title}</GraphTitle>
+        <FlexDiv>
+          <GraphTitle>{title}</GraphTitle>
+          <ResultsCounter>
+            {articles.length > 0 && `${articles.length} of ${totalResults}`}
+          </ResultsCounter>
+        </FlexDiv>
         <TitleDivider />
       </div>
       {status === ReduxString.Loading ? (
