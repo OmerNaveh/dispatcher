@@ -53,3 +53,15 @@ export const GraphContentDiv = styled.div`
   height: 80%;
   width: 100%;
 `;
+export const FlexDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const ResultsCounter = styled.p`
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 0.75em;
+  color: ${colors.Gray};
+  margin: 0;
+`;

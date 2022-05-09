@@ -7,11 +7,11 @@ import {
   ReduxString,
 } from "../../../../strings/strings";
 import Card from "../../../Card/Card";
-import LoadingIcon from "../LoadingIcon/LoadingIcon";
 import NotFound from "../NotFound/NotFound";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { apiCallScroll, getApiUrl } from "../../../../helpers/apiCall";
 import { getClientRegion } from "../../../../helpers/ipHandlers";
+import CardsSkeleton from "../../../../components/Skeletons/CardsSkeleton/CardsSkeleton";
 const CardContainer = () => {
   const dispatch = useAppDispatch();
   const [pageNumber, setPageNumber] = useState<number>(1);
@@ -38,7 +38,6 @@ const CardContainer = () => {
     setPageNumber(1);
   }, [articles.length === totalResults, totalResults]);
   const allCards = () => {
-    if (status === ReduxString.Loading) return <LoadingIcon />;
     if (!status || totalResults === 0) return <NotFound />;
     return articles.map((article) => {
       return (
@@ -61,7 +60,9 @@ const CardContainer = () => {
       );
     });
   };
-  return (
+  return status === ReduxString.Loading ? (
+    <CardsSkeleton />
+  ) : (
     <Container id={"scrollableDiv"} className="flex column cardContainer">
       <InfiniteScroll
         dataLength={articles.length}

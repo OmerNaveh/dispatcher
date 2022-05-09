@@ -66,9 +66,40 @@ export const CardLayout = styled.div<rtlProps>`
   border-radius: 20px;
   margin: 0.8em;
   margin-left: 0;
+  position: relative;
   @media only screen and (max-width: 580px) {
     flex-direction: column;
     margin: 0.8em 0;
+  }
+  &.skeleton:before {
+    position: absolute;
+    background-color: #dddbdd;
+    height: 100%;
+    border-radius: ${(props) =>
+      props.isRTL ? "0px 20px 20px 0px" : " 20px 0px 0px 20px"};
+    content: "";
+    width: 24.5%;
+    animation: flash 2s ease-in-out infinite;
+    @media only screen and (max-width: 900px) {
+      width: 33.5%;
+    }
+    @media only screen and (max-width: 580px) {
+      width: 100%;
+      border-radius: 20px 20px 0px 0px;
+      max-height: 149px;
+    }
+  }
+  @keyframes flash {
+    0% {
+      background-color: #dddbdd;
+    }
+
+    50% {
+      background-color: #c0c0c0;
+    }
+    100% {
+      background-color: #dddbdd;
+    }
   }
 `;
 export const CardDate = styled.p`

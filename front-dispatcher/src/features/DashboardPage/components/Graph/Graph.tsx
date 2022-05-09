@@ -1,6 +1,7 @@
 import { Skeleton } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import GraphSkeleton from "../../../../components/Skeletons/GraphSkeleton/GraphSkeleton";
 import { useAppSelector } from "../../../../store";
 import {
   graphServerUrls,
@@ -12,22 +13,26 @@ import DoughnutGraph from "./components/DoughnutGraph/DoughnutGraph";
 import LineGraph from "./components/LineGraph/LineGraph";
 import TagsGraph from "./components/TagsGraph/TagsGraph";
 import {
+  FlexDiv,
   GraphContentDiv,
   GraphLayout,
   GraphTitle,
   NoContentDiv,
   NoGraphIcon,
+  ResultsCounter,
   TitleDivider,
 } from "./style";
 import { graphObjType } from "./utils/graphData";
 
 interface graphProps {
   title: string;
-  graphType?: string;
+  graphType: string;
 }
 
 const Graph = ({ title, graphType }: graphProps) => {
-  const { articles, status } = useAppSelector((state) => state.apiData);
+  const { articles, status, totalResults } = useAppSelector(
+    (state) => state.apiData
+  );
   const [graphData, setGraphData] = useState<graphObjType[]>([]);
   useEffect(() => {
     (async () => {
@@ -75,15 +80,16 @@ const Graph = ({ title, graphType }: graphProps) => {
   return (
     <GraphLayout>
       <div>
-        <GraphTitle>{title}</GraphTitle>
+        <FlexDiv>
+          <GraphTitle>{title}</GraphTitle>
+          <ResultsCounter>
+            {articles.length > 0 && `${articles.length} of ${totalResults}`}
+          </ResultsCounter>
+        </FlexDiv>
         <TitleDivider />
       </div>
       {status === ReduxString.Loading ? (
-        <div style={{ height: "100%" }}>
-          <Skeleton style={{ height: "80%" }} variant="rectangular" />
-          <Skeleton />
-          <Skeleton />
-        </div>
+        <GraphSkeleton graphType={graphType} />
       ) : !graphType || !articles || articles.length === 0 ? (
         showNoGraphType()
       ) : (

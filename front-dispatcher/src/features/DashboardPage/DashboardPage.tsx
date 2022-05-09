@@ -28,6 +28,7 @@ const DashboardPage = () => {
   const [clientLocation, setClientLocation] = useState<string>(
     IPApiStrings.defaultCountry
   );
+  const [isFirstVisit, setIsFirstVisit] = useState<boolean>(true);
   const filterState = useAppSelector((state) => state.filters);
   const { country, category, sourceTopheadlines, searchInput, endpoint } =
     filterState;
@@ -43,14 +44,17 @@ const DashboardPage = () => {
     const apiUrl = getApiUrl({ ...filterState, country: clientLocation });
     dispatch(apiCallthunk(apiUrl));
   }, [clientLocation]);
-  const isFirstVisit =
-    country ||
-    category ||
-    sourceTopheadlines ||
-    searchInput ||
-    endpoint === ReduxString.Everything
-      ? false
-      : true;
+  useEffect(() => {
+    if (!isFirstVisit) return;
+    if (
+      country ||
+      category ||
+      sourceTopheadlines ||
+      searchInput ||
+      endpoint === ReduxString.Everything
+    )
+      setIsFirstVisit(false);
+  }, [filterState]);
   return (
     <StyledDashboardDiv>
       <Header />
