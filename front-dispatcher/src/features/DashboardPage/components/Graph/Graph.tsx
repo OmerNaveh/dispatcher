@@ -1,6 +1,7 @@
 import { Skeleton } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import GraphSkeleton from "../../../../components/Skeletons/GraphSkeleton/GraphSkeleton";
 import { useAppSelector } from "../../../../store";
 import {
   graphServerUrls,
@@ -25,7 +26,7 @@ import { graphObjType } from "./utils/graphData";
 
 interface graphProps {
   title: string;
-  graphType?: string;
+  graphType: string;
 }
 
 const Graph = ({ title, graphType }: graphProps) => {
@@ -88,11 +89,7 @@ const Graph = ({ title, graphType }: graphProps) => {
         <TitleDivider />
       </div>
       {status === ReduxString.Loading ? (
-        <div style={{ height: "100%" }}>
-          <Skeleton style={{ height: "80%" }} variant="rectangular" />
-          <Skeleton />
-          <Skeleton />
-        </div>
+        <GraphSkeleton graphType={graphType} />
       ) : !graphType || !articles || articles.length === 0 ? (
         showNoGraphType()
       ) : (

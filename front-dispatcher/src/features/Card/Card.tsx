@@ -1,4 +1,5 @@
-import React from "react";
+import { Skeleton } from "@mui/material";
+import React, { useState } from "react";
 
 import ArrowSvg from "../../components/ArrowSvg/style";
 import PrimaryButton from "../../components/PrimaryButton/style";
@@ -25,6 +26,7 @@ const Card = (props: APITypes.Article) => {
   const openLinkInNewTab = () => {
     window.open(props.url);
   };
+  const [isImageLoading, setIsImageLoading] = useState<boolean>(true);
   const isRTL = isRTLCheck(props.title);
   const showTags = () => {
     return !props.tags.length ? (
@@ -44,7 +46,7 @@ const Card = (props: APITypes.Article) => {
     );
   };
   return (
-    <CardLayout isRTL={isRTL}>
+    <CardLayout isRTL={isRTL} className={isImageLoading ? "skeleton" : ""}>
       <CardImage
         isRTL={isRTL}
         src={props.urlToImage}
@@ -52,8 +54,13 @@ const Card = (props: APITypes.Article) => {
         onError={(event: React.SyntheticEvent<HTMLImageElement, Event>) => {
           event.currentTarget.onerror = null;
           event.currentTarget.src = cardString.defaultImageUrl;
+          setIsImageLoading(false);
         }}
-      ></CardImage>
+        onLoad={() => {
+          setIsImageLoading(false);
+        }}
+      />
+
       <CardContent isRTL={isRTL}>
         <CardTagsNDateContainer>
           <CardDate>{dateString}</CardDate>

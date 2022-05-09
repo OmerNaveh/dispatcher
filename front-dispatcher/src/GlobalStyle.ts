@@ -2,6 +2,13 @@ import { createGlobalStyle } from "styled-components";
 import { colors } from "./strings/colors";
 
 const GlobalStyle = createGlobalStyle`
+
+&.imageSkeleton{
+  @media only screen and (max-width: 580px) {
+    border-radius: 20px 20px 0px 0px !important;
+    max-height: 149px;
+  }
+}
 &.css-1x51dt5-MuiInputBase-input-MuiInput-input{
     position: relative;
 }
