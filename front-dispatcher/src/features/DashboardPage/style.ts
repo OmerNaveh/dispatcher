@@ -36,6 +36,6 @@ export const StyledMainContentDiv = styled.div`
     margin: 0 1em;
 
     //mobile scroll bar dissapear
-    height: 100%;
+    height: 88%;
   }
 `;
