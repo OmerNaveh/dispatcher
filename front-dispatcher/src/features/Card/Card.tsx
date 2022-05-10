@@ -13,6 +13,7 @@ import {
   CardContent,
   CardDate,
   CardImage,
+  CardImageDiv,
   CardLayout,
   CardTagsNDateContainer,
   CardText,
@@ -46,20 +47,32 @@ const Card = (props: APITypes.Article) => {
     );
   };
   return (
-    <CardLayout isRTL={isRTL} className={isImageLoading ? "skeleton" : ""}>
-      <CardImage
-        isRTL={isRTL}
-        src={props.urlToImage}
-        alt="image"
-        onError={(event: React.SyntheticEvent<HTMLImageElement, Event>) => {
-          event.currentTarget.onerror = null;
-          event.currentTarget.src = cardString.defaultImageUrl;
-          setIsImageLoading(false);
-        }}
-        onLoad={() => {
-          setIsImageLoading(false);
-        }}
-      />
+    <CardLayout isRTL={isRTL}>
+      <CardImageDiv>
+        {isImageLoading && (
+          <Skeleton
+            width={"100%"}
+            height={"100%"}
+            variant="rectangular"
+            sx={{
+              borderRadius: isRTL ? "0px 20px 20px 0px" : " 20px 0px 0px 20px",
+            }}
+          />
+        )}
+        <CardImage
+          isRTL={isRTL}
+          src={props.urlToImage}
+          alt="image"
+          onError={(event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+            event.currentTarget.onerror = null;
+            event.currentTarget.src = cardString.defaultImageUrl;
+            setIsImageLoading(false);
+          }}
+          onLoad={() => {
+            setIsImageLoading(false);
+          }}
+        />
+      </CardImageDiv>
 
       <CardContent isRTL={isRTL}>
         <CardTagsNDateContainer>
