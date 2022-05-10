@@ -17,6 +17,12 @@ export const StyledDashboardDiv = styled.div`
   overflow: hidden;
   @media only screen and (max-width: 900px) {
     flex-direction: column;
+
+    //mobile scroll bar dissapear
+    min-height: unset;
+    margin-top: 0;
+    padding-top: 74px;
+    height: 90vh;
   }
   margin-top: 74px;
   background-color: ${colors.LightestGray};
@@ -28,5 +34,8 @@ export const StyledMainContentDiv = styled.div`
   @media only screen and (max-width: 900px) {
     padding: 1em 0;
     margin: 0 1em;
+
+    //mobile scroll bar dissapear
+    height: 100%;
   }
 `;
